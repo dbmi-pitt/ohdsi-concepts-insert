@@ -1,0 +1,61 @@
+Generate URI-list.csv from LAERTES-cdm:
+	SELECT concept_name, vocabulary_id, CONCAT(vocabulary_id, '_', concept_code) AS uri
+	FROM concept 
+	WHERE concept_id < 0 AND concept_code != 'OMOP generated' ORDER BY uri;
+
+hierarchy.py:
+	Loop through each URI in URI-list.csv and query SPARQL through the SPARQLWrapper library:
+
+	Query for ANCESTORS:
+	q = '''
+    PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+    PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+    PREFIX owl: <http://www.w3.org/2002/07/owl#>
+    SELECT ?path ?label ?link FROM <%s> WHERE {
+        {
+            SELECT ?s ?o ?label WHERE {
+                {
+                    ?s rdfs:subClassOf ?o .
+                    FILTER (isIRI(?o)).
+                    OPTIONAL {?o rdfs:label ?label}
+                } UNION {
+                    ?s owl:equivalentClass ?s1 .
+                    ?s1 owl:intersectionOf ?s2 .
+                    ?s2 rdf:first ?o  .
+                    FILTER (isIRI(?o))
+                    OPTIONAL {?o rdfs:label ?label}
+                }
+                FILTER ( ?s != ?o )
+            }
+        }
+        OPTION (TRANSITIVE, t_in(?s), t_out(?o), t_step (?s) as ?link, t_step ('path_id') as ?path).
+        FILTER (isIRI(?o)).
+        FILTER (?s= <%s>)
+    } ORDER BY DESC (?path)
+    ''' % (vocabUri, fullUri)
+
+	Query for DESCENDANTS:
+	q = '''
+    PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+    PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+    PREFIX owl: <http://www.w3.org/2002/07/owl#>
+    SELECT DISTINCT ?label ?term FROM <%s> WHERE {
+        {
+            ?term rdfs:subClassOf ?s .
+            FILTER (?s = <%s>)
+            FILTER (isIRI(?term)).
+            OPTIONAL {?term rdfs:label ?label} .
+            OPTIONAL {?subTerm rdfs:subClassOf ?term}
+        }
+    }
+    ''' % (vocabUri, fullUri)
+
+For ANCESTORS: Via looping through the SPARQL results, record the maximum path value and for these path values, add the labels in the "ancestors" dictionary via incrementing ancestor levels as ancestor keys.
+
+For DESCENDANTS: Add labels in the reutrn query into the "descendants" dictionary via incrementing descendant levels as descendant keys.
+
+Use CONCEPT_RELATIONSHIP table:
+ancestors "subsume" descendants = relationship id 44818723
+descendant "is a" ancestor = relationship id 44818821
+
+http://www.ohdsi.org/web/wiki/doku.php?id=documentation:cdm:concept_relationship
