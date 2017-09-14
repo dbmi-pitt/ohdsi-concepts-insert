@@ -66,7 +66,7 @@ with open("new-concepts.csv", "rb") as infile_concepts, open("sql/load-concepts.
             if "'" in row[2]:
                 name = name.replace("'", "''")
                 # sql escape character for single quote should be a pair of single quotes
-            out_string = ("INSERT INTO public.concept (concept_id, concept_name, domain_id, vocabulary_id, concept_class_id, concept_code, valid_start_date, valid_end_date) VALUES (%d, \'%s\', \'Metadata\', \'%s\', \'Domain\', %s, \'2000-01-01\', \'2099-02-22\');\n" % (newId, name, row[0], row[1]))
+            out_string = ("INSERT INTO public.concept (concept_id, concept_name, domain_id, vocabulary_id, concept_class_id, concept_code, valid_start_date, valid_end_date) VALUES (%d, \'%s\', \'Metadata\', \'%s\', \'Domain\', \'%s\', \'2000-01-01\', \'2099-02-22\');\n" % (newId, name, row[0], row[1]))
             outfile_concepts.write(out_string)
             if row[1] not in idDict:
                 idDict[row[1]] = newId
