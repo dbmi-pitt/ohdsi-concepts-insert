@@ -1,3 +1,65 @@
 This repository for adding concept terms into OHDSI vocabulary. The concept id will be negative in range (-7000000, -9999999)
 
 New concepts comes from drug entities in Potential drug drug interaction (PDDI) evidence base and DIDEO ontology (https://github.com/DIDEO/DIDEO)
+
+-----------------------------------------------------------------------------
+create sql script for adding dideo terms into OHDSI vocabulary
+-----------------------------------------------------------------------------
+
+Input: inputs/4bb83833.csv
+Download as csv from dideo terms serach portal
+https://owl2tl.com/4bb83833
+
+Run:
+$ python generateDideoConceptsInsertSQL.py
+
+Output:
+SQL script that can be executed for adding concept to OHDSI vocabulary
+outputs/dideo-concepts-insert.sql
+
+Results:
+By 07/31/2017
+insert 389 new concepts
+
+-----------------------------------------------------------------------------
+create sql script for adding drug concepts into OHDSI vocabulary
+-----------------------------------------------------------------------------
+
+Input: inputs/drug-list-mapped.csv (from manually mapping)
+
+Run:
+$ python generateDrugConceptsInsertSQL.py
+
+Output:
+SQL script that can be executed for adding concept to OHDSI vocabulary
+outputs/drug-concepts-insert.sql
+
+Results:
+By 07/31/2017
+insert 46 new concepts
+
+-----------------------------------------------------------------------------
+Notes
+-----------------------------------------------------------------------------
+
+Both generateDideoConceptsInsertSQL.py and generateDrugConceptsInsertSQL.py
+
+Create/update local cached concept id mapping for ensuring the same concept always take the same unique concept id
+cache/cache-concepts-mapping.txt
+
+This script:
+(1) Reads cache file 'cache/cache-concepts-mapping.txt' for existing terms
+
+(2) When generate concept insert sql script, use same negative concept id if exists in mapping file. Otherwise, make one from -8000000 and update mapping in memory
+
+(3) Update local cache file for all newly created terms
+
+-----------------------------------------------------------------------------
+query postgreSQL database mpevidence to get distinct list of qualifier names
+-----------------------------------------------------------------------------
+
+mpevidence database ER:
+https://github.com/dbmi-pitt/dbmi-annotator/blob/master/design/images/MP-evidence-ER.jpeg
+
+Run: $ python generateQualifierList.py > outputs/qualifier-list.txt
+Output: qualifier name, source URL, text quote
