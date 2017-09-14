@@ -59,7 +59,7 @@ query postgreSQL database mpevidence to get distinct list of qualifier names
 -----------------------------------------------------------------------------
 
 mpevidence database ER:
-https://github.com/dbmi-pitt/dbmi-annotator/blob/master/design/images/MP-evidence-ER.jpeg
+https://github.com/dbmi-pitt/ohdsi-concepts-insert/blob/master/design/MP-evidence-ER.jpeg
 
 Run: $ python generateQualifierList.py > outputs/qualifier-list.txt
 Output: qualifier name, source URL, text quote
