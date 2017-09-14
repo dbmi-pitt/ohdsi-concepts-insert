@@ -1,0 +1,217 @@
+no DESCENDANT query results for label: diltiazem | CHEBI_101278
+no DESCENDANT query results for label: NADPH | CHEBI_16474
+no DESCENDANT query results for label: glutathione | CHEBI_16856
+no DESCENDANT query results for label: NADH | CHEBI_16908
+no DESCENDANT query results for label: UDP-alpha-D-glucuronic acid | CHEBI_17200
+no DESCENDANT query results for label: 3'-phospho-5'-adenylyl sulfate | CHEBI_17980
+no ANCESTOR query results for label: chemical entity | CHEBI_24431
+no DESCENDANT query results for label: amiodarone | CHEBI_2663
+no DESCENDANT query results for label: dextrorphan | CHEBI_29133
+no DESCENDANT query results for label: 7-ethoxyresorufin | CHEBI_34480
+no DESCENDANT query results for label: rosuvastatin | CHEBI_38545
+no DESCENDANT query results for label: fluvastatin | CHEBI_38561
+no DESCENDANT query results for label: atorvastatin | CHEBI_39548
+no DESCENDANT query results for label: lovastatin | CHEBI_40303
+no DESCENDANT query results for label: dextromethorphan | CHEBI_4470
+no DESCENDANT query results for label: fluconazole | CHEBI_46081
+no DESCENDANT query results for label: diclofenac | CHEBI_47381
+no DESCENDANT query results for label: resorufin | CHEBI_51602
+no DESCENDANT query results for label: 4'-hydroxydiclofenac | CHEBI_59613
+no DESCENDANT query results for label: itraconazole | CHEBI_6076
+no DESCENDANT query results for label: 5'-hydroxyomeprazole | CHEBI_63840
+no DESCENDANT query results for label: magnesium dichloride | CHEBI_6636
+no DESCENDANT query results for label: Midazolam | CHEBI_6931
+no DESCENDANT query results for label: omeprazole | CHEBI_7772
+no DESCENDANT query results for label: simvastatin | CHEBI_9150
+no DESCENDANT query results for label: triazolam | CHEBI_9674
+no DESCENDANT query results for label: absorption of material | CHMO_0002914
+no DESCENDANT query results for label: Caco-2 cell | CLO_0002172
+no DESCENDANT query results for label: data item about biological process | DIDEO_00000002
+no DESCENDANT query results for label: observational data item about drug-drug interaction | DIDEO_00000003
+no DESCENDANT query results for label: physiological observation from clinical study data item | DIDEO_00000004
+no DESCENDANT query results for label: data item from extrapolation | DIDEO_00000005
+no DESCENDANT query results for label: gastrointestinal functioning | DIDEO_00000006
+no DESCENDANT query results for label: drug-drug interaction management option | DIDEO_00000007
+no DESCENDANT query results for label: reported drug-drug interaction | DIDEO_00000008
+no DESCENDANT query results for label: pharmacokinetic interaction signal | DIDEO_00000009
+no DESCENDANT query results for label: bioavailability | DIDEO_00000010
+no DESCENDANT query results for label: object drug information | DIDEO_00000011
+no DESCENDANT query results for label: object drug role | DIDEO_00000012
+no DESCENDANT query results for label: precipitant drug role | DIDEO_00000013
+no DESCENDANT query results for label: precipitant drug information | DIDEO_00000014
+no DESCENDANT query results for label: narrow therapeutic index | DIDEO_00000016
+no DESCENDANT query results for label: metabolism inhibition potential drug-drug interaction | DIDEO_00000017
+no DESCENDANT query results for label: metabolism induction potential drug-drug interaction | DIDEO_00000018
+no DESCENDANT query results for label: material entity participant in drug-drug interaction | DIDEO_00000019
+no DESCENDANT query results for label: drug co-administration | DIDEO_00000021
+no DESCENDANT query results for label: mechanism of interaction information | DIDEO_00000022
+no DESCENDANT query results for label: drug-drug interaction evidence | DIDEO_00000023
+no DESCENDANT query results for label: clinically relevant potential drug-drug interaction | DIDEO_00000024
+no DESCENDANT query results for label: bioavailability measurement datum | DIDEO_00000025
+no DESCENDANT query results for label: drug bioavailability assay | DIDEO_00000026
+no DESCENDANT query results for label: drug-drug interaction effect | DIDEO_00000030
+no DESCENDANT query results for label: first pass effect disposition | DIDEO_00000031
+no DESCENDANT query results for label: drug first pass metabolism assay | DIDEO_00000032
+no DESCENDANT query results for label: first pass metabolism measurement datum | DIDEO_00000033
+no DESCENDANT query results for label: absorbability | DIDEO_00000034
+no DESCENDANT query results for label: drug absorbability assay | DIDEO_00000035
+no DESCENDANT query results for label: absorbability measurement datum | DIDEO_00000036
+no DESCENDANT query results for label: drug maximum concentration assay | DIDEO_00000037
+no DESCENDANT query results for label: drug maximum concentration measurement datum | DIDEO_00000038
+no DESCENDANT query results for label: primary total clearance enzyme role | DIDEO_00000039
+no DESCENDANT query results for label: primary metabolic clearance enzyme role | DIDEO_00000040
+no DESCENDANT query results for label: drug-drug interaction description from FDA label information | DIDEO_00000043
+no DESCENDANT query results for label: U.S. Food and Drug Administration drug label | DIDEO_00000045
+no DESCENDANT query results for label: pharmacokinetic area under curve | DIDEO_00000046
+no DESCENDANT query results for label: drug package AUC information | DIDEO_00000047
+no DESCENDANT query results for label: obsolete_evidence information content entity | DIDEO_00000048
+no DESCENDANT query results for label: information about increase of pharmacokinetic area under the curve | DIDEO_00000050
+no DESCENDANT query results for label: information about decrease of pharmacokinetic area under the curve | DIDEO_00000051
+no DESCENDANT query results for label: pharmacokinetic process | DIDEO_00000052
+no DESCENDANT query results for label: evidence material information | DIDEO_00000054
+no DESCENDANT query results for label: evidence data item | DIDEO_00000055
+no DESCENDANT query results for label: evidence information from clinical study | DIDEO_00000056
+no DESCENDANT query results for label: evidence information from drug metabolism identification experiment | DIDEO_00000057
+no DESCENDANT query results for label: evidence information from drug metabolism inhibition experiment | DIDEO_00000058
+no DESCENDANT query results for label: evidence information from transport protein identification experiment | DIDEO_00000059
+no DESCENDANT query results for label: evidence information from transport protein inhibition experiment | DIDEO_00000060
+no DESCENDANT query results for label: evidence information from observation-based adverse drug event report | DIDEO_00000061
+no DESCENDANT query results for label: evidence information from observational study | DIDEO_00000062
+no DESCENDANT query results for label: evidence information from CYP450 drug metabolism identification experiment | DIDEO_00000063
+no DESCENDANT query results for label: evidence information from CYP450 recombinant drug metabolism identification experiment | DIDEO_00000064
+no DESCENDANT query results for label: evidence information from CYP450 recombinant drug metabolism identification experiment using chemical inhibitors | DIDEO_00000065
+no DESCENDANT query results for label: evidence information from CYP450 recombinant drug metabolism identification experiment using antibody inhibitors | DIDEO_00000066
+no DESCENDANT query results for label: evidence information from CYP450 human microsome drug metabolism identification experiment | DIDEO_00000067
+no DESCENDANT query results for label: evidence information from CYP450 human microsome drug metabolism identification experiment using chemical inhibitors | DIDEO_00000068
+no DESCENDANT query results for label: evidence information from CYP450 human microsome drug metabolism identification experiment using antibody inhibitors | DIDEO_00000069
+no DESCENDANT query results for label: evidence information from CYP450 metabolic enzyme inhibition experiment | DIDEO_00000070
+no DESCENDANT query results for label: evidence information from drug-drug interaction clinical trial | DIDEO_00000071
+no DESCENDANT query results for label: evidence information from non-randomized drug-drug interaction clinical trial | DIDEO_00000072
+no DESCENDANT query results for label: evidence information from parallel groups drug-drug interaction clinical trial' | DIDEO_00000073
+no DESCENDANT query results for label: evidence information from randomized drug-drug interaction clinical trial | DIDEO_00000074
+no DESCENDANT query results for label: evidence information from pharmacokinetic trial | DIDEO_00000075
+no DESCENDANT query results for label: evidence information from genotyped pharmacokinetic trial | DIDEO_00000076
+no DESCENDANT query results for label: evidence information from observation-based report | DIDEO_00000077
+no DESCENDANT query results for label: evidence information from observational pharmacokinetic study | DIDEO_00000078
+no DESCENDANT query results for label: evidence information from observational drug-drug interaction study | DIDEO_00000079
+no DESCENDANT query results for label: evidence information from CYP450 recombinant drug metabolism inhibition experiment | DIDEO_00000080
+no DESCENDANT query results for label: evidence information from CYP450 human microsome drug metabolism inhibition experiment | DIDEO_00000081
+no DESCENDANT query results for label: public adverse event reporting database | DIDEO_00000082
+no DESCENDANT query results for label: evidence information from a publicly reported observation-based adverse drug event report | DIDEO_00000083
+no DESCENDANT query results for label: evidence information from an observation-based case-report of a drug interaction | DIDEO_00000084
+no DESCENDANT query results for label: adverse drug reaction causality evaluation protocol | DIDEO_00000087
+no DESCENDANT query results for label: evidence information from an evaluated observation-based case-report of a drug interaction | DIDEO_00000088
+no DESCENDANT query results for label: clearance measurement datum | DIDEO_00000089
+no DESCENDANT query results for label: fold | DIDEO_00000091
+no DESCENDANT query results for label: area under the curve ratio | DIDEO_00000093
+no DESCENDANT query results for label: renal clearance ratio | DIDEO_00000094
+no DESCENDANT query results for label: pharmacokinetic parameter ratio decrease | DIDEO_00000097
+no DESCENDANT query results for label: pharmacokinetic parameter ratio increase | DIDEO_00000098
+no DESCENDANT query results for label: drug maximum concentration ratio | DIDEO_00000099
+no DESCENDANT query results for label: half-life ratio | DIDEO_00000100
+no DESCENDANT query results for label: hepatic clearance ratio | DIDEO_00000101
+no DESCENDANT query results for label: bioavailability ratio | DIDEO_00000102
+no DESCENDANT query results for label: evidence information from phenotyped pharmacokinetic trial | DIDEO_00000103
+no DESCENDANT query results for label: evidence information from p-glycoprotein transport protein identification experiment | DIDEO_00000104
+no DESCENDANT query results for label: evidence information from p-glycoprotein transport protein identification experiment using Caco 2 cell lines | DIDEO_00000105
+no DESCENDANT query results for label: evidence information from p-glycoprotein transport protein identification experiment using overexpressed cell lines | DIDEO_00000106
+no DESCENDANT query results for label: evidence information from OATP1B1 transport protein identification experiment | DIDEO_00000107
+no DESCENDANT query results for label: evidence information from OATP1B3 transport protein identification experiment | DIDEO_00000108
+no DESCENDANT query results for label: evidence information from OATP1B1 transport protein identification experiment using overexpressed cell lines | DIDEO_00000109
+no DESCENDANT query results for label: evidence information from OATP1B3 transport protein identification experiment using overexpressed cell lines | DIDEO_00000110
+no DESCENDANT query results for label: evidence information from p-glycoprotein inhibition experiment | DIDEO_00000111
+no DESCENDANT query results for label: evidence information from p-glycoprotein inhibition experiment using Caco 2 cell lines | DIDEO_00000112
+no DESCENDANT query results for label: evidence information from p-glycoprotein inhibition experiment using overexpressed cell lines | DIDEO_00000113
+no DESCENDANT query results for label: evidence information from OATP1B1 inhibition experiment | DIDEO_00000114
+no DESCENDANT query results for label: evidence information from OATP1B1 inhibition experiment using overexpressed cell lines | DIDEO_00000115
+no DESCENDANT query results for label: evidence information from OATP1B3 inhibition experiment using overexpressed cell lines | DIDEO_00000116
+no DESCENDANT query results for label: evidence information from OATP1B3 inhibition experiment | DIDEO_00000117
+no DESCENDANT query results for label: volume of distribution ratio | DIDEO_00000118
+no DESCENDANT query results for label: time to maximum drug concentration ratio | DIDEO_00000119
+no DESCENDANT query results for label: efflux ratio | DIDEO_00000120
+no DESCENDANT query results for label: net flux ratio | DIDEO_00000121
+no DESCENDANT query results for label: inhibitory constant | DIDEO_00000122
+no DESCENDANT query results for label: probe subtrate role | DIDEO_00000123
+no DESCENDANT query results for label: cryopreserved human hepatocyte population | DIDEO_00000149
+no DESCENDANT query results for label: freshly isolated human hepatocyte population | DIDEO_00000152
+no DESCENDANT query results for label: transgenic animal hepatocyte population | DIDEO_00000153
+no DESCENDANT query results for label: sandwich cultured hepatocyte population | DIDEO_00000154
+no DESCENDANT query results for label: human intestinal epithelial cell population | DIDEO_00000155
+no DESCENDANT query results for label: HepaRG cell | DIDEO_00000157
+no DESCENDANT query results for label: Fa2N-4 cell | DIDEO_00000158
+no DESCENDANT query results for label: HBG BC2 cell | DIDEO_00000159
+no DESCENDANT query results for label: human liver cytosolic fraction | DIDEO_00000160
+no DESCENDANT query results for label: human intestine cytosolic fraction | DIDEO_00000161
+no DESCENDANT query results for label: human liver S9 fraction | DIDEO_00000162
+no DESCENDANT query results for label: individual human intestinal microsomal fraction | DIDEO_00000163
+no DESCENDANT query results for label: pooled human liver microsomal fraction | DIDEO_00000164
+no DESCENDANT query results for label: individual human liver microsomal fraction | DIDEO_00000165
+no DESCENDANT query results for label: pooled human intestinal microsomal fraction | DIDEO_00000166
+no DESCENDANT query results for label: human intestine S9 fraction | DIDEO_00000167
+no DESCENDANT query results for label: baculovirus-insect recombinant protein production host cell | DIDEO_00000168
+no DESCENDANT query results for label: E. coli recombinant protein production host cell | DIDEO_00000169
+no DESCENDANT query results for label: percent inhibition | DIDEO_00000170
+no DESCENDANT query results for label: midazolam 1'-hydroxylation | DIDEO_00000171
+no DESCENDANT query results for label: 7-ethoxyresorufin O-deethylation | DIDEO_00000172
+no DESCENDANT query results for label: nifedipine dehydrogenation | DIDEO_00000173
+no DESCENDANT query results for label: bufuralol 1'-hydroxylation | DIDEO_00000174
+no DESCENDANT query results for label: omeprazole 5-hydroxylation | DIDEO_00000175
+no DESCENDANT query results for label: bupropion hydroxylation | DIDEO_00000176
+no DESCENDANT query results for label: paclitaxel 6-alpha hydroxylation | DIDEO_00000177
+no DESCENDANT query results for label: phenacetin O-deethylation | DIDEO_00000178
+no DESCENDANT query results for label: coumarin 7-hydroxylation | DIDEO_00000179
+no DESCENDANT query results for label: testosterone 6-beta-hydroxylation | DIDEO_00000180
+no DESCENDANT query results for label: dextromethorphan O-demethylation | DIDEO_00000181
+no DESCENDANT query results for label: diclofenac 4'-hydroxylation | DIDEO_00000182
+no DESCENDANT query results for label: recombinant protein production host role | DIDEO_00000183
+no DESCENDANT query results for label: number of doses in a day | DIDEO_00000184
+no DESCENDANT query results for label: CHO transfected cell | DIDEO_00000186
+no DESCENDANT query results for label: Hep G2 transfected cell | DIDEO_00000187
+no DESCENDANT query results for label: siRNA knockout Caco-2 cell | DIDEO_00000188
+no DESCENDANT query results for label: 293 transfected cell | DIDEO_00000189
+no DESCENDANT query results for label: number of liver donors | DIDEO_00000190
+no DESCENDANT query results for label: active ingredient | DRON_00000028
+no DESCENDANT query results for label: drug administration | DRON_00000031
+no DESCENDANT query results for label: genotyping | EFO_0000750
+no ANCESTOR query results for label: genotyping | EFO_0000750
+ALERT: no queries returned output for label: genotyping | EFO_0000750
+no DESCENDANT query results for label: phenotype characterization | ERO_0000923
+no DESCENDANT query results for label: Portion of plasma | FMA_62970
+no ANCESTOR query results for label: molecular_function | GO_0003674
+no ANCESTOR query results for label: cellular_component | GO_0005575
+no ANCESTOR query results for label: biological_process | GO_0008150
+no ANCESTOR query results for label: molecular_function | GO_0003674
+no DESCENDANT query results for label: enzyme substrate role | IDO_0100872
+no ANCESTOR query results for label: enzyme substrate role | IDO_0100872
+ALERT: no queries returned output for label: enzyme substrate role | IDO_0100872
+no DESCENDANT query results for label: overexpression | INO_0000114
+no DESCENDANT query results for label: dehydrogenation | MOP_0000590
+no DESCENDANT query results for label: hydroxylation | MOP_0000673
+no DESCENDANT query results for label: demethylation | MOP_0001364
+no DESCENDANT query results for label: deethylation | MOP_0001385
+no DESCENDANT query results for label: Escherichia coli | NCBITaxon_562
+no ANCESTOR query results for label: Escherichia coli | NCBITaxon_562
+ALERT: no queries returned output for label: Escherichia coli | NCBITaxon_562
+no DESCENDANT query results for label: Homo sapiens | NCBITaxon_9606
+no ANCESTOR query results for label: Homo sapiens | NCBITaxon_9606
+ALERT: no queries returned output for label: Homo sapiens | NCBITaxon_9606
+no DESCENDANT query results for label: centrifuge pellet role | OBI_0000029
+no DESCENDANT query results for label: supernatant role | OBI_0000034
+no DESCENDANT query results for label: evaluant role | OBI_0000067
+no DESCENDANT query results for label: microtiter plate | OBI_0000192
+no DESCENDANT query results for label: target of material addition role | OBI_0000444
+no DESCENDANT query results for label: dose specification | OBI_0000969
+no DESCENDANT query results for label: gene knock out | OBI_0001148
+no DESCENDANT query results for label: ex vivo design | OBI_0001211
+no DESCENDANT query results for label: in vitro design | OBI_0001285
+no DESCENDANT query results for label: observation design | OBI_0300311
+no DESCENDANT query results for label: centrifugation | OBI_0302886
+no DESCENDANT query results for label: group randomization | OBI_0302900
+no DESCENDANT query results for label: clinical study design | OBI_0500001
+no DESCENDANT query results for label: parallel group design | OBI_0500006
+no DESCENDANT query results for label: cell pellet | OBI_1000024
+no DESCENDANT query results for label: treatment | OGMS_0000090
+no DESCENDANT query results for label: active ingredient quantification specification | PDRO_0000124
+no DESCENDANT query results for label: drug product quantification specification | PDRO_0000125
+no DESCENDANT query results for label: area under curve | STATO_0000209
+no ANCESTOR query results for label: unit | UO_0000000

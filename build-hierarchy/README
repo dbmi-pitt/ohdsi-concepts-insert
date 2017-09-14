@@ -1,0 +1,80 @@
+Generate URI-list.csv from LAERTES-cdm:
+	SELECT concept_name, vocabulary_id, CONCAT(vocabulary_id, '_', concept_code) AS uri
+	FROM concept 
+	WHERE concept_id < 0 AND concept_code != 'OMOP generated' ORDER BY uri;
+
+hierarchy.py:
+	Loop through each URI in URI-list.csv and query SPARQL through the SPARQLWrapper library:
+
+	Query for ANCESTORS:
+    	q = '''
+        PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+        PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+        PREFIX owl: <http://www.w3.org/2002/07/owl#>
+        SELECT ?path ?label ?link FROM <%s> WHERE {
+            {
+                SELECT ?s ?o ?label WHERE {
+                    {
+                        ?s rdfs:subClassOf ?o .
+                        FILTER (isIRI(?o)).
+                        OPTIONAL {?o rdfs:label ?label}
+                    } UNION {
+                        ?s owl:equivalentClass ?s1 .
+                        ?s1 owl:intersectionOf ?s2 .
+                        ?s2 rdf:first ?o  .
+                        FILTER (isIRI(?o))
+                        OPTIONAL {?o rdfs:label ?label}
+                    }
+                    FILTER ( ?s != ?o )
+                }
+            }
+            OPTION (TRANSITIVE, t_in(?s), t_out(?o), t_step (?s) as ?link, t_step ('path_id') as ?path).
+            FILTER (isIRI(?o)).
+            FILTER (?s= <%s>)
+        } ORDER BY DESC (?path)
+        ''' % (vocabUri, fullUri)
+
+    	Query for DESCENDANTS:
+    	q = '''
+        PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+        PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+        PREFIX owl: <http://www.w3.org/2002/07/owl#>
+        SELECT DISTINCT ?label ?term FROM <%s> WHERE {
+            {
+                ?term rdfs:subClassOf ?s .
+                FILTER (?s = <%s>)
+                FILTER (isIRI(?term)).
+                OPTIONAL {?term rdfs:label ?label} .
+                OPTIONAL {?subTerm rdfs:subClassOf ?term}
+            }
+        }
+        ''' % (vocabUri, fullUri)
+
+    For ANCESTORS: Via looping through the SPARQL results, record the maximum path value and for these path values, add the labels in the "ancestors" dictionary via incrementing ancestor levels as ancestor keys.
+
+    For DESCENDANTS: Add labels in the reutrn query into the "descendants" dictionary via incrementing descendant levels as descendant keys.
+
+    Use CONCEPT_RELATIONSHIP table:
+    ancestors "subsume" descendants = relationship id 44818723
+    descendant "is a" ancestor = relationship id 44818821
+
+    http://www.ohdsi.org/web/wiki/doku.php?id=documentation:cdm:concept_relationship
+
+    OUTPUTS for hierarchy.py:
+    (in "output folder")
+    URI-hierarchy.csv = 5 levels of ancestors and descendants from a given URI.
+    URI-ancestors.csv = 5 levels of ancestors from a given URI, written out in a format more suited for creating "insert" statements for the "concept_relationship" table. Each concept is printed with its reverse relationship (a given URI "is a" ancestor while the URI's ancestor "subsumes" the URI)
+    URI-descendants.csv = all descendants from a given URI. Each concept is printed with its reverse relationship (a given URI "subsumes" its descendant while the URI's descendant "is a" URI)
+    new-vocab.csv = vocabularies that do not currently exist in the Laertes_cdm database.
+    full-vocab.csv = all vocabularies that show up in the URI list and its ancestors/descendants.
+    new-concepts.csv = concepts that do not currently exist in the Laertes_cdm database.
+    full-vocab.csv = all concepts that show up in the URI list and its ancestors/descendants.
+
+IN OUTPUT FOLDER:
+createInsertStatements.py:
+Depends on output from hierarchy.py - uses files URI-ancestors.csv, URI-descendants.csv, new-vocab.csv, new-concepts.csv, full-concepts.csv to create INSERT statements into Laertes_cdm.
+
+Output .sql scripts from createInsertStatements.py in "sql" folder.
+ATTN: For finding information about new vocabularies, go to ontobee.org. Information needed for the "insert" statements into the "vocabulary" table can be found for each vocabulary. 
+***The "load-vocab.sql" script is therefore manually completed from this info used with the vocabs in "output/new-vocab.csv"***
+NOTE: Can't find date for "vocabulary_version" column on Ontobee, so script uses today's date.
