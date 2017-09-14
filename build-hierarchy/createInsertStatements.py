@@ -45,7 +45,7 @@ curs = conn.cursor()
 
 idDict = {}
 # populate dictionary with id's that are already in the concept table
-with open("full-concepts.csv", "rb") as infile_full:
+with open("output/full-concepts.csv", "rb") as infile_full:
     reader = csv.reader(infile_full)
     for row in reader:
         if row != '' and row[1] != '' and row[2] != '':
@@ -56,7 +56,7 @@ with open("full-concepts.csv", "rb") as infile_full:
     print idDict
 
 # add new terms
-with open("new-concepts.csv", "rb") as infile_concepts, open("sql/load-concepts.sql", "wb") as outfile_concepts, open("new-vocab.csv", "rb") as infile_vocab, open("sql/load-vocab-concepts.sql", "wb") as outfile_vocab_concepts, open("sql/load-vocab.sql", "wb") as outfile_vocab:
+with open("output/new-concepts.csv", "rb") as infile_concepts, open("output/sql/load-concepts.sql", "wb") as outfile_concepts, open("output/new-vocab.csv", "rb") as infile_vocab, open("output/sql/load-vocab-concepts.sql", "wb") as outfile_vocab_concepts, open("output/sql/load-vocab.sql", "wb") as outfile_vocab:
     reader = csv.reader(infile_concepts)
     # the current minimum concept ID is 9999000
     newId = -9999001
@@ -82,7 +82,7 @@ with open("new-concepts.csv", "rb") as infile_concepts, open("sql/load-concepts.
             # IMPORTANT: go to sql/load_vocab.sql and enter missing data marked with "TODO"
 
 
-with open("URI-ancestors.csv", "rb") as infile_ancestors, open("sql/load-ancestors-relationships.sql", "wb") as outfile_ancestors, open("sql/load-ancestors-hierarchy.sql", "wb") as outfile_a_hierarchy:
+with open("output/URI-ancestors.csv", "rb") as infile_ancestors, open("output/sql/load-ancestors-relationships.sql", "wb") as outfile_ancestors, open("output/sql/load-ancestors-hierarchy.sql", "wb") as outfile_a_hierarchy:
     reader = csv.reader(infile_ancestors)
     next(reader, None)
     for row in reader:
@@ -107,7 +107,7 @@ with open("URI-ancestors.csv", "rb") as infile_ancestors, open("sql/load-ancesto
                 out_string = ("INSERT INTO public.concept_ancestor(ancestor_concept_id, descendant_concept_id, min_levels_of_separation, max_levels_of_separation) VALUES (%d, %d, 1, 1);\n" % (id1, id2))
                 outfile_a_hierarchy.write(out_string)
 
-with open("URI-descendants.csv", "rb") as infile_descendants, open("sql/load-descendants.sql", "wb") as outfile_descendants, open("sql/load-descendants-hierarchy.sql","wb") as outfile_d_hierarchy:
+with open("output/URI-descendants.csv", "rb") as infile_descendants, open("output/sql/load-descendants.sql", "wb") as outfile_descendants, open("output/sql/load-descendants-hierarchy.sql","wb") as outfile_d_hierarchy:
     reader = csv.reader(infile_descendants)
     next(reader, None)
     for row in reader:
