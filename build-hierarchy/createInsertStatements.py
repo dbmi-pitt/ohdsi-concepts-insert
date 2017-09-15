@@ -1,4 +1,4 @@
-import csv
+import csv, os
 import psycopg2
 import datetime
 
@@ -25,6 +25,33 @@ def getExistingConcept(vocab, code):
     else:
         return returnId[0][0]
 
+################################################################################
+## CACHE
+################################################################################
+# read local cache concept mapping file
+# input: cache file path
+# return dict {vocabId;conceptName: conceptId}
+def readConceptCache(cache_path):
+    cacheDict = {}
+    if os.path.isfile(cache_path):
+        with open(cache_path) as f:
+            lines = f.readlines()
+            for line in lines:
+                if ';' in line:
+                    [vocab_id, concept_name, concept_id] = line.strip().split(';')
+                    cacheDict[vocab_id + ';' + concept_name] = concept_id
+
+    return cacheDict
+
+
+# update local cache concept mapping
+# input: cache file path
+# input: dict {vocabId;conceptName: conceptId}
+def writeConceptCache(cache_path, cacheDict):
+    with open(cache_path, 'w') as f:
+        for cpt_key, concept_id in sorted(cacheDict.iteritems()):
+            f.write(cpt_key+';'+str(concept_id)+'\n')        
+
 
 ################################################################################
 ## GLOBAL VARIABLES
@@ -38,6 +65,12 @@ dbname = "laertes_cdm"
 
 conn = connect_postgres(hostname, username, password, dbname)
 curs = conn.cursor()
+
+# cache file, line: vocabId;conceptName;conceptId
+CACHE = '../cache/cache-concepts-mapping.txt'
+
+# dict {'vocabId;conceptName': conceptId}
+cacheNameIdDictBefore = fop.readConceptCache(CACHE) # read cached concepts
 
 ################################################################################
 ## BODY
@@ -55,11 +88,12 @@ with open("output/full-concepts.csv", "rb") as infile_full:
                 idDict[row[1]] = existingId
     print idDict
 
-# add new terms
+# add new terms (check concept id in cache, assign next available negative id if not exists)
 with open("output/new-concepts.csv", "rb") as infile_concepts, open("output/sql/load-concepts.sql", "wb") as outfile_concepts, open("output/new-vocab.csv", "rb") as infile_vocab, open("output/sql/load-vocab-concepts.sql", "wb") as outfile_vocab_concepts, open("output/sql/load-vocab.sql", "wb") as outfile_vocab:
     reader = csv.reader(infile_concepts)
     # the current minimum concept ID is 9999000
     newId = -9999001
+    # newId = -8000000
     for row in reader:
         if row[0] != '' and row[1] != '' and row[2] != '':
             name = row[2]
