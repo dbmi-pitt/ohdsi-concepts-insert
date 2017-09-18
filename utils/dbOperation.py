@@ -1,11 +1,5 @@
 # INSERT QUERY TEMPLATES #############################################################
-def insert_concept_template(concept_id, concept_name, domain_id, vocabulary_id, concept_class_id, concept_code, cacheNameIdDict):
-    cpt_key = vocabulary_id + '|' + str(concept_code)
-    # reuse concept id
-    if cpt_key in cacheNameIdDict:
-        concept_id = cacheNameIdDict[cpt_key]
-    else:
-        cacheNameIdDict[cpt_key] = concept_id
+def insert_concept_template(concept_id, concept_name, domain_id, vocabulary_id, concept_class_id, concept_code):
     
     return "INSERT INTO public.concept (concept_id, concept_name, domain_id, vocabulary_id, concept_class_id, standard_concept, concept_code, valid_start_date, valid_end_date, invalid_reason) VALUES (%s, '%s', '%s', '%s', '%s', '', '%s', '2000-01-01', '2099-02-22', '');" % (concept_id, concept_name.replace("'", "''"), domain_id, vocabulary_id, concept_class_id, concept_code)
 

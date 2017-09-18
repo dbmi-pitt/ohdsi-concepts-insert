@@ -17,7 +17,7 @@ V_CACHE = 'cache/cache-vocabulary-mapping.psv'
 # return: the next available concept id 
 def write_vocabulary_insert_sql(temp_concept_id, f, cacheVocabDict, cacheVocabIds):
     
-    cpt_sql = dop.insert_concept_template(-9999000, 'The Potential Drug-drug Interaction and Potential Drug-drug Interaction Evidence Ontology', 'Metadata', 'Vocabulary', 'Vocabulary', 'OMOP generated', cacheVocabDict)
+    cpt_sql = dop.insert_concept_template(-9999000, 'The Potential Drug-drug Interaction and Potential Drug-drug Interaction Evidence Ontology', 'Metadata', 'Vocabulary', 'Vocabulary', 'OMOP generated')
     vcb_sql = dop.insert_vocabulary_template('DIDEO', 'The Potential Drug-drug Interaction and Potential Drug-drug Interaction Evidence Ontology', 'https://github.com/DIDEO/DIDEO', 'release 2016-10-20', -9999000)
     f.write(cpt_sql + '\n')
     f.write(vcb_sql + '\n')
@@ -38,7 +38,7 @@ def write_vocabulary_insert_sql(temp_concept_id, f, cacheVocabDict, cacheVocabId
             cacheVocabIds.add(str(temp_concept_id))
             concept_id = temp_concept_id
         
-        cpt_sql1 = dop.insert_concept_template(concept_id, vocab, 'Metadata', 'Vocabulary', 'Vocabulary', 'OMOP generated', cacheVocabDict)
+        cpt_sql1 = dop.insert_concept_template(concept_id, vocab, 'Metadata', 'Vocabulary', 'Vocabulary', 'OMOP generated')
         vcb_sql1 = dop.insert_vocabulary_template(vocab, vocab, '', 'release 2016-10-20', concept_id)
         
         f.write(cpt_sql1 + '\n')
@@ -52,10 +52,15 @@ def write_vocabulary_insert_sql(temp_concept_id, f, cacheVocabDict, cacheVocabId
 def write_concept_insert_sql(temp_concept_id, f, cacheCptDict, cacheCptIds):
     reader = csv.DictReader(fop.utf_8_encoder(open(DIDEO_CSV, 'r')))
     next(reader, None) # skip the header
+    usedUris = set() # for filter out duplicated rows from dideo csv
 
     domain_id = "Metadata"; concept_class_id = "Domain"
     for row in reader:
         uri = row["uri"].split('/')[-1]
+        if uri in usedUris: # skip duplicates
+            continue
+        usedUris.add(uri)
+        
         idx = uri.rfind('_')
         vocabulary_id, concept_code = uri[:idx], uri[idx+1:]
         concept_name, synonyms = row["term"], row["alternative term"]
@@ -73,7 +78,7 @@ def write_concept_insert_sql(temp_concept_id, f, cacheCptDict, cacheCptIds):
             cacheCptIds.add(str(temp_concept_id)) # this concept id is taken
             concept_id = temp_concept_id                
 
-        cpt_sql = dop.insert_concept_template(concept_id, concept_name, domain_id, vocabulary_id, concept_class_id, concept_code, cacheCptDict)
+        cpt_sql = dop.insert_concept_template(concept_id, concept_name, domain_id, vocabulary_id, concept_class_id, concept_code)
         f.write(cpt_sql + '\n')
         
     return temp_concept_id + 1
@@ -82,7 +87,7 @@ def write_concept_insert_sql(temp_concept_id, f, cacheCptDict, cacheCptIds):
 # domain table insert
 # return: the next available concept id 
 def write_domain_insert_sql(f, cacheCptDict):
-    cpt_sql = dop.insert_concept_template(-9900000, 'Potential drug interactions of natural product drug interactions', 'Metadata', 'Domain', 'Domain', 'OMOP generated', cacheCptDict)
+    cpt_sql = dop.insert_concept_template(-9900000, 'Potential drug interactions of natural product drug interactions', 'Metadata', 'Domain', 'Domain', 'OMOP generated')
     dm_sql = dop.insert_domain_template('PDDI or NPDI', 'PDDI or NPDI',  -9900000)
     f.write(cpt_sql + '\n')
     f.write(dm_sql + '\n')
@@ -90,7 +95,7 @@ def write_domain_insert_sql(f, cacheCptDict):
 
 # concept class insert
 def write_concept_class_insert_sql(f, cacheCptDict):
-    cpt_sql = dop.insert_concept_template(-9990000, 'PDDI or NPDI Test Class', 'Metadata', 'Concept Class', 'Concept Class', 'OMOP generated', cacheCptDict)    
+    cpt_sql = dop.insert_concept_template(-9990000, 'PDDI or NPDI Test Class', 'Metadata', 'Concept Class', 'Concept Class', 'OMOP generated')    
     class_sql = dop.insert_concept_class_template('PDDI or NPDI Class', 'PDDI or NPDI Test Class', -9990000)
     f.write(cpt_sql + '\n')
     f.write(class_sql + '\n')
@@ -116,9 +121,8 @@ def write_insert_script():
         write_domain_insert_sql(f, cacheCptDictAfter)
         write_concept_class_insert_sql(f, cacheCptDictAfter)
 
-        concept_id = -8000000 # add new terms
-        concept_id = write_vocabulary_insert_sql(concept_id, f, cacheVocabDict, cacheVocabIds)
-        concept_id = write_concept_insert_sql(concept_id, f, cacheCptDictAfter, cacheCptIds)
+        write_vocabulary_insert_sql(-8999999, f, cacheVocabDict, cacheVocabIds)
+        write_concept_insert_sql(-7999999, f, cacheCptDictAfter, cacheCptIds)
 
     ## VALIDATE ##
     print "[SUMMARY] Added (%s) new concepts, total (%s) concepts are cached" % (len(cacheCptDictAfter)-len(cacheCptDictBefore), len(cacheCptDictAfter))
