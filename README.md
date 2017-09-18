@@ -3,6 +3,34 @@ This repository for adding concept terms into OHDSI vocabulary. The concept id w
 New concepts comes from drug entities in Potential drug drug interaction (PDDI) evidence base and DIDEO ontology (https://github.com/DIDEO/DIDEO)
 
 -----------------------------------------------------------------------------
+Directory
+-----------------------------------------------------------------------------
+
+(1) cache/
+
+cache-concepts-mapping.psv
+save/update identified concepts in pipe separate file: vocabulary|concept_code|concept_id
+
+cache-vocabulary-mapping.psv
+save/update identified vocabulary in pipe separate file: vocabulary|concept_name|concept_id
+
+(2) design/
+
+diagrams for relational database schema
+
+(3) inputs/
+
+data sources for generate script that have sql insert statements
+
+(4) outputs/
+
+sql script with insert statements
+
+(5) db-schema
+
+sql statements for create database  with evidence base tables, ohdsi concept tables
+
+-----------------------------------------------------------------------------
 create sql script for adding dideo terms into OHDSI vocabulary
 -----------------------------------------------------------------------------
 
