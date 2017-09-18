@@ -46,8 +46,8 @@ SQL script that can be executed for adding concept to OHDSI vocabulary
 outputs/dideo-concepts-insert.sql
 
 Results:
-By 07/31/2017
-insert 389 new concepts
+By 09/18/2017
+insert 402 new concepts
 
 -----------------------------------------------------------------------------
 generate sql script for insert drug concepts into OHDSI vocabulary
