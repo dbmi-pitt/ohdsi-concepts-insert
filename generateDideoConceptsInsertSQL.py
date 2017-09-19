@@ -13,6 +13,8 @@ OUTPUT_SQL = 'outputs/dideo-concepts-insert.sql'
 C_CACHE = 'cache/cache-concepts-mapping.psv'
 V_CACHE = 'cache/cache-vocabulary-mapping.psv'
 
+V_CONCEPT_ID_BEGIN, C_CONCEPT_ID_BEGIN = -8999999, -7999999
+
 # vocabulary table insert for dideo and term URI namespaces
 # return: the next available concept id 
 def write_vocabulary_insert_sql(temp_concept_id, f, cacheVocabDict, cacheVocabIds):
@@ -121,8 +123,8 @@ def write_insert_script():
         write_domain_insert_sql(f, cacheCptDictAfter)
         write_concept_class_insert_sql(f, cacheCptDictAfter)
 
-        write_vocabulary_insert_sql(-8999999, f, cacheVocabDict, cacheVocabIds)
-        write_concept_insert_sql(-7999999, f, cacheCptDictAfter, cacheCptIds)
+        write_vocabulary_insert_sql(V_CONCEPT_ID_BEGIN, f, cacheVocabDict, cacheVocabIds)
+        write_concept_insert_sql(C_CONCEPT_ID_BEGIN, f, cacheCptDictAfter, cacheCptIds)
 
     ## VALIDATE ##
     print "[SUMMARY] Added (%s) new concepts, total (%s) concepts are cached" % (len(cacheCptDictAfter)-len(cacheCptDictBefore), len(cacheCptDictAfter))

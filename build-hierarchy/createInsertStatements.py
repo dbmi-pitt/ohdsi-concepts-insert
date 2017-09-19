@@ -2,6 +2,10 @@ import csv, os
 import psycopg2
 import datetime
 
+import sys
+sys.path.insert(0,'..')
+from utils import fileOperation as fop
+
 ################################################################################
 ## METHODS
 ################################################################################
@@ -26,34 +30,6 @@ def getExistingConcept(vocab, code):
         return returnId[0][0]
 
 ################################################################################
-## CACHE
-################################################################################
-# read local cache concept mapping file
-# input: cache file path
-# return dict {vocabId;conceptName: conceptId}
-def readConceptCache(cache_path):
-    cacheDict = {}
-    if os.path.isfile(cache_path):
-        with open(cache_path) as f:
-            lines = f.readlines()
-            for line in lines:
-                if ';' in line:
-                    [vocab_id, concept_name, concept_id] = line.strip().split(';')
-                    cacheDict[vocab_id + ';' + concept_name] = concept_id
-
-    return cacheDict
-
-
-# update local cache concept mapping
-# input: cache file path
-# input: dict {vocabId;conceptName: conceptId}
-def writeConceptCache(cache_path, cacheDict):
-    with open(cache_path, 'w') as f:
-        for cpt_key, concept_id in sorted(cacheDict.iteritems()):
-            f.write(cpt_key+';'+str(concept_id)+'\n')        
-
-
-################################################################################
 ## GLOBAL VARIABLES
 ################################################################################
 
@@ -67,13 +43,24 @@ dbname = "dikb"
 conn = connect_postgres(hostname, username, password, dbname)
 curs = conn.cursor()
 
-# cache file, line: vocabId;conceptName;conceptId
-CACHE = '../cache/cache-concepts-mapping.txt'
+# concept cache: vocab_id|concept_code|concept_id
+# vocabulary cache: vocab_id|concept_name|concept_id
+C_CACHE = '../cache/cache-concepts-mapping.psv' 
+V_CACHE = '../cache/cache-vocabulary-mapping.psv' 
 
 # dict {'vocabId;conceptName': conceptId}
-cacheNameIdDict = readConceptCache(CACHE) # read cached concepts
-cacheConceptIds = set(cacheNameIdDict.values()) # get concept ids that are taken
-global_concept_id = -8000000
+cacheCptDict = fop.readConceptCache(C_CACHE) # read cached concepts
+cacheVocabDict = fop.readConceptCache(V_CACHE) # read cached vocabulary
+
+cacheCptIds = set(cacheCptDict.values()) # get concept ids that are taken
+cacheVocabIds = set(cacheVocabDict.values())
+
+# V_CONCEPT_ID_BEGIN, C_CONCEPT_ID_BEGIN = -8999999, -7999999
+global global_v_id, global_c_id
+global_v_id, global_c_id = -8999999, -7999999
+
+print "[INFO] Read (%s) cached concepts from (%s)" % (len(cacheCptDict), C_CACHE)
+print "[INFO] Read (%s) cached vocabulary from (%s)" % (len(cacheVocabDict), V_CACHE)
 
 ################################################################################
 ## BODY
@@ -82,138 +69,175 @@ global_concept_id = -8000000
 # {'vocab_id;concept_name': concept_id} (changed from {'concept_code': concept_id})
 existsNameIdDict = {} 
 
-# populate dictionary with id's that are already in the concept table
-with open("output/full-concepts.csv", "rb") as infile_full:
-    reader = csv.reader(infile_full) 
-    for row in reader:
-        vocab, code, name = row[0], row[1], row[2]
-        if row != '' and code != '' and name != '':
-            exists_concept_id = getExistingConcept(vocab, code)
-            if exists_concept_id:
-                existsNameIdDict[vocab+";"+name] = exists_concept_id
+def initConceptMapFromDB():
+    # populate dictionary with id's that are already in the concept table
+    with open("output/full-concepts.csv", "rb") as infile_full:
+        reader = csv.reader(infile_full) 
+        for row in reader:
+            vocab, code, name = row[0], row[1], row[2]
+            if row != '' and code != '' and name != '':
+                exists_concept_id = getExistingConcept(vocab, code)
+                if exists_concept_id:
+                    existsNameIdDict[vocab+"|"+code] = exists_concept_id
 
     
-# get concept id for the term (vocabulary, concept name)
+# get concept id for the concept
 # if concept in ohdsi concepts, then use the existing id. else check in cache
 # if concept in cache mapping, then use the existing id
 # else generate next available negative id
 # input: vocabulary, concept name
-def getConceptId(vocab, name, global_concept_id):
-    key = vocab + ";" + name 
+def getConceptId(vocab, code):
+    global global_c_id    
+    key = vocab + "|" + code 
 
     # use existing concept_id in concept table
     if key in existsNameIdDict:
         return existsNameIdDict[key]
     
     # use existing concept_id in cache
-    if key in cacheNameIdDict:
-        return int(cacheNameIdDict[key])
+    if key in cacheCptDict:
+        return int(cacheCptDict[key])
         
     else: # get next available concept id
-        while str(global_concept_id) in cacheConceptIds:
-            global_concept_id += 1
+        while str(global_c_id) in cacheCptIds:
+            global_c_id += 1
             
-        cacheNameIdDict[key] = str(global_concept_id) # add to cache dict            
-        cacheConceptIds.add(str(global_concept_id))
+        cacheCptDict[key] = str(global_c_id) # add to cache dict            
+        cacheCptIds.add(str(global_c_id))
         
-        return global_concept_id
+        return global_c_id
 
     
-# add new terms (check concept id in cache, assign next available negative id if not exists)
-with open("output/new-concepts.csv", "rb") as infile_concepts, open("output/sql/load-concepts.sql", "wb") as outfile_concepts, open("output/new-vocab.csv", "rb") as infile_vocab, open("output/sql/load-vocab-concepts.sql", "wb") as outfile_vocab_concepts, open("output/sql/load-vocab.sql", "wb") as outfile_vocab:
-    reader = csv.reader(infile_concepts)
+# get concept id for the vocabulary
+def getVocabConceptId(vocab, name):
+    global global_v_id    
+    key = vocab + "|" + name 
+
+    # # use existing concept_id in concept table
+    # if key in existsNameIdDict:
+    #     return existsNameIdDict[key]
     
-    for row in reader:
-        if row[0] != '' and row[1] != '' and row[2] != '':
-            vocab, code, name = row[0], row[1], row[2]
-
-            # sql escape character for single quote should be a pair of single quotes
-            if "'" in name:
-                name = name.replace("'", "''")
-
-            concept_id = getConceptId(vocab, name, global_concept_id)                
-            out_string = ("INSERT INTO public.concept (concept_id, concept_name, domain_id, vocabulary_id, concept_class_id, concept_code, valid_start_date, valid_end_date) VALUES (%d, \'%s\', \'Metadata\', \'%s\', \'Domain\', \'%s\', \'2000-01-01\', \'2099-02-22\');\n" % (concept_id, name, vocab, code))
-            outfile_concepts.write(out_string)
-
-    # print existsNameIdDict
-    reader = csv.reader(infile_vocab)
-    for row in reader:
-        if row:
-            vocab = row[0]
-            concept_id = getConceptId(vocab, vocab, global_concept_id)
-            
-            out_string = ("INSERT INTO public.concept (concept_id, concept_name, domain_id, vocabulary_id, concept_class_id, concept_code, valid_start_date, valid_end_date) VALUES (%d, \'%s\', \'Metadata\', \'Vocabulary\', \'Vocabulary\', \'OMOP generated\', \'2000-01-01\', \'2099-02-22\');\n" % (concept_id, vocab))
-            outfile_vocab_concepts.write(out_string)
-            out_string = ("INSERT INTO public.vocabulary (vocabulary_id, vocabulary_name, vocabulary_reference, vocabulary_version, vocabulary_concept_id) VALUES (\'%s\', \'TODO: http://www.ontobee.org/ontology/%s under \"Description\"\', \'TODO: http://www.ontobee.org/ontology/%s under \"Home\"\', \'%s\', %d);\n" % (vocab, vocab, vocab, datetime.date.today(), concept_id))
-            outfile_vocab.write(out_string)
-            # IMPORTANT: go to sql/load_vocab.sql and enter missing data marked with "TODO"
-
-
-with open("output/URI-ancestors.csv", "rb") as infile_ancestors, open("output/sql/load-ancestors-relationships.sql", "wb") as outfile_ancestors, open("output/sql/load-ancestors-hierarchy.sql", "wb") as outfile_a_hierarchy:
-    reader = csv.reader(infile_ancestors)
-    next(reader, None)
-    for row in reader:
+    # use existing concept_id in cache
+    if key in cacheVocabDict:
+        return int(cacheVocabDict[key])
         
-        idx1 = row[0].rfind('_')
-        vocab1, code1 = row[0][0:idx1], row[0][idx1+1:]        
-        id1 = getConceptId(vocab1, code1, global_concept_id)
+    else: # get next available concept id
+        while str(global_v_id) in cacheVocabIds:
+            global_v_id += 1
+            
+        cacheVocabDict[key] = str(global_v_id) # add to cache dict            
+        cacheVocabIds.add(str(global_v_id))
         
-        idx2 = row[1].rfind('_')
-        vocab2, code2 = row[1][0:idx2], row[1][idx2+1:]
-        id2 = getConceptId(vocab2, code2, global_concept_id)
+        return global_v_id
+    
+def createInsertStatements():
+    # add new terms (check concept id in cache, assign next available negative id if not exists)
+    with open("output/new-concepts.csv", "rb") as infile_concepts, open("output/sql/load-concepts.sql", "wb") as outfile_concepts, open("output/new-vocab.csv", "rb") as infile_vocab, open("output/sql/load-vocab-concepts.sql", "wb") as outfile_vocab_concepts, open("output/sql/load-vocab.sql", "wb") as outfile_vocab:
+        reader = csv.reader(infile_concepts)
+    
+        for row in reader:
+            if row[0] != '' and row[1] != '' and row[2] != '':
+                vocab, code, name = row[0], row[1], row[2]
+
+                # sql escape character for single quote should be a pair of single quotes
+                if "'" in name:
+                    name = name.replace("'", "''")
+
+                concept_id = getConceptId(vocab, code)                
+                out_string = ("INSERT INTO public.concept (concept_id, concept_name, domain_id, vocabulary_id, concept_class_id, concept_code, valid_start_date, valid_end_date) VALUES (%d, \'%s\', \'Metadata\', \'%s\', \'Domain\', \'%s\', \'2000-01-01\', \'2099-02-22\');\n" % (concept_id, name, vocab, code))
+                outfile_concepts.write(out_string)
+
+        # print existsNameIdDict
+        reader = csv.reader(infile_vocab)
+        for row in reader:
+            if row:
+                vocab = row[0]
+                concept_id = getVocabConceptId(vocab, vocab)
+            
+                out_string = ("INSERT INTO public.concept (concept_id, concept_name, domain_id, vocabulary_id, concept_class_id, concept_code, valid_start_date, valid_end_date) VALUES (%d, \'%s\', \'Metadata\', \'Vocabulary\', \'Vocabulary\', \'OMOP generated\', \'2000-01-01\', \'2099-02-22\');\n" % (concept_id, vocab))
+                outfile_vocab_concepts.write(out_string)
+                out_string = ("INSERT INTO public.vocabulary (vocabulary_id, vocabulary_name, vocabulary_reference, vocabulary_version, vocabulary_concept_id) VALUES (\'%s\', \'TODO: http://www.ontobee.org/ontology/%s under \"Description\"\', \'TODO: http://www.ontobee.org/ontology/%s under \"Home\"\', \'%s\', %d);\n" % (vocab, vocab, vocab, datetime.date.today(), concept_id))
+                outfile_vocab.write(out_string)
+                # IMPORTANT: go to sql/load_vocab.sql and enter missing data marked with "TODO"
+
+
+    with open("output/URI-ancestors.csv", "rb") as infile_ancestors, open("output/sql/load-ancestors-relationships.sql", "wb") as outfile_ancestors, open("output/sql/load-ancestors-hierarchy.sql", "wb") as outfile_a_hierarchy:
+        reader = csv.reader(infile_ancestors)
+        next(reader, None)
+        for row in reader:
         
-        if not id1:
-            print("NO CONCEPT ID FOUND FOR CODE: %s" % row[0])
-        if not id2:
-            print("NO CONCEPT ID FOUND FOR CODE: %s" % row[1])
+            idx1 = row[0].rfind('_')
+            vocab1, code1 = row[0][0:idx1], row[0][idx1+1:]        
+            id1 = getConceptId(vocab1, code1)
+        
+            idx2 = row[1].rfind('_')
+            vocab2, code2 = row[1][0:idx2], row[1][idx2+1:]
+            id2 = getConceptId(vocab2, code2)
+        
+            if not id1:
+                print("NO CONCEPT ID FOUND FOR CODE: %s" % row[0])
+            if not id2:
+                print("NO CONCEPT ID FOUND FOR CODE: %s" % row[1])
             
-        relId = None
-        if row[2] == '44818821':
-            relId = "Is a"
-        elif row[2] == '44818723':
-            relId = "Subsumes"
+            relId = None
+            if row[2] == '44818821':
+                relId = "Is a"
+            elif row[2] == '44818723':
+                relId = "Subsumes"
             
-        if id1 and id2:
-            out_string = ("INSERT INTO public.concept_relationship (concept_id_1, concept_id_2, relationship_id, valid_start_date, valid_end_date) VALUES (%d, %d, \'%s\', '1970-01-01', '2099-12-31');\n" % (id1, id2, relId))
-            outfile_ancestors.write(out_string)
+            if id1 and id2:
+                out_string = ("INSERT INTO public.concept_relationship (concept_id_1, concept_id_2, relationship_id, valid_start_date, valid_end_date) VALUES (%d, %d, \'%s\', '1970-01-01', '2099-12-31');\n" % (id1, id2, relId))
+                outfile_ancestors.write(out_string)
             
-            # "subsumes" relationship is a single level of separation for a hierarchical relationship
-            if relId == "Subsumes":
-                out_string = ("INSERT INTO public.concept_ancestor(ancestor_concept_id, descendant_concept_id, min_levels_of_separation, max_levels_of_separation) VALUES (%d, %d, 1, 1);\n" % (id1, id2))
-                outfile_a_hierarchy.write(out_string)
+                # "subsumes" relationship is a single level of separation for a hierarchical relationship
+                if relId == "Subsumes":
+                    out_string = ("INSERT INTO public.concept_ancestor(ancestor_concept_id, descendant_concept_id, min_levels_of_separation, max_levels_of_separation) VALUES (%d, %d, 1, 1);\n" % (id1, id2))
+                    outfile_a_hierarchy.write(out_string)
 
                 
-with open("output/URI-descendants.csv", "rb") as infile_descendants, open("output/sql/load-descendants.sql", "wb") as outfile_descendants, open("output/sql/load-descendants-hierarchy.sql","wb") as outfile_d_hierarchy:
-    reader = csv.reader(infile_descendants)
-    next(reader, None)
-    for row in reader:
-        code1 = row[0].split('_')[-1]
-        code2 = row[1].split('_')[-1]
+    with open("output/URI-descendants.csv", "rb") as infile_descendants, open("output/sql/load-descendants.sql", "wb") as outfile_descendants, open("output/sql/load-descendants-hierarchy.sql","wb") as outfile_d_hierarchy:
+        reader = csv.reader(infile_descendants)
+        next(reader, None)
+        for row in reader:
+            code1 = row[0].split('_')[-1]
+            code2 = row[1].split('_')[-1]
         
-        idx1 = row[0].rfind('_')
-        vocab1, code1 = row[0][0:idx1], row[0][idx1+1:]
-        id1 = getConceptId(vocab1, code1, global_concept_id)
+            idx1 = row[0].rfind('_')
+            vocab1, code1 = row[0][0:idx1], row[0][idx1+1:]
+            id1 = getConceptId(vocab1, code1)
         
-        idx2 = row[0].rfind('_')
-        vocab2, code2 = row[1][0:idx2], row[1][idx2+1:]
-        id2 = getConceptId(vocab2, code2, global_concept_id)
+            idx2 = row[0].rfind('_')
+            vocab2, code2 = row[1][0:idx2], row[1][idx2+1:]
+            id2 = getConceptId(vocab2, code2)
         
-        if not id1:
-            print("NO CONCEPT ID FOUND FOR CODE: %s" % row[0])
-        if not id2:
-            print("NO CONCEPT ID FOUND FOR CODE: %s" % row[1])
+            if not id1:
+                print("NO CONCEPT ID FOUND FOR CODE: %s" % row[0])
+            if not id2:
+                print("NO CONCEPT ID FOUND FOR CODE: %s" % row[1])
             
-        relId = None
-        if row[2] == '44818821':
-            relId = "Is a"
-        elif row[2] == '44818723':
-            relId = "Subsumes"
-        if id1 and id2:
-            out_string = ("INSERT INTO public.concept_relationship (concept_id_1, concept_id_2, relationship_id, valid_start_date, valid_end_date) VALUES (%d, %d, \'%s\', '1970-01-01', '2099-12-31');\n" % (id1, id2, relId))
-            outfile_descendants.write(out_string)
-            if relId == "Subsumes":
-                out_string = ("INSERT INTO public.concept_ancestor(ancestor_concept_id, descendant_concept_id, min_levels_of_separation, max_levels_of_separation) VALUES (%d, %d, 1, 1);\n" % (id1, id2))
-                outfile_d_hierarchy.write(out_string)
+            relId = None
+            if row[2] == '44818821':
+                relId = "Is a"
+            elif row[2] == '44818723':
+                relId = "Subsumes"
+            if id1 and id2:
+                out_string = ("INSERT INTO public.concept_relationship (concept_id_1, concept_id_2, relationship_id, valid_start_date, valid_end_date) VALUES (%d, %d, \'%s\', '1970-01-01', '2099-12-31');\n" % (id1, id2, relId))
+                outfile_descendants.write(out_string)
+                if relId == "Subsumes":
+                    out_string = ("INSERT INTO public.concept_ancestor(ancestor_concept_id, descendant_concept_id, min_levels_of_separation, max_levels_of_separation) VALUES (%d, %d, 1, 1);\n" % (id1, id2))
+                    outfile_d_hierarchy.write(out_string)
 
-# write cached concepts
-writeConceptCache(CACHE, cacheNameIdDict) 
+
+def main():
+
+    initConceptMapFromDB()
+    
+    # write cached concepts and vocabulary
+    fop.writeConceptCache(C_CACHE, cacheCptDict) # write cached concepts
+    fop.writeConceptCache(V_CACHE, cacheVocabDict) # write cached vocabulary
+
+    createInsertStatements()
+
+if __name__ == '__main__':
+    main()
+
