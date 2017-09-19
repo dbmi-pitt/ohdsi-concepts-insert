@@ -1,4 +1,4 @@
-This repository for adding concept terms into OHDSI vocabulary. The concept id will be negative in range (-7000000, -9999999)
+This repository for adding concept terms into OHDSI vocabulary. The concept id for new concept will be negative in range (-7999999, -7000000). The concept id for new vocabulary will be in range (-8999999, -8000000) 
 
 New concepts comes from drug entities in Potential drug drug interaction (PDDI) evidence base and DIDEO ontology (https://github.com/DIDEO/DIDEO)
 
@@ -31,7 +31,7 @@ sql script with insert statements
 sql statements for create database  with evidence base tables, ohdsi concept tables
 
 -----------------------------------------------------------------------------
-create sql script for adding dideo terms into OHDSI vocabulary
+generate sql script for insert dideo terms into OHDSI vocabulary
 -----------------------------------------------------------------------------
 
 Input: inputs/4bb83833.csv
@@ -46,11 +46,11 @@ SQL script that can be executed for adding concept to OHDSI vocabulary
 outputs/dideo-concepts-insert.sql
 
 Results:
-By 07/31/2017
-insert 389 new concepts
+By 09/18/2017
+insert 402 new concepts
 
 -----------------------------------------------------------------------------
-create sql script for adding drug concepts into OHDSI vocabulary
+generate sql script for insert drug concepts into OHDSI vocabulary
 -----------------------------------------------------------------------------
 
 Input: inputs/drug-list-mapped.csv (from manually mapping)
@@ -65,6 +65,16 @@ outputs/drug-concepts-insert.sql
 Results:
 By 07/31/2017
 insert 46 new concepts
+
+-----------------------------------------------------------------------------
+PostgreSQL execute sql script in command line 
+-----------------------------------------------------------------------------
+
+psql -U username -d database -a -f sqlfilepath
+
+Example:
+$ psql -U dikb -d dikb -a -f /home/yin2/ohdsi-concepts-insert/outputs/dideo-concepts-insert.sql
+$ psql -U dikb -d dikb -a -f /home/yin2/ohdsi-concepts-insert/outputs/drug-concepts-insert.sql
 
 -----------------------------------------------------------------------------
 Notes
