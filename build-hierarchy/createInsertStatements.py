@@ -134,7 +134,10 @@ def createInsertStatements():
     # add new terms (check concept id in cache, assign next available negative id if not exists)
     with open("output/new-concepts.csv", "rb") as infile_concepts, open("output/sql/load-concepts.sql", "wb") as outfile_concepts, open("output/new-vocab.csv", "rb") as infile_vocab, open("output/sql/load-vocab-concepts.sql", "wb") as outfile_vocab_concepts, open("output/sql/load-vocab.sql", "wb") as outfile_vocab:
         reader = csv.reader(infile_concepts)
-    
+        usedId = [] 
+        # logging used ID's to address a corner case of concept code BFO_0000040 (concept ID -7993832):
+        # this appears in new_concepts.csv as "material_entity" and "material entity"
+
         for row in reader:
             if row[0] != '' and row[1] != '' and row[2] != '':
                 vocab, code, name = row[0], row[1], row[2]
@@ -143,9 +146,11 @@ def createInsertStatements():
                 if "'" in name:
                     name = name.replace("'", "''")
 
-                concept_id = getConceptId(vocab, code)                
-                out_string = ("INSERT INTO public.concept (concept_id, concept_name, domain_id, vocabulary_id, concept_class_id, concept_code, valid_start_date, valid_end_date) VALUES (%d, \'%s\', \'Metadata\', \'%s\', \'Domain\', \'%s\', \'2000-01-01\', \'2099-02-22\');\n" % (concept_id, name, vocab, code))
-                outfile_concepts.write(out_string)
+                concept_id = getConceptId(vocab, code)     
+                if name != 'None' and concept_id not in usedId:           
+                    out_string = ("INSERT INTO public.concept (concept_id, concept_name, domain_id, vocabulary_id, concept_class_id, concept_code, valid_start_date, valid_end_date) VALUES (%d, LEFT(\'%s\',255), \'Metadata\', \'%s\', \'Domain\', \'%s\', \'2000-01-01\', \'2099-02-22\');\n" % (concept_id, name, vocab, code))
+                    outfile_concepts.write(out_string)
+                    usedId.append(concept_id)
 
         # print existsNameIdDict
         reader = csv.reader(infile_vocab)
@@ -154,7 +159,7 @@ def createInsertStatements():
                 vocab = row[0]
                 concept_id = getVocabConceptId(vocab, vocab)
             
-                out_string = ("INSERT INTO public.concept (concept_id, concept_name, domain_id, vocabulary_id, concept_class_id, concept_code, valid_start_date, valid_end_date) VALUES (%d, \'%s\', \'Metadata\', \'Vocabulary\', \'Vocabulary\', \'OMOP generated\', \'2000-01-01\', \'2099-02-22\');\n" % (concept_id, vocab))
+                out_string = ("INSERT INTO public.concept (concept_id, concept_name, domain_id, vocabulary_id, concept_class_id, concept_code, valid_start_date, valid_end_date) VALUES (%d, LEFT(\'%s\',255), \'Metadata\', \'Vocabulary\', \'Vocabulary\', \'OMOP generated\', \'2000-01-01\', \'2099-02-22\');\n" % (concept_id, vocab))
                 outfile_vocab_concepts.write(out_string)
                 out_string = ("INSERT INTO public.vocabulary (vocabulary_id, vocabulary_name, vocabulary_reference, vocabulary_version, vocabulary_concept_id) VALUES (\'%s\', \'TODO: http://www.ontobee.org/ontology/%s under \"Description\"\', \'TODO: http://www.ontobee.org/ontology/%s under \"Home\"\', \'%s\', %d);\n" % (vocab, vocab, vocab, datetime.date.today(), concept_id))
                 outfile_vocab.write(out_string)
