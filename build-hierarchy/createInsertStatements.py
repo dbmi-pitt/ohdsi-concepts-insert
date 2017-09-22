@@ -134,7 +134,10 @@ def createInsertStatements():
     # add new terms (check concept id in cache, assign next available negative id if not exists)
     with open("output/new-concepts.csv", "rb") as infile_concepts, open("output/sql/load-concepts.sql", "wb") as outfile_concepts, open("output/new-vocab.csv", "rb") as infile_vocab, open("output/sql/load-vocab-concepts.sql", "wb") as outfile_vocab_concepts, open("output/sql/load-vocab.sql", "wb") as outfile_vocab:
         reader = csv.reader(infile_concepts)
-    
+        usedId = [] 
+        # logging used ID's to address a corner case of concept code BFO_0000040 (concept ID -7993832):
+        # this appears in new_concepts.csv as "material_entity" and "material entity"
+
         for row in reader:
             if row[0] != '' and row[1] != '' and row[2] != '':
                 vocab, code, name = row[0], row[1], row[2]
@@ -143,9 +146,11 @@ def createInsertStatements():
                 if "'" in name:
                     name = name.replace("'", "''")
 
-                concept_id = getConceptId(vocab, code)                
-                out_string = ("INSERT INTO public.concept (concept_id, concept_name, domain_id, vocabulary_id, concept_class_id, concept_code, valid_start_date, valid_end_date) VALUES (%d, \'%s\', \'Metadata\', \'%s\', \'Domain\', \'%s\', \'2000-01-01\', \'2099-02-22\');\n" % (concept_id, name, vocab, code))
-                outfile_concepts.write(out_string)
+                concept_id = getConceptId(vocab, code)     
+                if name != 'None' and concept_id not in usedId:           
+                    out_string = ("INSERT INTO public.concept (concept_id, concept_name, domain_id, vocabulary_id, concept_class_id, concept_code, valid_start_date, valid_end_date) VALUES (%d, LEFT(\'%s\',255), \'Metadata\', \'%s\', \'Domain\', \'%s\', \'2000-01-01\', \'2099-02-22\');\n" % (concept_id, name, vocab, code))
+                    outfile_concepts.write(out_string)
+                    usedId.append(concept_id)
 
         # print existsNameIdDict
         reader = csv.reader(infile_vocab)
@@ -154,15 +159,14 @@ def createInsertStatements():
                 vocab = row[0]
                 concept_id = getVocabConceptId(vocab, vocab)
             
-                out_string = ("INSERT INTO public.concept (concept_id, concept_name, domain_id, vocabulary_id, concept_class_id, concept_code, valid_start_date, valid_end_date) VALUES (%d, \'%s\', \'Metadata\', \'Vocabulary\', \'Vocabulary\', \'OMOP generated\', \'2000-01-01\', \'2099-02-22\');\n" % (concept_id, vocab))
+                out_string = ("INSERT INTO public.concept (concept_id, concept_name, domain_id, vocabulary_id, concept_class_id, concept_code, valid_start_date, valid_end_date) VALUES (%d, LEFT(\'%s\',255), \'Metadata\', \'Vocabulary\', \'Vocabulary\', \'OMOP generated\', \'2000-01-01\', \'2099-02-22\');\n" % (concept_id, vocab))
                 outfile_vocab_concepts.write(out_string)
                 out_string = ("INSERT INTO public.vocabulary (vocabulary_id, vocabulary_name, vocabulary_reference, vocabulary_version, vocabulary_concept_id) VALUES (\'%s\', \'TODO: http://www.ontobee.org/ontology/%s under \"Description\"\', \'TODO: http://www.ontobee.org/ontology/%s under \"Home\"\', \'%s\', %d);\n" % (vocab, vocab, vocab, datetime.date.today(), concept_id))
                 outfile_vocab.write(out_string)
                 # IMPORTANT: go to sql/load_vocab.sql and enter missing data marked with "TODO"
 
-
-    with open("output/URI-ancestors.csv", "rb") as infile_ancestors, open("output/sql/load-ancestors-relationships.sql", "wb") as outfile_ancestors, open("output/sql/load-ancestors-hierarchy.sql", "wb") as outfile_a_hierarchy:
-        reader = csv.reader(infile_ancestors)
+    with open("output/URI-relationships.csv", "rb") as infile_relationships, open("output/sql/load-relationships.sql", "wb") as outfile_relationships, open("output/sql/load-ancestors.sql", "wb") as outfile_ancestors:
+        reader = csv.reader(infile_relationships)
         next(reader, None)
         for row in reader:
         
@@ -187,45 +191,76 @@ def createInsertStatements():
             
             if id1 and id2:
                 out_string = ("INSERT INTO public.concept_relationship (concept_id_1, concept_id_2, relationship_id, valid_start_date, valid_end_date) VALUES (%d, %d, \'%s\', '1970-01-01', '2099-12-31');\n" % (id1, id2, relId))
-                outfile_ancestors.write(out_string)
-            
-                # "subsumes" relationship is a single level of separation for a hierarchical relationship
+                outfile_relationships.write(out_string)
                 if relId == "Subsumes":
                     out_string = ("INSERT INTO public.concept_ancestor(ancestor_concept_id, descendant_concept_id, min_levels_of_separation, max_levels_of_separation) VALUES (%d, %d, 1, 1);\n" % (id1, id2))
-                    outfile_a_hierarchy.write(out_string)
+                    outfile_ancestors.write(out_string)
+
+    # with open("output/URI-ancestors.csv", "rb") as infile_ancestors, open("output/sql/load-ancestors-relationships.sql", "wb") as outfile_ancestors, open("output/sql/load-ancestors-hierarchy.sql", "wb") as outfile_a_hierarchy:
+    #     reader = csv.reader(infile_ancestors)
+    #     next(reader, None)
+    #     for row in reader:
+        
+    #         idx1 = row[0].rfind('_')
+    #         vocab1, code1 = row[0][0:idx1], row[0][idx1+1:]        
+    #         id1 = getConceptId(vocab1, code1)
+        
+    #         idx2 = row[1].rfind('_')
+    #         vocab2, code2 = row[1][0:idx2], row[1][idx2+1:]
+    #         id2 = getConceptId(vocab2, code2)
+        
+    #         if not id1:
+    #             print("NO CONCEPT ID FOUND FOR CODE: %s" % row[0])
+    #         if not id2:
+    #             print("NO CONCEPT ID FOUND FOR CODE: %s" % row[1])
+            
+    #         relId = None
+    #         if row[2] == '44818821':
+    #             relId = "Is a"
+    #         elif row[2] == '44818723':
+    #             relId = "Subsumes"
+            
+    #         if id1 and id2:
+    #             out_string = ("INSERT INTO public.concept_relationship (concept_id_1, concept_id_2, relationship_id, valid_start_date, valid_end_date) VALUES (%d, %d, \'%s\', '1970-01-01', '2099-12-31');\n" % (id1, id2, relId))
+    #             outfile_ancestors.write(out_string)
+            
+    #             # "subsumes" relationship is a single level of separation for a hierarchical relationship
+    #             if relId == "Subsumes":
+    #                 out_string = ("INSERT INTO public.concept_ancestor(ancestor_concept_id, descendant_concept_id, min_levels_of_separation, max_levels_of_separation) VALUES (%d, %d, 1, 1);\n" % (id1, id2))
+    #                 outfile_a_hierarchy.write(out_string)
 
                 
-    with open("output/URI-descendants.csv", "rb") as infile_descendants, open("output/sql/load-descendants.sql", "wb") as outfile_descendants, open("output/sql/load-descendants-hierarchy.sql","wb") as outfile_d_hierarchy:
-        reader = csv.reader(infile_descendants)
-        next(reader, None)
-        for row in reader:
-            code1 = row[0].split('_')[-1]
-            code2 = row[1].split('_')[-1]
+    # with open("output/URI-descendants.csv", "rb") as infile_descendants, open("output/sql/load-descendants.sql", "wb") as outfile_descendants, open("output/sql/load-descendants-hierarchy.sql","wb") as outfile_d_hierarchy:
+    #     reader = csv.reader(infile_descendants)
+    #     next(reader, None)
+    #     for row in reader:
+    #         code1 = row[0].split('_')[-1]
+    #         code2 = row[1].split('_')[-1]
         
-            idx1 = row[0].rfind('_')
-            vocab1, code1 = row[0][0:idx1], row[0][idx1+1:]
-            id1 = getConceptId(vocab1, code1)
+    #         idx1 = row[0].rfind('_')
+    #         vocab1, code1 = row[0][0:idx1], row[0][idx1+1:]
+    #         id1 = getConceptId(vocab1, code1)
         
-            idx2 = row[0].rfind('_')
-            vocab2, code2 = row[1][0:idx2], row[1][idx2+1:]
-            id2 = getConceptId(vocab2, code2)
+    #         idx2 = row[0].rfind('_')
+    #         vocab2, code2 = row[1][0:idx2], row[1][idx2+1:]
+    #         id2 = getConceptId(vocab2, code2)
         
-            if not id1:
-                print("NO CONCEPT ID FOUND FOR CODE: %s" % row[0])
-            if not id2:
-                print("NO CONCEPT ID FOUND FOR CODE: %s" % row[1])
+    #         if not id1:
+    #             print("NO CONCEPT ID FOUND FOR CODE: %s" % row[0])
+    #         if not id2:
+    #             print("NO CONCEPT ID FOUND FOR CODE: %s" % row[1])
             
-            relId = None
-            if row[2] == '44818821':
-                relId = "Is a"
-            elif row[2] == '44818723':
-                relId = "Subsumes"
-            if id1 and id2:
-                out_string = ("INSERT INTO public.concept_relationship (concept_id_1, concept_id_2, relationship_id, valid_start_date, valid_end_date) VALUES (%d, %d, \'%s\', '1970-01-01', '2099-12-31');\n" % (id1, id2, relId))
-                outfile_descendants.write(out_string)
-                if relId == "Subsumes":
-                    out_string = ("INSERT INTO public.concept_ancestor(ancestor_concept_id, descendant_concept_id, min_levels_of_separation, max_levels_of_separation) VALUES (%d, %d, 1, 1);\n" % (id1, id2))
-                    outfile_d_hierarchy.write(out_string)
+    #         relId = None
+    #         if row[2] == '44818821':
+    #             relId = "Is a"
+    #         elif row[2] == '44818723':
+    #             relId = "Subsumes"
+    #         if id1 and id2:
+    #             out_string = ("INSERT INTO public.concept_relationship (concept_id_1, concept_id_2, relationship_id, valid_start_date, valid_end_date) VALUES (%d, %d, \'%s\', '1970-01-01', '2099-12-31');\n" % (id1, id2, relId))
+    #             outfile_descendants.write(out_string)
+    #             if relId == "Subsumes":
+    #                 out_string = ("INSERT INTO public.concept_ancestor(ancestor_concept_id, descendant_concept_id, min_levels_of_separation, max_levels_of_separation) VALUES (%d, %d, 1, 1);\n" % (id1, id2))
+    #                 outfile_d_hierarchy.write(out_string)
 
 
 def main():
