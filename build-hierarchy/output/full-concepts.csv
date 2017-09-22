@@ -9992,6 +9992,7 @@ GO,1990909,Wnt signalosome
 GO,1990957,NPHP complex
 GO,1990964,actin cytoskeleton-regulatory complex
 GO,1905961,protein-cysteine S-palmitoyltransferase complex
+GO,0106055,mannosyl-oligosaccharide 1,2-alpha-mannosidase complex
 GO,0008180,COP9 signalosome
 GO,0008537,proteasome activator complex
 GO,0008540,proteasome regulatory particle, base subcomplex
@@ -10126,6 +10127,7 @@ GO,0043452,cellular alkyne metabolic process
 GO,0042810,pheromone metabolic process
 GO,0090345,cellular organohalogen metabolic process
 GO,2001290,hydroperoxide metabolic process
+GO,0110051,metabolite repair
 GO,0008218,bioluminescence
 GO,0009404,toxin metabolic process
 GO,0009850,auxin metabolic process
@@ -10739,6 +10741,12 @@ OBI,0000011,planned process
 BFO,0000015,process
 BFO,0000003,occurrent
 BFO,0000001,entity
+OBI,0002140,temperature measurement assay
+OBI,0002141,volume measurement assay
+OBI,0002144,extrachromosomal circular DNA sequencing assay
+OBI,0002162,footprinting assay
+OBI,0002165,protein localization assay
+OBI,0002176,electrophysiology assay
 OBI,0000117,Bernoulli trial
 OBI,0000185,imaging assay
 OBI,0000201,radioactivity detection
@@ -11024,6 +11032,17 @@ OBI,0100051,specimen
 BFO,0000040,material entity
 BFO,0000004,independent continuant
 BFO,0000002,continuant
+OBI,0002543,atrial appendage specimen
+OBI,0002550,sigmoid colon specimen
+OBI,0002544,esophagogastric junction specimen
+OBI,0002545,ileum specimen
+OBI,0002546,liver specimen
+OBI,0002547,minor salivary gland specimen
+OBI,0002548,omentum specimen
+OBI,0002549,ovary specimen
+OBI,0002551,suprapubic skin specimen
+OBI,0002552,testis specimen
+OBI,0002553,uterus specimen
 OBI,0000651,urine specimen
 OBI,0000655,blood specimen
 OBI,0000671,sample from organism
@@ -11071,11 +11090,17 @@ OBI,0002540,coronary artery specimen
 OBI,0002541,spleen specimen
 OBI,0002542,aorta specimen
 OBI,1000049,whole mount tissue
+OBI,0002554,vagina specimen
 OBI,0001933,value specification
 IAO,0000030,information content entity
 BFO,0000031,generically dependent continuant
 BFO,0000002,continuant
 BFO,0000001,entity
+OBI,0002137,RNA Integrity Number value specification
+OBI,0002138,temperature value specification
+OBI,0002139,volume value specification
+OBI,0002556,minimum age value specification
+OBI,0002557,maximum age value specification
 OBI,0001873,number of errors
 OBI,0001930,categorical value specification
 OBI,0001931,scalar value specification

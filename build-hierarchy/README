@@ -63,14 +63,14 @@ hierarchy.py:
     OUTPUTS for hierarchy.py:
     (in "output folder")
     URI-hierarchy.csv = 5 levels of ancestors and descendants from a given URI.
-    URI-ancestors.csv = 5 levels of ancestors from a given URI, written out in a format more suited for creating "insert" statements for the "concept_relationship" table. Each concept is printed with its reverse relationship (a given URI "is a" ancestor while the URI's ancestor "subsumes" the URI)
-    URI-descendants.csv = all descendants from a given URI. Each concept is printed with its reverse relationship (a given URI "subsumes" its descendant while the URI's descendant "is a" URI)
+    URI-relationships.csv = relationships from ancestor and descendant queries: 
+        5 levels of ancestors from a given URI, written out in a format more suited for creating "insert" statements for the "concept_relationship" table. Each concept is printed with its reverse relationship (a given URI "is a" ancestor while the URI's ancestor "subsumes" the URI).
+        Also includes all descendants from a given URI. Each concept is printed with its reverse relationship (a given URI "subsumes" its descendant while the URI's descendant "is a" URI)
     new-vocab.csv = vocabularies that do not currently exist in the Laertes_cdm database.
     full-vocab.csv = all vocabularies that show up in the URI list and its ancestors/descendants.
     new-concepts.csv = concepts that do not currently exist in the Laertes_cdm database.
     full-vocab.csv = all concepts that show up in the URI list and its ancestors/descendants.
 
-IN OUTPUT FOLDER:
 createInsertStatements.py:
 Depends on output from hierarchy.py - uses files URI-ancestors.csv, URI-descendants.csv, new-vocab.csv, new-concepts.csv, full-concepts.csv to create INSERT statements into Laertes_cdm.
 
@@ -94,6 +94,7 @@ SELECT ancestor_concept_id, descendant_concept_id, COUNT(*) FROM concept_ancesto
 WHERE ancestor_concept_id < 0 AND descendant_concept_id < 0
 GROUP BY ancestor_concept_id, descendant_concept_id
 HAVING COUNT(*) > 0;
-=======
+
 NOTE: Can't find date for "vocabulary_version" column on Ontobee, so script uses today's date.
->>>>>>> 4ae41efe06d325e04dc38ad19890f328dd123af8
+
+NOTE: concepts added use first 255 characters, as schema does not handle any more.
