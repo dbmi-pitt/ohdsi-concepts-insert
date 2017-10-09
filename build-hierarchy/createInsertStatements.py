@@ -132,7 +132,7 @@ def getVocabConceptId(vocab, name):
     
 def createInsertStatements():
     # add new terms (check concept id in cache, assign next available negative id if not exists)
-    with open("output/new-concepts.csv", "rb") as infile_concepts, open("output/sql/load-concepts.sql", "wb") as outfile_concepts, open("output/new-vocab.csv", "rb") as infile_vocab, open("output/sql/load-vocab-concepts.sql", "wb") as outfile_vocab_concepts, open("output/sql/load-vocab.sql", "wb") as outfile_vocab:
+    with open("output/new-concepts.csv", "rb") as infile_concepts, open("output/sql/load-concepts.sql", "wb") as outfile_concepts, open("output/sql/load-concepts-ATLAS.sql", "wb") as outfile_concepts_ATLAS, open("output/new-vocab.csv", "rb") as infile_vocab, open("output/sql/load-vocab-concepts.sql", "wb") as outfile_vocab_concepts, open("output/sql/load-vocab.sql", "wb") as outfile_vocab:
         reader = csv.reader(infile_concepts)
         usedId = [] 
         # logging used ID's to address a corner case of concept code BFO_0000040 (concept ID -7993832):
@@ -151,6 +151,8 @@ def createInsertStatements():
                     out_string = ("INSERT INTO public.concept (concept_id, concept_name, domain_id, vocabulary_id, concept_class_id, concept_code, valid_start_date, valid_end_date) VALUES (%d, LEFT(\'%s\',255), \'Metadata\', \'%s\', \'Domain\', \'%s\', \'2000-01-01\', \'2099-02-22\');\n" % (concept_id, name, vocab, code))
                     outfile_concepts.write(out_string)
                     usedId.append(concept_id)
+                    out_string_ATLAS = ("INSERT INTO public.concept (concept_id, concept_name, domain_id, vocabulary_id, concept_class_id, concept_code, valid_start_date, valid_end_date) VALUES (%d, LEFT(\'%s\',255), \'Metadata\', \'SNOMED\', \'Clinical Finding\', \'%s\', \'2000-01-01\', \'2099-02-22\');\n" % (concept_id, name, code))
+                    outfile_concepts_ATLAS.write(out_string_ATLAS)
 
         # print existsNameIdDict
         reader = csv.reader(infile_vocab)
@@ -161,7 +163,7 @@ def createInsertStatements():
             
                 out_string = ("INSERT INTO public.concept (concept_id, concept_name, domain_id, vocabulary_id, concept_class_id, concept_code, valid_start_date, valid_end_date) VALUES (%d, LEFT(\'%s\',255), \'Metadata\', \'Vocabulary\', \'Vocabulary\', \'OMOP generated\', \'2000-01-01\', \'2099-02-22\');\n" % (concept_id, vocab))
                 outfile_vocab_concepts.write(out_string)
-                out_string = ("INSERT INTO public.vocabulary (vocabulary_id, vocabulary_name, vocabulary_reference, vocabulary_version, vocabulary_concept_id) VALUES (\'%s\', \'TODO: http://www.ontobee.org/ontology/%s under \"Description\"\', \'TODO: http://www.ontobee.org/ontology/%s under \"Home\"\', \'%s\', %d);\n" % (vocab, vocab, vocab, datetime.date.today(), concept_id))
+                out_string = ("INSERT INTO public.vocabulary (vocabulary_id, vocabulary_name, vocabulary_reference, vocabulary_version, vocabulary_concept_id) VALUES (\'%s\', LEFT('TODO: http://www.ontobee.org/ontology/%s under \"Description\"', 255), \'TODO: http://www.ontobee.org/ontology/%s under \"Home\"\', \'%s\', %d);\n" % (vocab, vocab, vocab, datetime.date.today(), concept_id))
                 outfile_vocab.write(out_string)
                 # IMPORTANT: go to sql/load_vocab.sql and enter missing data marked with "TODO"
 
