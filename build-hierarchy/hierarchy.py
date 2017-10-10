@@ -141,7 +141,7 @@ def findNewConcepts(uri, conceptList):
     curs.execute(q)
     s = '%s,%s,%s' % (v, code, name)
     # concept not already in database. Return True
-    if len(curs.fetchall()) == 0 and s not in conceptList:
+    if len(curs.fetchall()) == 0 and s not in conceptList and name is not None:
         conceptList.append(s)
         return conceptList
     else:
@@ -235,11 +235,13 @@ with open('URI-list.csv', 'rb') as infile, open('output/URI-hierarchy.csv', 'wb'
                 newConcepts = findNewConcepts(ancestors.get(1), newConcepts)
                 v = u'_'.join(ancestors.get(1).get('uri').split('_')[:-1])
                 code = ancestors.get(1).get('uri').split('_')[-1]
-                s = '%s,%s' % (v, code)
+                s = '%s,%s,%s' % (v, code, name)
                 if v not in fullVocab:
                     fullVocab.append(v)
                 if s not in fullConcepts:
-                    fullConcepts.append('%s,%s' % (s, name))
+                    fullConcepts.append(s)
+                # if s not in newConcepts:
+                #     newConcepts.append(s)
             if ancestors.get(2) is not None: 
                 ANCESTOR_STRING_1 = u"%s,%s,44818821\n" % (uri, ancestors.get(2).get('uri'))
                 ANCESTOR_STRING_2 = u"%s,%s,44818723\n" % (ancestors.get(2).get('uri'), uri)
@@ -253,11 +255,13 @@ with open('URI-list.csv', 'rb') as infile, open('output/URI-hierarchy.csv', 'wb'
                 newConcepts = findNewConcepts(ancestors.get(2), newConcepts)
                 v = u'_'.join(ancestors.get(2).get('uri').split('_')[:-1]) 
                 code = ancestors.get(2).get('uri').split('_')[-1]
-                s = '%s,%s' % (v, code)
+                s = '%s,%s,%s' % (v, code, ancestors.get(2).get('name'))
                 if v not in fullVocab:
                     fullVocab.append(v)
                 if s not in fullConcepts:
-                    fullConcepts.append('%s,%s' % (s, ancestors.get(2).get('name')))
+                    fullConcepts.append(s)
+                # if s not in newConcepts: 
+                #     newConcepts.append(s)
             if ancestors.get(3) is not None:    
                 ANCESTOR_STRING_1 = u"%s,%s,44818821\n" % (ancestors.get(2).get('uri'), ancestors.get(3).get('uri'))
                 ANCESTOR_STRING_2 = u"%s,%s,44818723\n" % (ancestors.get(3).get('uri'), ancestors.get(2).get('uri'))
@@ -271,11 +275,13 @@ with open('URI-list.csv', 'rb') as infile, open('output/URI-hierarchy.csv', 'wb'
                 newConcepts = findNewConcepts(ancestors.get(3), newConcepts)
                 v = u'_'.join(ancestors.get(3).get('uri').split('_')[:-1]) 
                 code = ancestors.get(3).get('uri').split('_')[-1]
-                s = '%s,%s' % (v, code)
+                s = '%s,%s,%s' % (v, code, ancestors.get(3).get('name'))
                 if v not in fullVocab:
                     fullVocab.append(v)
                 if s not in fullConcepts:
-                    fullConcepts.append('%s,%s' % (s, ancestors.get(3).get('name')))
+                    fullConcepts.append(s)
+                # if s not in newConcepts:
+                #     newConcepts.append(s)
             if ancestors.get(4) is not None:
                 ANCESTOR_STRING_1 = u"%s,%s,44818821\n" % (ancestors.get(3).get('uri'), ancestors.get(4).get('uri'))
                 ANCESTOR_STRING_2 = u"%s,%s,44818723\n" % (ancestors.get(4).get('uri'), ancestors.get(3).get('uri'))
@@ -289,11 +295,13 @@ with open('URI-list.csv', 'rb') as infile, open('output/URI-hierarchy.csv', 'wb'
                 newConcepts = findNewConcepts(ancestors.get(4), newConcepts)
                 v = u'_'.join(ancestors.get(4).get('uri').split('_')[:-1]) 
                 code = ancestors.get(4).get('uri').split('_')[-1]
-                s = '%s,%s' % (v, code)
+                s = '%s,%s,%s' % (v, code, ancestors.get(4).get('name'))
                 if v not in fullVocab:
                     fullVocab.append(v)
                 if s not in fullConcepts:
-                    fullConcepts.append('%s,%s' % (s, ancestors.get(4).get('name')))
+                    fullConcepts.append(s)
+                # if s not in newConcepts:
+                #     newConcepts.append(s)
             if ancestors.get(5) is not None:
                 ANCESTOR_STRING_1 = u"%s,%s,44818821\n" % (ancestors.get(4).get('uri'), ancestors.get(5).get('uri'))
                 ANCESTOR_STRING_2 = u"%s,%s,44818723\n" % (ancestors.get(5).get('uri'), ancestors.get(4).get('uri'))
@@ -307,11 +315,13 @@ with open('URI-list.csv', 'rb') as infile, open('output/URI-hierarchy.csv', 'wb'
                 newConcepts = findNewConcepts(ancestors.get(5), newConcepts)
                 v = u'_'.join(ancestors.get(5).get('uri').split('_')[:-1]) 
                 code = ancestors.get(5).get('uri').split('_')[-1]
-                s = '%s,%s' % (v, code)
+                s = '%s,%s,%s' % (v, code, ancestors.get(5).get('name'))
                 if v not in fullVocab:
                     fullVocab.append(v)
                 if s not in fullConcepts:
-                    fullConcepts.append('%s,%s' % (s, ancestors.get(5).get('name')))
+                    fullConcepts.append(s)
+                # if s not in newConcepts:
+                #     newConcepts.append(s)
         if descendants:
             # since descendants do not seem to have a clear hierarchy, currently assume that all are equally subsumed by ancestor. Print all, rather than just one.
             for k,v in descendants.iteritems():
@@ -327,11 +337,13 @@ with open('URI-list.csv', 'rb') as infile, open('output/URI-hierarchy.csv', 'wb'
                 newConcepts = findNewConcepts(v, newConcepts)
                 vo = u'_'.join(v.get('uri').split('_')[:-1]) 
                 vcode = v.get('uri').split('_')[-1]
-                s = '%s,%s' % (vo, vcode)
+                s = '%s,%s,%s' % (vo, vcode, v.get('name'))
                 if vo not in fullVocab:
                     fullVocab.append(vo)
                 if s not in fullConcepts:
-                    fullConcepts.append('%s,%s' % (s, v.get('name')))
+                    fullConcepts.append(s)
+                # if s not in newConcepts:
+                #     newConcepts.append(s)
 
     vfile.write('\n'.join(newVocab))
     cfile.write('\n'.join(newConcepts))
