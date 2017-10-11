@@ -1,3 +1,4 @@
+APOLLO_SV,00000032,count
 IAO,0000109,measurement datum
 IAO,0000027,data item
 IAO,0000030,information content entity
@@ -15,10 +16,12 @@ APOLLO_SV,00000098,count of contagious population
 APOLLO_SV,00000099,count of resistant population
 APOLLO_SV,00000281,number of doses in a treatment course
 STATO,0000088,study group population size
+CHEBI,101278,diltiazem
 CHEBI,82814,5-[2-(dimethylamino)ethyl]-2-(4-methoxyphenyl)-4-oxo-2,3,4,5-tetrahydro-1,5-benzothiazepin-3-yl acetate
 CHEBI,48684,benzothiazepine
 CHEBI,27171,organic heterobicyclic compound
 CHEBI,38166,organic heteropolycyclic compound
+CHEBI,13389,NAD
 CHEBI,25524,NAD(P)
 CHEBI,37007,nicotinamide dinucleotide
 CHEBI,25527,nicotinamide nucleotide
@@ -29,6 +32,7 @@ CHEBI,26916,tetrahydronicotinamide adenine dinucleotide
 CHEBI,44215,NAD zwitterion
 CHEBI,90171,2-hydro-beta-NAD
 CHEBI,90174,6-hydro-beta-NAD
+CHEBI,15986,polynucleotide
 CHEBI,61120,nucleobase-containing molecular entity
 CHEBI,33833,heteroarene
 CHEBI,24532,organic heterocyclic compound
@@ -45,20 +49,25 @@ CHEBI,76043,poly(deoxyguanylic acid)
 CHEBI,76777,poly(inosinic acid)
 CHEBI,84498,poly(cytidylic acid)
 CHEBI,1981,5'-phosphopolynucleotide
+CHEBI,16474,NADPH
 CHEBI,25523,NADP
+CHEBI,16856,glutathione
 CHEBI,47923,tripeptide
 CHEBI,25676,oligopeptide
 CHEBI,16670,peptide
 CHEBI,37622,carboxamide
 CHEBI,13392,NAD(P)H
+CHEBI,17200,UDP-alpha-D-glucuronic acid
 CHEBI,17297,UDP-sugar
 CHEBI,61109,pyrimidine nucleotide-sugar
 CHEBI,25609,nucleotide-sugar
 CHEBI,35241,nucleotide-carbohydrate
+CHEBI,17980,3'-phospho-5'-adenylyl sulfate
 CHEBI,22251,adenosine bisphosphate
 CHEBI,22256,adenosine phosphate
 CHEBI,61296,adenyl ribonucleotide
 CHEBI,26400,purine ribonucleotide
+CHEBI,18946,delta-lactone
 CHEBI,25000,lactone
 CHEBI,33308,carboxylic ester
 CHEBI,35701,ester
@@ -246,6 +255,7 @@ CHEBI,94576,(2S)-2-methylbutanoic acid [(1S,7S,8S,8aS)-8-[2-[(2R,4R)-4-hydroxy-6
 CHEBI,95115,4-hydroxy-4-methyl-2-oxanone
 CHEBI,95182,2,2-dimethylbutanoic acid [(7S,8S)-8-[2-[(2R)-4-hydroxy-6-oxo-2-oxanyl]ethyl]-3,7-dimethyl-1,2,3,7,8,8a-hexahydronaphthalen-1-yl] ester
 CHEBI,95197,(2S)-2-methylbutanoic acid [(7S,8S,8aR)-8-[2-[(2R)-4-hydroxy-6-oxo-2-oxanyl]ethyl]-3,7-dimethyl-1,2,3,7,8,8a-hexahydronaphthalen-1-yl] ester
+CHEBI,22715,benzimidazoles
 CHEBI,103852,1-(5-bromo-2-thiophenyl)-2-[(5-ethoxy-1-methyl-2-benzimidazolyl)thio]ethanone
 CHEBI,103862,1-(5-bromo-2-thiophenyl)-2-[(5-methoxy-1-methyl-2-benzimidazolyl)thio]ethanone
 CHEBI,104010,1-[3-[2-(diethylamino)ethyl]-2-imino-1-benzimidazolyl]-3-(3-methylphenoxy)-2-propanol
@@ -588,6 +598,7 @@ CHEBI,135544,ilaprazole
 CHEBI,135931,dexlansoprazole
 CHEBI,135954,bilastine
 CHEBI,137404,5-hydroxybenzimidazole
+CHEBI,23367,molecular entity
 CHEBI,24431,chemical entity
 CHEBI,76107,deuterated compound
 CHEBI,24835,inorganic molecular entity
@@ -599,14 +610,15 @@ CHEBI,33497,transition element molecular entity
 CHEBI,33579,main group molecular entity
 CHEBI,46617,exotic molecular entity
 CHEBI,35568,mancude ring
+CHEBI,23677,diazole
 CHEBI,68452,azole
 CHEBI,38179,monocyclic heteroarene
 CHEBI,24780,imidazoles
 CHEBI,26410,pyrazoles
-CHEBI,23367,molecular entity
 CHEBI,33250,atom
 CHEBI,24433,group
 CHEBI,59999,chemical substance
+CHEBI,24432,biological role
 CHEBI,50906,role
 CHEBI,35222,inhibitor
 CHEBI,52206,biochemical role
@@ -653,6 +665,7 @@ CHEBI,59744,zirconacycle
 CHEBI,38104,oxacycle
 CHEBI,52702,organoiodine heterocyclic compound
 CHEBI,55382,camphorsulfonates
+CHEBI,24669,hydroxy carboxylic acid
 CHEBI,33575,carboxylic acid
 CHEBI,35605,carbon oxoacid
 CHEBI,36962,organochalcogen compound
@@ -669,7 +682,6 @@ CHEBI,65758,dianversicoside D
 CHEBI,71529,16alpha-hydroxygypsogenic acid
 CHEBI,71531,gypsogenic acid
 CHEBI,137343,(R)-2-(phosphonomethyl)malic acid
-CHEBI,23677,diazole
 CHEBI,103840,LSM-15190
 CHEBI,103857,1-(4-chlorophenyl)-3-(4-methoxyphenyl)-6,7,8,9-tetrahydro-5H-imidazo[1,2-a]azepin-4-ium
 CHEBI,103858,1-[(4-bromophenyl)methyl]-3-(4-chlorophenyl)-6,7,8,9-tetrahydro-5H-imidazo[1,2-a]azepin-1-ium
@@ -1018,7 +1030,6 @@ CHEBI,69020,physalin G
 CHEBI,75939,depsidones
 CHEBI,78029,toralactone
 CHEBI,88174,7,9-di-tert-butyl-1-oxaspiro[4.5]deca-6,9-diene-2,8-dione
-CHEBI,18946,delta-lactone
 CHEBI,37581,gamma-lactone
 CHEBI,37668,terpene lactone
 CHEBI,35213,cyclodepsipeptide
@@ -1053,7 +1064,7 @@ CHEBI,65447,AS-186d
 CHEBI,65556,callipeltin A
 CHEBI,84050,trabectedin
 CHEBI,136340,fenpicoxamid
-CHEBI,24432,biological role
+CHEBI,25212,metabolite
 CHEBI,27311,volatile oil component
 CHEBI,27026,toxin
 CHEBI,78361,lichen metabolite
@@ -1065,6 +1076,7 @@ CHEBI,82933,gut flora metabolite
 CHEBI,75763,eukaryotic metabolite
 CHEBI,62215,allelochemical
 CHEBI,75787,prokaryotic metabolite
+CHEBI,25970,phenoxazine
 CHEBI,26979,organic heterotricyclic compound
 CHEBI,51959,organic tricyclic compound
 CHEBI,51958,organic polycyclic compound
@@ -1090,6 +1102,7 @@ CHEBI,51602,resorufin
 CHEBI,52186,oxazine-1
 CHEBI,94057,10H-phenoxazine
 CHEBI,94104,4-(2-chloro-10-phenoxazinyl)-N,N-diethyl-1-butanamine
+CHEBI,2663,Amiodarone
 CHEBI,76224,aromatic ketone
 CHEBI,17087,ketone
 CHEBI,36586,carbonyl compound
@@ -1350,7 +1363,6 @@ CHEBI,8839,Ribalinium
 CHEBI,9946,Veprisinium
 CHEBI,10002,Visnagin
 CHEBI,10103,zaluzanin C
-CHEBI,25970,phenoxazine
 CHEBI,38922,dibenzofurans
 CHEBI,7731,ofloxacin
 CHEBI,111168,acetic acid [(1R,4bR,5R,8R,10S,10aS,12aS)-1-(3-furanyl)-8,10-dihydroxy-4b,7,7,10a,12a-pentamethyl-3-oxo-1,5,6,6a,8,9,10,10b,11,12-decahydronaphtho[2,1-f][2]benzopyran-5-yl] ester
@@ -1572,7 +1584,6 @@ CHEBI,105189,N-(2-furanylmethyl)-2-(4-oxo-6-phenyl-3-thieno[2,3-d]pyrimidinyl)ac
 CHEBI,105248,3-[(2,5,6-trimethyl-4-thieno[2,3-d]pyrimidinyl)thio]-2-oxolanone
 CHEBI,105258,2-[[5-(4-methylphenyl)-3-thiazolo[2,3-c][1,2,4]triazolyl]thio]-N-(6-methyl-2-pyridinyl)acetamide
 CHEBI,131903,pyranopyrazole
-CHEBI,22715,benzimidazoles
 CHEBI,26518,quinuclidines
 CHEBI,37942,thienopyridine
 CHEBI,38530,quinazolines
@@ -1897,10 +1908,12 @@ CHEBI,756,14-dihydroxycornestin
 CHEBI,94765,LSM-5894
 CHEBI,135277,bisulepine
 CHEBI,137441,(E)-1-hydroxy-2-(non-1-en-1-yl)quinolin-4-one
+CHEBI,29133,dextrorphan
 CHEBI,25418,morphinane alkaloid
 CHEBI,24921,isoquinoline alkaloid
 CHEBI,22315,alkaloid
 CHEBI,35352,organonitrogen compound
+CHEBI,33240,coordination entity
 CHEBI,37577,heteroatomic molecular entity
 CHEBI,25216,metalloporphyrin
 CHEBI,37442,coronate
@@ -1909,6 +1922,7 @@ CHEBI,51518,halometallate anion
 CHEBI,52391,nitrometallate anion
 CHEBI,36562,main-group coordination entity
 CHEBI,36563,zinc group coordination entity
+CHEBI,33285,heteroorganic entity
 CHEBI,33675,p-block molecular entity
 CHEBI,38278,organoboron compound
 CHEBI,25710,organophosphorus compound
@@ -1917,7 +1931,6 @@ CHEBI,86478,antibiotic antifungal agent
 CHEBI,36684,organohalogen compound
 CHEBI,86494,botanical anti-fungal agent
 CHEBI,44880,tetraphenylphosphonium
-CHEBI,33285,heteroorganic entity
 CHEBI,36054,benzoate ester
 CHEBI,114366,3,5-dimethyl-1H-pyrrole-2,4-dicarboxylic acid O4-ethyl ester O2-[(2-fluorophenyl)methyl] ester
 CHEBI,114413,2,5-dimethyl-3-furancarboxylic acid [2-(2-ethoxyanilino)-2-oxo-1-phenylethyl] ester
@@ -2393,7 +2406,6 @@ CHEBI,123404,1-(4,6-dimethyl-2-pyrimidinyl)-4-piperidinecarboxylic acid
 CHEBI,124991,cefalotin
 CHEBI,126598,cinalukast
 CHEBI,127780,phosphonoformic acid
-CHEBI,24669,hydroxy carboxylic acid
 CHEBI,25865,penicillanic acids
 CHEBI,33576,sulfur-containing carboxylic acid
 CHEBI,35743,pentacarboxylic acid
@@ -2439,6 +2451,7 @@ CHEBI,33302,pnictogen molecular entity
 CHEBI,33304,chalcogen molecular entity
 CHEBI,33581,boron group molecular entity
 CHEBI,134733,antimony pentasulfide
+CHEBI,33694,biomacromolecule
 CHEBI,65212,polysaccharide derivative
 CHEBI,3892,corticotropin
 CHEBI,61151,poly-ADP-D-ribose
@@ -2454,8 +2467,6 @@ CHEBI,72813,exopolysaccharide
 CHEBI,53375,gamma-poly(D-glutamic acid) macromolecule
 CHEBI,65311,corticotropin-releasing hormone
 CHEBI,65318,cyanophycin macromolecule
-CHEBI,33694,biomacromolecule
-CHEBI,15986,polynucleotide
 CHEBI,36080,protein
 CHEBI,1359,3'-phosphopolynucleotide
 CHEBI,16991,deoxyribonucleic acid
@@ -2464,6 +2475,7 @@ CHEBI,48010,locked nucleic acid
 CHEBI,48015,glycol nucleic acid
 CHEBI,48019,threose nucleic acid
 CHEBI,48021,peptide nucleic acid
+CHEBI,33697,RNA
 CHEBI,2651,alpha-aminoacyl-tRNA
 CHEBI,136721,telomeric repeat-containing RNA
 CHEBI,134528,CRISPR RNA
@@ -2566,6 +2578,7 @@ CHEBI,95020,N-cyclopropyl-5-thiophen-2-yl-3-isoxazolecarboxamide
 CHEBI,95049,4-[2-(2-chloro-4-fluoroanilino)-5-methyl-4-pyrimidinyl]-N-[(1S)-1-(3-chlorophenyl)-2-hydroxyethyl]-1H-pyrrole-2-carboxamide
 CHEBI,135447,penthienate
 CHEBI,136055,hydracarbazine
+CHEBI,33839,macromolecule
 CHEBI,15841,polypeptide
 CHEBI,26178,polyester macromolecule
 CHEBI,51349,polyamine macromolecule
@@ -2603,25 +2616,24 @@ CHEBI,53720,poly(sulfide) macromolecule
 CHEBI,53803,atactic macromolecule
 CHEBI,53804,isotactic macromolecule
 CHEBI,53805,syndiotactic macromolecule
+CHEBI,33976,magnesium coordination entity
 CHEBI,35217,alkaline earth coordination entity
-CHEBI,33240,coordination entity
 CHEBI,51234,magnesium halide
 CHEBI,38251,magnesium tetrapyrrole
 CHEBI,30032,hexaaquamagnesium(2+)
 CHEBI,30617,MgATP(2-)
+CHEBI,35134,metalloprotein
 CHEBI,33837,conjugated protein
 CHEBI,49111,molybdenum protein
 CHEBI,49113,metal-pyranopterin protein
 CHEBI,49116,metal-bis(pyranopterin) protein
 CHEBI,35136,iron protein
-CHEBI,35134,metalloprotein
 CHEBI,35135,iron-sulfur protein
 CHEBI,35137,hemoprotein
 CHEBI,17423,methemoglobin
 CHEBI,4056,cytochrome
 CHEBI,36074,heme-thiolate protein
 CHEBI,5386,globin
-CHEBI,33976,magnesium coordination entity
 CHEBI,50132,calcium coordination entity
 CHEBI,33782,beryllium coordination entity
 CHEBI,68494,apoptosis inhibitor
@@ -2677,6 +2689,7 @@ CHEBI,138381,RhoC inhibitor
 CHEBI,137114,bromodomain-containing protein 4 inhibitor
 CHEBI,137079,eukaryotic initiation factor 4F inhibitor
 CHEBI,137692,C3 exoenzyme
+CHEBI,35259,benzofurans
 CHEBI,103833,5-(3-pyridinylmethyl)-2-benzofurancarboxylic acid
 CHEBI,103917,N,2-diethyl-4-benzofuro[3,2-d]pyrimidinamine
 CHEBI,103953,2-ethyl-N-phenyl-4-benzofuro[3,2-d]pyrimidinamine
@@ -3148,6 +3161,7 @@ CHEBI,137456,(S)-3,4-dihydroxy-2-oxobutanoic acid
 CHEBI,137486,(R)-3,4-dihydroxy-2-oxobutanoic acid
 CHEBI,137502,(S)-2,4-dihydroxy-3-oxobutanoic acid
 CHEBI,38559,cytochrome P450
+CHEBI,36080,Protein
 CHEBI,60425,amyloid fibril
 CHEBI,138151,cathepsin G
 CHEBI,138152,serum amyloid A
@@ -3174,7 +3188,6 @@ CHEBI,25367,molecule
 CHEBI,36358,polyatomic ion
 CHEBI,50967,non-covalently-bound molecular entity
 CHEBI,50795,nanostructure
-CHEBI,33839,macromolecule
 CHEBI,33731,cluster
 CHEBI,37384,bismuth coordination entity
 CHEBI,37190,silicon coordination entity
@@ -3769,6 +3782,7 @@ CHEBI,135278,terizidone
 CHEBI,135333,lodoxamide
 CHEBI,135846,nicofuranose
 CHEBI,136039,phenibut
+CHEBI,37577,chemical compound
 CHEBI,24651,hydroxides
 CHEBI,24866,salt
 CHEBI,25741,oxide
@@ -3777,6 +3791,7 @@ CHEBI,50312,onium compound
 CHEBI,37578,halide
 CHEBI,33241,oxoacid derivative
 CHEBI,33692,hydrides
+CHEBI,38163,organic heterotetracyclic compound
 CHEBI,10324,alpha-peltatin
 CHEBI,10435,beta-obscurine
 CHEBI,50307,furonaphthodioxole
@@ -4019,7 +4034,6 @@ CHEBI,85419,7-demethylmitomycin A
 CHEBI,94748,5-bromo-3-pyridinecarboxylic acid [(6aS,9R,10aS)-10a-methoxy-4,7-dimethyl-6a,8,9,10-tetrahydro-6H-indolo[4,3-fg]quinoline-9-yl]methyl ester
 CHEBI,95219,5-bromo-3-pyridinecarboxylic acid (10a-methoxy-4,7-dimethyl-6a,8,9,10-tetrahydro-6H-indolo[4,3-fg]quinoline-9-yl)methyl ester
 CHEBI,138488,alsterpaullone
-CHEBI,35259,benzofurans
 CHEBI,132628,isotalatizidine
 CHEBI,132629,neoline
 CHEBI,132630,benzoylmesaconine
@@ -4055,7 +4069,6 @@ CHEBI,2992,barbinine
 CHEBI,91003,asperlicins
 CHEBI,46836,oxacyclopentaindacene
 CHEBI,24922,isoquinolines
-CHEBI,38163,organic heterotetracyclic compound
 CHEBI,17384,17-O-acetylnorajmaline
 CHEBI,39203,dibenzopyran
 CHEBI,52753,perylenediimide
@@ -4086,18 +4099,24 @@ CHEBI,35597,1,3-oxazole
 CHEBI,35600,isothiazole
 CHEBI,4057,oxidized cytochrome P450
 CHEBI,4058,reduced cytochrome P450
+CHEBI,38561,fluvastatin
 CHEBI,87635,statin (synthetic)
 CHEBI,35727,triazoles
 CHEBI,131341,4,5-diphenyl-1,2,3-triazole
 CHEBI,35560,1,2,4-triazole
 CHEBI,35562,1,2,3-triazole
+CHEBI,40303,Lovastatin
+CHEBI,4470,Dextromethorphan
 CHEBI,35618,aromatic ether
+CHEBI,46081,fluconazole
 CHEBI,87101,triazole antifungal drug
 CHEBI,86426,triazole antifungal agent
+CHEBI,47381,Diclofenac
 CHEBI,23697,dichlorobenzene
 CHEBI,23132,chlorobenzenes
 CHEBI,22712,benzenes
 CHEBI,33836,benzenoid aromatic compound
+CHEBI,48339,ketoconazole
 CHEBI,48342,trans-1-acetyl-4-(4-{[2-(2,4-dichlorophenyl)-2-(1H-imidazol-1-ylmethyl)-1,3-dioxolan-4-yl]methoxy}phenyl)piperazine
 CHEBI,86411,cis-1-acetyl-4-(4-{[2-(2,4-dichlorophenyl)-2-(1H-imidazol-1-ylmethyl)-1,3-dioxolan-4-yl]methoxy}phenyl)piperazine
 CHEBI,91650,7-chloro-5-(2-chlorophenyl)-1,5-dihydro-4,1-benzothiazepin-2-one
@@ -5382,6 +5401,7 @@ CHEBI,33174,tetrafluoromagnesate(2-)
 CHEBI,49739,trifluoromagnesate(1-)
 CHEBI,86345,magnesium dichloride hexahydrate
 CHEBI,86355,magnesium dichloride monohydrate
+CHEBI,59613,4'-hydroxydiclofenac
 CHEBI,46662,mineral
 CHEBI,60004,mixture
 CHEBI,60003,pure substance
@@ -5499,6 +5519,7 @@ CHEBI,84677,MANT-GDP
 CHEBI,85082,Harvoni
 CHEBI,138460,fluorescein-5(6)-carbonyl group
 CHEBI,138465,5(6)-carboxyfluorescein
+CHEBI,6076,Itraconazole
 CHEBI,17799,2-methyl-DL-serine
 CHEBI,131496,BW 245C
 CHEBI,131513,tranylcypromine hydrochloride
@@ -5520,7 +5541,6 @@ CHEBI,3723,citalopram
 CHEBI,3724,citalopram hydrobromide
 CHEBI,37560,benproperine
 CHEBI,38000,uniconazole
-CHEBI,38561,fluvastatin
 CHEBI,38566,rac-(3R,5R,6E)-7-[3-(4-fluorophenyl)-1-(propan-2-yl)-1H-indol-2-yl]-3,5-dihydroxyhept-6-enoic acid
 CHEBI,39331,alpha-cypermethrin
 CHEBI,39333,theta-cypermethrin
@@ -5761,6 +5781,7 @@ CHEBI,86323,conazole antifungal agent
 CHEBI,48901,thiazoles
 CHEBI,87071,conazole antifungal drug
 CHEBI,35790,oxazole
+CHEBI,6931,Midazolam
 CHEBI,47918,diazepine
 CHEBI,35716,C-nitro compound
 CHEBI,36587,organic oxo compound
@@ -5808,9 +5829,11 @@ CHEBI,73474,acetylenic compound
 CHEBI,32073,Pseudoecgonyl-CoA
 CHEBI,34010,(R)-5-Deoxyindenestrol
 CHEBI,51151,dipolar compound
-CHEBI,101278,diltiazem
 CHEBI,82813,ent-diltiazem
+CHEBI,9150,Simvastatin
+CHMO,0002914,absorption of material
 BFO,0000015,process
+CL,0000010,cultured cell
 CL,0000578,experimentally modified cell in vitro
 CL,0001034,cell in vitro
 GO,0005623,cell
@@ -5818,7 +5841,6 @@ CARO,0000003,anatomical structure
 CLO,0000001,cell line cell
 CL,0000001,primary cultured cell
 CARO,0000006,material anatomical entity
-CL,0000010,cultured cell
 CL,0000371,protoplast
 OBI,0001866,secondary cultured cell
 CLO,0000018,mortal cell line cell
@@ -5830,6 +5852,7 @@ CLO,0000026,suspension cell line cell
 CLO,0000027,adherent cell line cell
 CLO,0000175,Coriell cell line cell
 CLO,0000176,RIKEN Cell Bank cell
+CLO,0000031,cell line
 OBI,0001905,secondary cultured cell population
 OBI,0100060,cultured cell population
 OBI,0000047,processed material
@@ -5837,11 +5860,14 @@ BFO,0000040,material entity
 CLO,0009828,immortal cell line
 CLO,0009829,mortal cell line
 CLO,0000177,cloned cell line
+CLO,0002172,Caco-2 cell
 CLO,0000513,immortal human colon-derived cell line cell
 CLO,0000236,immortal colon-derived cell line cell
+CLO,0002421,CHO cell
 CLO,0000243,immortal female gonad-derived cell line cell
 CLO,0002423,CHO clone 13 cell
 CLO,0002424,CHO clone B cell
+CLO,0037237,293-derived cell
 CLO,0037236,immortal human kidney-derived epithelial cell line cell
 CLO,0000587,immortal human kidney-derived cell line cell
 CLO,0000220,immortal kidney-derived cell line cell
@@ -5853,38 +5879,75 @@ CLO,0001233,293 N3S cell
 CLO,0001234,293/CHE-Fc cell
 CLO,0001235,293T/17 cell
 CLO,0037228,GripTite 293 MSR cell
+DIDEO,00000000,potential drug-drug interaction
 BFO,0000002,continuant
 BFO,0000001,entity
 DIDEO,00000015,metabolic potential drug-drug interaction
 DIDEO,00000024,clinically relevant potential drug-drug interaction
+DIDEO,00000001,drug-drug interaction description
 DIDEO,00000042,drug-drug interaction description from drug package insert
+DIDEO,00000002,data item about biological process
+DIDEO,00000003,observational data item about drug-drug interaction
+DIDEO,00000004,physiological observation from clinical study data item
+DIDEO,00000005,data item from extrapolation
+DIDEO,00000006,gastrointestinal functioning
 GO,0008150,biological_process
 BFO,0000003,occurrent
+DIDEO,00000007,drug-drug interaction management option
 IAO,0000104,plan specification
 IAO,0000033,directive information entity
+DIDEO,00000008,reported drug-drug interaction
 DIDEO,00000020,drug-drug interaction
+DIDEO,00000009,pharmacokinetic interaction signal
+DIDEO,00000010,bioavailability
 BFO,0000016,disposition
 BFO,0000017,realizable entity
 BFO,0000020,specifically dependent continuant
+DIDEO,00000011,object drug information
+DIDEO,00000012,object drug role
 BFO,0000023,role
-DIDEO,00000000,potential drug-drug interaction
+DIDEO,00000013,precipitant drug role
+DIDEO,00000014,precipitant drug information
 DIDEO,00000017,metabolism inhibition potential drug-drug interaction
 DIDEO,00000018,metabolism induction potential drug-drug interaction
+DIDEO,00000016,narrow therapeutic index
+DIDEO,00000019,material entity participant in drug-drug interaction
 BFO,0000004,independent continuant
-DIDEO,00000008,reported drug-drug interaction
+DIDEO,00000021,drug co-administration
 OBI,0000011,planned process
+DIDEO,00000022,mechanism of interaction information
+DIDEO,00000023,drug-drug interaction evidence
+DIDEO,00000025,bioavailability measurement datum
 IAO,0000032,scalar measurement datum
+DIDEO,00000026,drug bioavailability assay
 OBI,0000070,assay
-DIDEO,00000001,drug-drug interaction description
+DIDEO,00000030,drug-drug interaction effect
+,owl#Thing,drug-drug interaction effect
+DIDEO,00000031,first pass effect disposition
+DIDEO,00000032,drug first pass metabolism assay
+DIDEO,00000033,first pass metabolism measurement datum
+DIDEO,00000034,absorbability
+DIDEO,00000035,drug absorbability assay
+DIDEO,00000036,absorbability measurement datum
+DIDEO,00000037,drug maximum concentration assay
+DIDEO,00000038,drug maximum concentration measurement datum
+DIDEO,00000039,primary total clearance enzyme role
+DIDEO,00000040,primary metabolic clearance enzyme role
 DIDEO,00000043,drug-drug interaction description from FDA label information
+DIDEO,00000044,drug package insert
 IAO,0000310,document
 DIDEO,00000045,U.S. Food and Drug Administration drug label
-DIDEO,00000044,drug package insert
+DIDEO,00000046,pharmacokinetic area under curve
 STATO,0000209,area under curve
+DIDEO,00000047,drug package AUC information
+DIDEO,00000048,obsolete_evidence information content entity
 ,oboInOwl#ObsoleteClass,Obsolete Class
+,owl#Thing,obsolete_evidence information content entity
+DIDEO,00000049,pharmacokinetic area under curve information
 DIDEO,00000050,information about increase of pharmacokinetic area under the curve
 DIDEO,00000051,information about decrease of pharmacokinetic area under the curve
-DIDEO,00000049,pharmacokinetic area under curve information
+DIDEO,00000052,pharmacokinetic process
+DIDEO,00000053,evidence information content entity
 DIDEO,00000056,evidence information from clinical study
 DIDEO,00000057,evidence information from drug metabolism identification experiment
 DIDEO,00000058,evidence information from drug metabolism inhibition experiment
@@ -5929,16 +5992,22 @@ DIDEO,00000114,evidence information from OATP1B1 inhibition experiment
 DIDEO,00000115,evidence information from OATP1B1 inhibition experiment using overexpressed cell lines
 DIDEO,00000116,evidence information from OATP1B3 inhibition experiment using overexpressed cell lines
 DIDEO,00000117,evidence information from OATP1B3 inhibition experiment
-DIDEO,00000053,evidence information content entity
+DIDEO,00000054,evidence material information
+DIDEO,00000055,evidence data item
+DIDEO,00000082,public adverse event reporting database
 IAO,0000100,data set
+DIDEO,00000087,adverse drug reaction causality evaluation protocol
 OBI,0000272,protocol
+DIDEO,00000089,clearance measurement datum
+DIDEO,00000091,fold
 UO,0000190,ratio
 UO,0000186,dimensionless unit
 UO,0000000,unit
+DIDEO,00000092,pharmacokinetic parameter ratio directionality
 DIDEO,00000097,pharmacokinetic parameter ratio decrease
 DIDEO,00000098,pharmacokinetic parameter ratio increase
-DIDEO,00000095,pharmacokinetic parameter ratio
 DIDEO,00000093,area under the curve ratio
+DIDEO,00000095,pharmacokinetic parameter ratio
 DIDEO,00000094,renal clearance ratio
 DIDEO,00000099,drug maximum concentration ratio
 DIDEO,00000100,half-life ratio
@@ -5948,21 +6017,56 @@ DIDEO,00000118,volume of distribution ratio
 DIDEO,00000119,time to maximum drug concentration ratio
 DIDEO,00000120,efflux ratio
 DIDEO,00000121,net flux ratio
-DIDEO,00000092,pharmacokinetic parameter ratio directionality
+DIDEO,00000122,inhibitory constant
+DIDEO,00000123,probe subtrate role
+DIDEO,00000149,cryopreserved human hepatocyte population
+DIDEO,00000152,freshly isolated human hepatocyte population
+DIDEO,00000153,transgenic animal hepatocyte population
+DIDEO,00000154,sandwich cultured hepatocyte population
+DIDEO,00000155,human intestinal epithelial cell population
+DIDEO,00000157,HepaRG cell
+DIDEO,00000158,Fa2N-4 cell
+DIDEO,00000159,HBG BC2 cell
+DIDEO,00000160,human liver cytosolic fraction
+DIDEO,00000161,human intestine cytosolic fraction
+DIDEO,00000162,human liver S9 fraction
+DIDEO,00000163,individual human intestinal microsomal fraction
+DIDEO,00000164,pooled human liver microsomal fraction
+DIDEO,00000165,individual human liver microsomal fraction
+DIDEO,00000166,pooled human intestinal microsomal fraction
+DIDEO,00000167,human intestine S9 fraction
+DIDEO,00000168,baculovirus-insect recombinant protein production host cell
+DIDEO,00000169,E. coli recombinant protein production host cell
+DIDEO,00000170,percent inhibition
+DIDEO,00000171,midazolam 1'-hydroxylation
 MOP,0000673,hydroxylation
 MOP,0000779,formation of covalent bond
 MOP,0000543,molecular process
+DIDEO,00000172,7-ethoxyresorufin O-deethylation
 MOP,0001385,deethylation
 MOP,0000780,breaking of covalent bond
+DIDEO,00000173,nifedipine dehydrogenation
 MOP,0000590,dehydrogenation
+DIDEO,00000174,bufuralol 1'-hydroxylation
+DIDEO,00000175,omeprazole 5-hydroxylation
+DIDEO,00000176,bupropion hydroxylation
+DIDEO,00000177,paclitaxel 6-alpha hydroxylation
+DIDEO,00000178,phenacetin O-deethylation
+DIDEO,00000179,coumarin 7-hydroxylation
+DIDEO,00000180,testosterone 6-beta-hydroxylation
+DIDEO,00000181,dextromethorphan O-demethylation
 MOP,0001364,demethylation
+DIDEO,00000182,diclofenac 4'-hydroxylation
+DIDEO,00000183,recombinant protein production host role
 OBI,0000444,target of material addition role
-APOLLO_SV,00000032,count
-DIDEO,00000187,Hep G2 transfected cell
-CLO,0002421,CHO cell
+DIDEO,00000184,number of doses in a day
 DIDEO,00000185,Hep G2 cell
-CLO,0002172,Caco-2 cell
-CLO,0037237,293-derived cell
+DIDEO,00000187,Hep G2 transfected cell
+DIDEO,00000186,CHO transfected cell
+DIDEO,00000188,siRNA knockout Caco-2 cell
+DIDEO,00000189,293 transfected cell
+DIDEO,00000190,number of liver donors
+DRON,00000005,drug product
 DRON,00020589,Hydrocortisone Rectal Suppository
 DRON,00020599,Hydromorphone Rectal Suppository
 DRON,00020627,Indomethacin Rectal Suppository
@@ -7944,18 +8048,20 @@ DRON,00731703,Guaifenesin Oral Powder
 DRON,00731705,Penicillin V Oral Granules
 DRON,00731707,potassium bicarbonate Oral Granules
 DRON,00731711,Regular Insulin, Human Pen Injector
+DRON,00000028,active ingredient
 DRON,00000030,role of scattered molecular aggregate
 DRON,00000029,excipient
-DRON,00000028,active ingredient
+DRON,00000031,drug administration
 OGMS,0000090,treatment
+ERO,0000630,nucleic acid reagent
 BFO,0000040,material_entity
 BFO,0000004,independent_continuant
 ERO,0000632,morpholino
 ERO,0001201,DNA reagent
 ERO,0001202,RNA reagent
+ERO,0000923,phenotype characterization
 ERO,0001285,organismal assay
 ERO,0000007,technique
-ERO,0000630,nucleic acid reagent
 ERO,0001205,RNA oligonucleotide
 ERO,0000773,RNA probe
 ERO,0001206,RNA interference oligonucleotide
@@ -7963,13 +8069,13 @@ ERO,0001207,dsRNA oligonucletide
 ERO,0001208,miRNA oligonucleotide
 ERO,0001209,siRNA oligonucleotide
 ERO,0001213,miRNA inhibitor siRNA oligonucleotide
+FMA,62970,Portion of plasma
 FMA,9669,Portion of body substance
 FMA,67165,Material anatomical entity
 FMA,61775,Physical anatomical entity
 FMA,62955,Anatomical entity
 FMA,9670,Portion of blood
 FMA,9672,Intercellular matrix
-FMA,62970,Portion of plasma
 FMA,58819,Aqueous humor of eyeball
 FMA,62964,Ingested food
 FMA,62966,Semen
@@ -8040,6 +8146,7 @@ GO,0039679,viral occlusion body
 GO,0097423,mitochondrion-associated adherens complex
 GO,0009295,nucleoid
 GO,0055044,symplast
+GO,0006810,transport
 GO,0051234,establishment of localization
 GO,0051179,localization
 GO,0006811,ion transport
@@ -8127,6 +8234,7 @@ GO,1902421,hydrogen metabolic process
 GO,0009056,catabolic process
 GO,0042445,hormone metabolic process
 GO,0044236,multicellular organism metabolic process
+GO,0009892,negative regulation of metabolic process
 GO,0019222,regulation of metabolic process
 GO,0050789,regulation of biological process
 GO,0045833,negative regulation of lipid metabolic process
@@ -8144,6 +8252,7 @@ GO,0045912,negative regulation of carbohydrate metabolic process
 GO,0046137,negative regulation of vitamin metabolic process
 GO,0051172,negative regulation of nitrogen compound metabolic process
 GO,0060268,negative regulation of respiratory burst
+GO,0019814,immunoglobulin complex
 GO,0043234,protein complex
 GO,0005575,cellular_component
 GO,0019815,B cell receptor complex
@@ -8158,6 +8267,7 @@ GO,0071759,IgX immunoglobulin complex
 GO,0071760,IgY immunoglobulin complex
 GO,0071761,IgZ immunoglobulin complex
 GO,0071762,heavy chain immunoglobulin complex
+GO,0032409,regulation of transporter activity
 GO,0051049,regulation of transport
 GO,0032879,regulation of localization
 GO,0022898,regulation of transmembrane transporter activity
@@ -8223,7 +8333,6 @@ GO,0061742,chaperone-mediated autophagy translocation complex
 GO,0061838,CENP-T-W-S-X complex
 GO,0070864,sperm individualization complex
 GO,0140007,KICSTOR complex
-GO,0019814,immunoglobulin complex
 GO,0071736,IgG immunoglobulin complex, circulating
 GO,0071739,IgD immunoglobulin complex, circulating
 GO,0071743,IgE immunoglobulin complex, circulating
@@ -8753,6 +8862,7 @@ GO,0043449,cellular alkene metabolic process
 GO,0044107,cellular alcohol metabolic process
 GO,0097354,prenylation
 GO,0072592,oxygen metabolic process
+GO,0048518,positive regulation of biological process
 GO,0051091,positive regulation of sequence-specific DNA binding transcription factor activity
 GO,0045848,positive regulation of nitrogen utilization
 GO,0045883,positive regulation of sulfur utilization
@@ -8803,6 +8913,7 @@ GO,0051050,positive regulation of transport
 GO,2000243,positive regulation of reproductive process
 GO,0060301,positive regulation of cytokine activity
 GO,1905954,positive regulation of lipid localization
+GO,0048519,negative regulation of biological process
 GO,0034260,negative regulation of GTPase activity
 GO,0048523,negative regulation of cellular process
 GO,0045847,negative regulation of nitrogen utilization
@@ -8851,7 +8962,6 @@ GO,1905869,negative regulation of 3'-UTR-mediated mRNA stabilization
 GO,2000198,negative regulation of ribonucleoprotein complex localization
 GO,2000326,negative regulation of ligand-dependent nuclear receptor transcription coactivator activity
 GO,0008588,release of cytoplasmic sequestered NF-kappaB
-GO,0009892,negative regulation of metabolic process
 GO,0043901,negative regulation of multi-organism process
 GO,1903828,negative regulation of cellular protein localization
 GO,2000242,negative regulation of reproductive process
@@ -8871,8 +8981,6 @@ GO,0031341,regulation of cell killing
 GO,0032844,regulation of homeostatic process
 GO,0040008,regulation of growth
 GO,0043900,regulation of multi-organism process
-GO,0048518,positive regulation of biological process
-GO,0048519,negative regulation of biological process
 GO,0048583,regulation of response to stimulus
 GO,0050794,regulation of cellular process
 GO,0051239,regulation of multicellular organismal process
@@ -8898,7 +9006,6 @@ GO,0051046,regulation of secretion
 GO,0090087,regulation of peptide transport
 GO,0032239,regulation of nucleobase-containing compound transport
 GO,0032386,regulation of intracellular transport
-GO,0032409,regulation of transporter activity
 GO,0032890,regulation of organic acid transport
 GO,0034762,regulation of transmembrane transport
 GO,0090371,regulation of glycerol transport
@@ -8972,7 +9079,6 @@ GO,0051235,maintenance of location
 GO,0051674,localization of cell
 GO,0035732,nitric oxide storage
 GO,1902579,multi-organism localization
-GO,0006810,transport
 GO,0051649,establishment of localization in cell
 GO,0051236,establishment of RNA localization
 GO,0051656,establishment of organelle localization
@@ -9061,11 +9167,11 @@ GO,0061919,process utilizing autophagic mechanism
 GO,0050783,cocaine metabolic process
 GO,0042737,drug catabolic process
 GO,0016999,antibiotic metabolic process
+INO,0000102,gene expression
 INO,0000114,overexpression
 INO,0000045,protein translation
 INO,0000056,downexpression
 INO,0000173,gene transcription
-INO,0000102,gene expression
 MOP,0000568,oxidation
 BFO,0000007,process
 BFO,0000015,processual entity
@@ -9074,6 +9180,7 @@ MOP,0001369,dealkylation
 MOP,0001410,dehydrocarbylation
 MOP,0001458,deorganylation
 MOP,0000567,breaking of covalent bond with group
+OAE,0000001,adverse event
 OGMS,0000061,pathological bodily process
 OGMS,0000060,bodily process
 OAE,0000003,causal adverse event
@@ -9121,7 +9228,6 @@ OAE,0002626,injury or procedural complication AE
 OAE,0004330,nutritional disorder AE
 OAE,0000005,adverse drug event
 OAE,0000631,serious adverse event
-OAE,0000001,adverse event
 OAE,0000887,drug clearance decreased AE
 OAE,0000888,drug dependence AE
 OAE,0000891,drug intolerance AE
@@ -9130,12 +9236,14 @@ OAE,0001071,immunosuppressant drug level decreased AE
 OAE,0001093,intentional drug misuse AE
 OAE,0002348,anesthetic complication AE
 OAE,0000095,causal adverse drug event
+OAE,0000055,contraindication
 OAE,0000664,contraindication to vaccination
 OAE,0000087,aspirin-induced adverse event
 OAE,0000179,causal adverse drug event due to drug-drug interaction
 OAE,0000180,causal adverse drug event due to food-drug interaction
 OAE,0000181,causal adverse drug event due to genetic predisposition
 OAE,0000978,bupropion-induced adverse event
+OAE,0000631,severe adverse event
 OAE,0000288,allergic brochospasm AE that requires treatment in emergency
 OAE,0000632,death AE
 OAE,0000633,life-threating AE
@@ -9143,6 +9251,8 @@ OAE,0000634,hospitalization AE
 OAE,0000635,disability or permanent damage AE
 OAE,0000636,congenital anomaly or birth defect AE
 OAE,0000637,adverse event that requires intervention to prevent permanent impairment or damage
+OBI,0000029,centrifuge pellet role
+OBI,0000034,supernatant role
 OBI,0001970,multiplexed sequencing library
 OBI,0000044,physical document
 OBI,0000079,culture medium
@@ -9183,6 +9293,7 @@ OBI,1000024,cell pellet
 OBI,1000036,cell lysate
 OBI,1000042,peptide construct
 OBI,1000207,assay bead
+OBI,0000067,evaluant role
 OBI,0002140,temperature measurement assay
 OBI,0002141,volume measurement assay
 OBI,0002144,extrachromosomal circular DNA sequencing assay
@@ -9254,6 +9365,7 @@ OBI,0600047,sequencing assay
 OBI,1110128,immune epitope assay
 OBI,1110207,assay detecting IFN-gamma production
 OBI,0002132,pulse stable isotope labeling by amino acids in cell culture
+OBI,0000094,material processing
 OBI,0000073,sample preparation for assay
 OBI,0000105,transplantation
 OBI,0000153,cell co-culturing
@@ -9300,20 +9412,24 @@ OBI,0600054,selection by survival
 OBI,0600058,enzymatic amplification
 OBI,0600064,recombinant vector cloning
 OBI,1110020,Immunization in vitro
+OBI,0000192,microtiter plate
 OBI,0000967,container
 OBI,0000715,animal care protocol
+OBI,0000427,enzyme
 OBI,0000419,reverse transcriptase
 OBI,0000732,restriction enzyme
 PR,000023089,DNA ligase
 GO,0042575,DNA polymerase complex
+OBI,0000571,manufacturer role
 OBI,0001069,array manufacturer role
+OBI,0000576,scattered molecular aggregate
 OBI,0302876,dissolved material entity
+OBI,0000659,specimen collection process
 OBI,0000744,material sampling process
 OBI,0002078,specimen set collection process
 OBI,0600005,collecting specimen from organism
 OBI,0600012,environmental material collection process
 OBI,0000146,supernatant collection system harvesting frame
-OBI,0000192,microtiter plate
 OBI,0000836,test tube
 OBI,0001072,cryostat
 OBI,0001111,paraffin oven
@@ -9380,11 +9496,18 @@ OBI,0400112,liquid handler
 OBI,0400142,power supply
 OBI,0400158,digital-to-analog converter
 OBI,0400170,microscope slide
-OBI,0000094,material processing
+OBI,0000969,dose specification
+OBI,0001148,gene knock out
+OBI,0001152,transfection
 OBI,0600060,DNA transfection
+OBI,0001180,half maximal effective concentration (EC50)
 OBI,0001581,equilibrium dissociation constant (KD) approximated by EC50
+OBI,0001191,half maximal inhibitory concentration (IC50)
 OBI,0001571,equilibrium dissociation constant (KD) approximated by IC50
+OBI,0001211,ex vivo design
 OBI,0500000,study design
+OBI,0001285,in vitro design
+OBI,0001479,specimen from organism
 OBI,0100051,specimen
 OBI,0002543,atrial appendage specimen
 OBI,0002550,sigmoid colon specimen
@@ -9445,6 +9568,7 @@ OBI,0002541,spleen specimen
 OBI,0002542,aorta specimen
 OBI,1000049,whole mount tissue
 OBI,0002554,vagina specimen
+OBI,0001933,value specification
 OBI,0002137,RNA Integrity Number value specification
 OBI,0002138,temperature value specification
 OBI,0002139,volume value specification
@@ -9453,6 +9577,7 @@ OBI,0002557,maximum age value specification
 OBI,0001873,number of errors
 OBI,0001930,categorical value specification
 OBI,0001931,scalar value specification
+OBI,0100026,organism
 NCBITaxon,10239,Viruses
 NCBITaxon,2157,Archaea
 OBI,0000925,infectious agent
@@ -9469,13 +9594,15 @@ OBI,0000914,nasopharyngeal aspirate specimen
 OBI,0000917,nasal swab specimen
 OBI,0001468,cell specimen
 OBI,0001472,specimen with known storage state
-OBI,0001479,specimen from organism
 OBI,0001506,specimen with pre- or post-mortem status
 OBI,0100067,bronchial alveolar lavage
 OBI,0001875,cultured immune cell population
 OBI,0100061,primary cultured cell population
 OBI,0100063,cultured clonal cell population
 OBI,1110043,cultured adherent cell populaiton
+OBI,0300311,observation design
+OBI,0302886,centrifugation
+OBI,0302900,group randomization
 OBI,0600015,group assignment
 OBI,0000115,intervention design
 OBI,0001162,validation by reverse transcription PCR design
@@ -9485,13 +9612,11 @@ OBI,0001197,comparative genome hybridization by array design
 OBI,0001199,in vivo design
 OBI,0001202,innate behavior design
 OBI,0001205,cell component comparison design
-OBI,0001211,ex vivo design
 OBI,0001214,normalization testing design
 OBI,0001226,environmental history design
 OBI,0001252,array platform variation design
 OBI,0001259,translational bias design
 OBI,0001278,DNA methylation profiling by array design
-OBI,0001285,in vitro design
 OBI,0001286,RNAi profiling by array design
 OBI,0001293,disease state design
 OBI,0001306,RNA stability design
@@ -9524,7 +9649,6 @@ OBI,0001464,strain comparison design
 OBI,0001957,hardware testing design
 OBI,0001958,systematic review study design
 OBI,0001965,decision analysis study design
-OBI,0300311,observation design
 OBI,0500001,clinical study design
 OBI,0500005,matched pairs design
 OBI,0500006,parallel group design
@@ -9541,7 +9665,6 @@ OBI,0001483,cell collecting
 OBI,0001505,purification
 OBI,0302884,extraction
 OBI,0302885,filtration
-OBI,0302886,centrifugation
 OBI,0302906,DNA Subtraction
 OBI,0600018,material portioning
 OBI,0600022,excision
@@ -9556,30 +9679,31 @@ OBI,0600052,dialysis
 OBI,0600053,electrophoresis
 OBI,1110046,organ harvesting
 OBI,1110095,blood harvesting
-OBI,0302900,group randomization
-OBI,0001148,gene knock out
 OBI,0001149,gene knock in
 OBI,0001150,chromosomal substitution
-OBI,0001152,transfection
 OBI,0001154,induced mutation
 OBI,0001907,immortalizing cell line transformation
 OBI,0600059,DNA transduction
 OGMS,0000080,pathological transformation
 OGMS,0000081,pathological derivation
 OGMS,0000082,pathological invasion
+PDRO,0000123,dose quantification specification
 PDRO,0000124,active ingredient quantification specification
 PDRO,0000125,drug product quantification specification
-PDRO,0000123,dose quantification specification
+PR,000001891,multidrug resistance protein 1
 PR,000000001,protein
 PR,000018263,amino acid chain
 PR,P08183,multidrug resistance protein 1 (human)
 PR,P21447,multidrug resistance protein 1A (mouse)
+PR,000015223,solute carrier organic anion transporter family member 1B1
 PR,000025823,solute carrier organic anion transporter family member
 PR,Q9Y6L6,solute carrier organic anion transporter family member 1B1 (human)
+PR,000015224,solute carrier organic anion transporter family member 1B3
 PR,Q9QZX8,solute carrier organic anion transporter family member 1B2 (rat)
 PR,Q9NPD5,solute carrier organic anion transporter family member 1B3 (human)
 PR,Q9JJL3,solute carrier organic anion transporter family member 1B2 (mouse)
 IAO,0000109,measurement data item
+UBERON,0000465,material anatomical entity
 UBERON,0001062,anatomical entity
 UBERON,0000061,anatomical structure
 UBERON,0000463,organism substance
@@ -9587,7 +9711,7 @@ UBERON,0005423,developing anatomical structure
 UBERON,0034923,disconnected anatomical group
 UBERON,0034925,anatomical collection
 UBERON,0036215,anatomical surface region
-UBERON,0000465,material anatomical entity
+UBERON,0000467,anatomical system
 UBERON,0001007,digestive system
 UBERON,0001008,renal system
 UBERON,0002390,hematopoietic system
@@ -9625,7 +9749,6 @@ UBERON,3000141,endolymphatic system
 UBERON,3011048,genital system
 UBERON,4300126,tectorial restraint system
 UBERON,0036145,glymphatic system
-UBERON,0000467,anatomical system
 UBERON,6001842,insect embryonic/larval digestive system
 UO,0000004,electric current unit
 UO,0000048,acceleration unit
@@ -9670,6 +9793,7 @@ UO,0000269,absorbance unit
 UO,0000322,fold dilution
 UO,0000196,pH
 UO,0000189,count unit
+UO,0000187,percent
 UO,0000163,mass percentage
 UO,0000164,mass volume percentage
 UO,0000165,volume percentage
@@ -9677,4 +9801,3 @@ UO,0000193,purity percentage
 UO,0000194,confluence percentage
 UO,0000259,decibel
 UO,0000191,fraction
-UO,0000187,percent

@@ -17,6 +17,30 @@ def connect_postgres(hostname, username, password, database):
     print("Postgres connection created")    
     return conn
 
+# when querying ancestors / descendants sometimes the concept name is not returned
+def getName(uri, sparql):
+    fullUri = 'http://purl.obolibrary.org/obo/' + uri
+    q = '''
+    PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+    SELECT DISTINCT ?s ?label WHERE {
+        ?s rdfs:label ?label
+        FILTER (?s = <%s>)
+    }
+    ''' % (fullUri)
+    if DEBUG:
+        print q
+    sparql.setQuery(q)
+    sparql.setReturnFormat(JSON)
+    results = sparql.query().convert()
+
+    for r in results['results']['bindings']:
+        if r.has_key('s') and r.has_key('label'):
+            return unicode(r['label']['value'])
+        else:
+            if DEBUG: 
+                print "ATTN: no name found for label: %s\n" % fullUri
+            return None
+
 def getAncestors(vocab, uri, name, sparql):
     vocabUri = 'http://purl.obolibrary.org/obo/merged/' + vocab
     fullUri = 'http://purl.obolibrary.org/obo/' + uri
@@ -71,6 +95,10 @@ def getAncestors(vocab, uri, name, sparql):
                     ancestors[n]['uri'] = ancestors[n]['uri'][:-1]
                 if r.has_key('label'):
                     ancestors[n]['name'] = unicode(r['label']['value'])
+                else:
+                    ancestors[n]['name'] = getName(uri, sparql)
+                    if DEBUG:
+                        print "Ancestor query gave no name for uri %s. Queried for name then returned %s." % (uri, ancestors[n]['name'])
                 n += 1
 
     if DEBUG:
@@ -141,7 +169,7 @@ def findNewConcepts(uri, conceptList):
     curs.execute(q)
     s = '%s,%s,%s' % (v, code, name)
     # concept not already in database. Return True
-    if len(curs.fetchall()) == 0 and s not in conceptList and name is not None:
+    if len(curs.fetchall()) == 0 and s not in conceptList:
         conceptList.append(s)
         return conceptList
     else:
