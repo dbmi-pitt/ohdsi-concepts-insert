@@ -1102,7 +1102,7 @@ CHEBI,51602,resorufin
 CHEBI,52186,oxazine-1
 CHEBI,94057,10H-phenoxazine
 CHEBI,94104,4-(2-chloro-10-phenoxazinyl)-N,N-diethyl-1-butanamine
-CHEBI,2663,amiodarone
+CHEBI,2663,Amiodarone
 CHEBI,76224,aromatic ketone
 CHEBI,17087,ketone
 CHEBI,36586,carbonyl compound
@@ -2475,6 +2475,7 @@ CHEBI,48010,locked nucleic acid
 CHEBI,48015,glycol nucleic acid
 CHEBI,48019,threose nucleic acid
 CHEBI,48021,peptide nucleic acid
+CHEBI,33697,RNA
 CHEBI,2651,alpha-aminoacyl-tRNA
 CHEBI,136721,telomeric repeat-containing RNA
 CHEBI,134528,CRISPR RNA
@@ -3160,6 +3161,7 @@ CHEBI,137456,(S)-3,4-dihydroxy-2-oxobutanoic acid
 CHEBI,137486,(R)-3,4-dihydroxy-2-oxobutanoic acid
 CHEBI,137502,(S)-2,4-dihydroxy-3-oxobutanoic acid
 CHEBI,38559,cytochrome P450
+CHEBI,36080,Protein
 CHEBI,60425,amyloid fibril
 CHEBI,138151,cathepsin G
 CHEBI,138152,serum amyloid A
@@ -3780,6 +3782,7 @@ CHEBI,135278,terizidone
 CHEBI,135333,lodoxamide
 CHEBI,135846,nicofuranose
 CHEBI,136039,phenibut
+CHEBI,37577,chemical compound
 CHEBI,24651,hydroxides
 CHEBI,24866,salt
 CHEBI,25741,oxide
@@ -4102,11 +4105,13 @@ CHEBI,35727,triazoles
 CHEBI,131341,4,5-diphenyl-1,2,3-triazole
 CHEBI,35560,1,2,4-triazole
 CHEBI,35562,1,2,3-triazole
+CHEBI,40303,Lovastatin
+CHEBI,4470,Dextromethorphan
 CHEBI,35618,aromatic ether
 CHEBI,46081,fluconazole
 CHEBI,87101,triazole antifungal drug
 CHEBI,86426,triazole antifungal agent
-CHEBI,47381,diclofenac
+CHEBI,47381,Diclofenac
 CHEBI,23697,dichlorobenzene
 CHEBI,23132,chlorobenzenes
 CHEBI,22712,benzenes
@@ -5514,7 +5519,7 @@ CHEBI,84677,MANT-GDP
 CHEBI,85082,Harvoni
 CHEBI,138460,fluorescein-5(6)-carbonyl group
 CHEBI,138465,5(6)-carboxyfluorescein
-CHEBI,6076,itraconazole
+CHEBI,6076,Itraconazole
 CHEBI,17799,2-methyl-DL-serine
 CHEBI,131496,BW 245C
 CHEBI,131513,tranylcypromine hydrochloride
@@ -5825,6 +5830,7 @@ CHEBI,32073,Pseudoecgonyl-CoA
 CHEBI,34010,(R)-5-Deoxyindenestrol
 CHEBI,51151,dipolar compound
 CHEBI,82813,ent-diltiazem
+CHEBI,9150,Simvastatin
 CHMO,0002914,absorption of material
 BFO,0000015,process
 CL,0000010,cultured cell
@@ -9501,7 +9507,7 @@ OBI,0001571,equilibrium dissociation constant (KD) approximated by IC50
 OBI,0001211,ex vivo design
 OBI,0500000,study design
 OBI,0001285,in vitro design
-OBI,0001479,tissue specimen
+OBI,0001479,specimen from organism
 OBI,0100051,specimen
 OBI,0002543,atrial appendage specimen
 OBI,0002550,sigmoid colon specimen
@@ -9588,7 +9594,6 @@ OBI,0000914,nasopharyngeal aspirate specimen
 OBI,0000917,nasal swab specimen
 OBI,0001468,cell specimen
 OBI,0001472,specimen with known storage state
-OBI,0001479,specimen from organism
 OBI,0001506,specimen with pre- or post-mortem status
 OBI,0100067,bronchial alveolar lavage
 OBI,0001875,cultured immune cell population
