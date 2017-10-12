@@ -5922,7 +5922,6 @@ IAO,0000032,scalar measurement datum
 DIDEO,00000026,drug bioavailability assay
 OBI,0000070,assay
 DIDEO,00000030,drug-drug interaction effect
-,owl#Thing,drug-drug interaction effect
 DIDEO,00000031,first pass effect disposition
 DIDEO,00000032,drug first pass metabolism assay
 DIDEO,00000033,first pass metabolism measurement datum
@@ -5941,8 +5940,6 @@ DIDEO,00000046,pharmacokinetic area under curve
 STATO,0000209,area under curve
 DIDEO,00000047,drug package AUC information
 DIDEO,00000048,obsolete_evidence information content entity
-,oboInOwl#ObsoleteClass,Obsolete Class
-,owl#Thing,obsolete_evidence information content entity
 DIDEO,00000049,pharmacokinetic area under curve information
 DIDEO,00000050,information about increase of pharmacokinetic area under the curve
 DIDEO,00000051,information about decrease of pharmacokinetic area under the curve

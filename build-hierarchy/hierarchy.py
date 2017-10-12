@@ -190,25 +190,30 @@ def findNewVocab(uri, vocabList):
     else:
         return vocabList
 
-def writeRelationships(di, rfile, relationshipsAdded, newVocab, newConcepts, fullVocab, fullConcepts):
-    STRING_1 = u"%s,%s,44818821\n" % (uri, di.get('uri'))
-    STRING_2 = u"%s,%s,44818723\n" % (di.get('uri'), uri)
-    if STRING_1 not in relationshipsAdded:
-        relationshipsAdded.append(STRING_1)
-        rfile.write(STRING_1)
-    if STRING_2 not in relationshipsAdded:
-        relationshipsAdded.append(STRING_2)
-        rfile.write(STRING_2)
-    # ancestors.get(1) should be the same as uri.
-    newVocab = findNewVocab(di.get('uri'), newVocab)
-    newConcepts = findNewConcepts(di, newConcepts)
-    v = u'_'.join(di.get('uri').split('_')[:-1])
-    code = di.get('uri').split('_')[-1]
-    s = '%s,%s,%s' % (v, code, di.get('name'))
-    if v not in fullVocab:
-        fullVocab.append(v)
-    if s not in fullConcepts:
-        fullConcepts.append(s)
+def writeRelationships(i, di, rfile, relationshipsAdded, newVocab, newConcepts, fullVocab, fullConcepts):
+    if i == 1 or di == descendants:
+        s = uri
+    else:
+        s = di.get(i-1).get('uri')
+    if '_' in s and '_' in di.get(i).get('uri'):
+    # if statement should remove corner cases of 'owl#thing' 'oboInOwl#ObsoleteClass' lines
+        STRING_1 = u"%s,%s,44818821\n" % (s, di.get(i).get('uri'))
+        STRING_2 = u"%s,%s,44818723\n" % (di.get(i).get('uri'), s)
+        if STRING_1 not in relationshipsAdded:
+            relationshipsAdded.append(STRING_1)
+            rfile.write(STRING_1)
+        if STRING_2 not in relationshipsAdded:
+            relationshipsAdded.append(STRING_2)
+            rfile.write(STRING_2)
+        newVocab = findNewVocab(di.get(i).get('uri'), newVocab)
+        newConcepts = findNewConcepts(di.get(i), newConcepts)
+        v = u'_'.join(di.get(i).get('uri').split('_')[:-1])
+        code = di.get(i).get('uri').split('_')[-1]
+        s = '%s,%s,%s' % (v, code, di.get(i).get('name'))
+        if v not in fullVocab:
+            fullVocab.append(v)
+        if s not in fullConcepts:
+            fullConcepts.append(s)
 
 ################################################################################
 ## GLOBAL VARIABLES
@@ -270,20 +275,138 @@ with open('URI-list.csv', 'rb') as infile, open('output/URI-hierarchy.csv', 'wb'
         # descendant "is a" ancestor = relationship id 44818821
         if ancestors:
             if ancestors.get(1) is not None:
-                writeRelationships(ancestors.get(1), rfile, relationshipsAdded, newVocab, newConcepts, fullVocab, fullConcepts)
+                writeRelationships(1, ancestors, rfile, relationshipsAdded, newVocab, newConcepts, fullVocab, fullConcepts)
             if ancestors.get(2) is not None:
-                writeRelationships(ancestors.get(2), rfile, relationshipsAdded, newVocab, newConcepts, fullVocab, fullConcepts)
+                writeRelationships(2, ancestors, rfile, relationshipsAdded, newVocab, newConcepts, fullVocab, fullConcepts)
             if ancestors.get(3) is not None:
-                writeRelationships(ancestors.get(3), rfile, relationshipsAdded, newVocab, newConcepts, fullVocab, fullConcepts)
+                writeRelationships(3, ancestors, rfile, relationshipsAdded, newVocab, newConcepts, fullVocab, fullConcepts)
             if ancestors.get(4) is not None:
-                writeRelationships(ancestors.get(4), rfile, relationshipsAdded, newVocab, newConcepts, fullVocab, fullConcepts)
+                writeRelationships(4, ancestors, rfile, relationshipsAdded, newVocab, newConcepts, fullVocab, fullConcepts)
             if ancestors.get(5) is not None:
-                writeRelationships(ancestors.get(5), rfile, relationshipsAdded, newVocab, newConcepts, fullVocab, fullConcepts)
-
+                writeRelationships(5, ancestors, rfile, relationshipsAdded, newVocab, newConcepts, fullVocab, fullConcepts)
+            #     ANCESTOR_STRING_1 = u"%s,%s,44818821\n" % (uri, ancestors.get(1).get('uri'))
+            #     ANCESTOR_STRING_2 = u"%s,%s,44818723\n" % (ancestors.get(1).get('uri'), uri)
+            #     if ANCESTOR_STRING_1 not in relationshipsAdded:
+            #         relationshipsAdded.append(ANCESTOR_STRING_1)
+            #         rfile.write(ANCESTOR_STRING_1)
+            #     if ANCESTOR_STRING_2 not in relationshipsAdded:
+            #         relationshipsAdded.append(ANCESTOR_STRING_2)
+            #         rfile.write(ANCESTOR_STRING_2)
+            #     # ancestors.get(1) should be the same as uri.
+            #     newVocab = findNewVocab(ancestors.get(1).get('uri'), newVocab)
+            #     newConcepts = findNewConcepts(ancestors.get(1), newConcepts)
+            #     v = u'_'.join(ancestors.get(1).get('uri').split('_')[:-1])
+            #     code = ancestors.get(1).get('uri').split('_')[-1]
+            #     s = '%s,%s,%s' % (v, code, name)
+            #     if v not in fullVocab:
+            #         fullVocab.append(v)
+            #     if s not in fullConcepts:
+            #         fullConcepts.append(s)
+            #     # if s not in newConcepts:
+            #     #     newConcepts.append(s)
+            # if ancestors.get(2) is not None: 
+            #     ANCESTOR_STRING_1 = u"%s,%s,44818821\n" % (uri, ancestors.get(2).get('uri'))
+            #     ANCESTOR_STRING_2 = u"%s,%s,44818723\n" % (ancestors.get(2).get('uri'), uri)
+            #     if ANCESTOR_STRING_1 not in relationshipsAdded:
+            #         relationshipsAdded.append(ANCESTOR_STRING_1)
+            #         rfile.write(ANCESTOR_STRING_1)
+            #     if ANCESTOR_STRING_2 not in relationshipsAdded:
+            #         relationshipsAdded.append(ANCESTOR_STRING_2)
+            #         rfile.write(ANCESTOR_STRING_2)
+            #     newVocab = findNewVocab(ancestors.get(2).get('uri'), newVocab)
+            #     newConcepts = findNewConcepts(ancestors.get(2), newConcepts)
+            #     v = u'_'.join(ancestors.get(2).get('uri').split('_')[:-1]) 
+            #     code = ancestors.get(2).get('uri').split('_')[-1]
+            #     s = '%s,%s,%s' % (v, code, ancestors.get(2).get('name'))
+            #     if v not in fullVocab:
+            #         fullVocab.append(v)
+            #     if s not in fullConcepts:
+            #         fullConcepts.append(s)
+            #     # if s not in newConcepts: 
+            #     #     newConcepts.append(s)
+            # if ancestors.get(3) is not None:    
+            #     ANCESTOR_STRING_1 = u"%s,%s,44818821\n" % (ancestors.get(2).get('uri'), ancestors.get(3).get('uri'))
+            #     ANCESTOR_STRING_2 = u"%s,%s,44818723\n" % (ancestors.get(3).get('uri'), ancestors.get(2).get('uri'))
+            #     if ANCESTOR_STRING_1 not in relationshipsAdded:
+            #         relationshipsAdded.append(ANCESTOR_STRING_1)
+            #         rfile.write(ANCESTOR_STRING_1)
+            #     if ANCESTOR_STRING_2 not in relationshipsAdded:
+            #         relationshipsAdded.append(ANCESTOR_STRING_2)
+            #         rfile.write(ANCESTOR_STRING_2)
+            #     newVocab = findNewVocab(ancestors.get(3).get('uri'), newVocab)
+            #     newConcepts = findNewConcepts(ancestors.get(3), newConcepts)
+            #     v = u'_'.join(ancestors.get(3).get('uri').split('_')[:-1]) 
+            #     code = ancestors.get(3).get('uri').split('_')[-1]
+            #     s = '%s,%s,%s' % (v, code, ancestors.get(3).get('name'))
+            #     if v not in fullVocab:
+            #         fullVocab.append(v)
+            #     if s not in fullConcepts:
+            #         fullConcepts.append(s)
+            #     # if s not in newConcepts:
+            #     #     newConcepts.append(s)
+            # if ancestors.get(4) is not None:
+            #     ANCESTOR_STRING_1 = u"%s,%s,44818821\n" % (ancestors.get(3).get('uri'), ancestors.get(4).get('uri'))
+            #     ANCESTOR_STRING_2 = u"%s,%s,44818723\n" % (ancestors.get(4).get('uri'), ancestors.get(3).get('uri'))
+            #     if ANCESTOR_STRING_1 not in relationshipsAdded:
+            #         relationshipsAdded.append(ANCESTOR_STRING_1)
+            #         rfile.write(ANCESTOR_STRING_1)
+            #     if ANCESTOR_STRING_2 not in relationshipsAdded:
+            #         relationshipsAdded.append(ANCESTOR_STRING_2)
+            #         rfile.write(ANCESTOR_STRING_2)
+            #     newVocab = findNewVocab(ancestors.get(4).get('uri'), newVocab)
+            #     newConcepts = findNewConcepts(ancestors.get(4), newConcepts)
+            #     v = u'_'.join(ancestors.get(4).get('uri').split('_')[:-1]) 
+            #     code = ancestors.get(4).get('uri').split('_')[-1]
+            #     s = '%s,%s,%s' % (v, code, ancestors.get(4).get('name'))
+            #     if v not in fullVocab:
+            #         fullVocab.append(v)
+            #     if s not in fullConcepts:
+            #         fullConcepts.append(s)
+            #     # if s not in newConcepts:
+            #     #     newConcepts.append(s)
+            # if ancestors.get(5) is not None:
+            #     ANCESTOR_STRING_1 = u"%s,%s,44818821\n" % (ancestors.get(4).get('uri'), ancestors.get(5).get('uri'))
+            #     ANCESTOR_STRING_2 = u"%s,%s,44818723\n" % (ancestors.get(5).get('uri'), ancestors.get(4).get('uri'))
+            #     if ANCESTOR_STRING_1 not in relationshipsAdded:
+            #         relationshipsAdded.append(ANCESTOR_STRING_1)
+            #         rfile.write(ANCESTOR_STRING_1)
+            #     if ANCESTOR_STRING_2 not in relationshipsAdded:
+            #         relationshipsAdded.append(ANCESTOR_STRING_2)
+            #         rfile.write(ANCESTOR_STRING_2)
+            #     newVocab = findNewVocab(ancestors.get(5).get('uri'), newVocab)
+            #     newConcepts = findNewConcepts(ancestors.get(5), newConcepts)
+            #     v = u'_'.join(ancestors.get(5).get('uri').split('_')[:-1]) 
+            #     code = ancestors.get(5).get('uri').split('_')[-1]
+            #     s = '%s,%s,%s' % (v, code, ancestors.get(5).get('name'))
+            #     if v not in fullVocab:
+            #         fullVocab.append(v)
+            #     if s not in fullConcepts:
+            #         fullConcepts.append(s)
+            #     # if s not in newConcepts:
+            #     #     newConcepts.append(s)
         if descendants:
             # since descendants do not seem to have a clear hierarchy, assume that all are equally subsumed by ancestor. Print all, rather than just one.
             for k,v in descendants.iteritems():
-                writeRelationships(v, rfile, relationshipsAdded, newVocab, newConcepts, fullVocab, fullConcepts)
+                writeRelationships(k, descendants, rfile, relationshipsAdded, newVocab, newConcepts, fullVocab, fullConcepts)
+                # DESCENDANT_STRING_1 = u"%s,%s,44818723\n" % (uri, v.get('uri'))
+                # DESCENDANT_STRING_2 = u"%s,%s,44818821\n" % (v.get('uri'), uri)
+                # if DESCENDANT_STRING_1 not in relationshipsAdded:
+                #     relationshipsAdded.append(DESCENDANT_STRING_1)
+                #     rfile.write(DESCENDANT_STRING_1)
+                # if DESCENDANT_STRING_2 not in relationshipsAdded:
+                #     relationshipsAdded.append(DESCENDANT_STRING_2)
+                #     rfile.write(DESCENDANT_STRING_2)
+                # newVocab = findNewVocab(v.get('uri'), newVocab)
+                # newConcepts = findNewConcepts(v, newConcepts)
+                # vo = u'_'.join(v.get('uri').split('_')[:-1]) 
+                # vcode = v.get('uri').split('_')[-1]
+                # s = '%s,%s,%s' % (vo, vcode, v.get('name'))
+                # if vo not in fullVocab:
+                #     fullVocab.append(vo)
+                # if s not in fullConcepts:
+                #     fullConcepts.append(s)
+                # # if s not in newConcepts:
+                # #     newConcepts.append(s)
 
     vfile.write('\n'.join(newVocab))
     cfile.write('\n'.join(newConcepts))
