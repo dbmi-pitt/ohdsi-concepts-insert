@@ -191,14 +191,19 @@ def findNewVocab(uri, vocabList):
         return vocabList
 
 def writeRelationships(i, di, rfile, relationshipsAdded, newVocab, newConcepts, fullVocab, fullConcepts):
-    if i == 1 or di == descendants:
-        s = uri
+    if i == 1:
+        s1 = uri
+        s2 = di.get(i).get('uri')
+    elif di == descendants:
+        s1 = di.get(i).get('uri')
+        s2 = uri
     else:
-        s = di.get(i-1).get('uri')
-    if '_' in s and '_' in di.get(i).get('uri'):
+        s1 = di.get(i-1).get('uri')
+        s2 = di.get(i).get('uri')
+    if '_' in s1 and '_' in s2:
     # if statement should remove corner cases of 'owl#thing' 'oboInOwl#ObsoleteClass' lines
-        STRING_1 = u"%s,%s,44818821\n" % (s, di.get(i).get('uri'))
-        STRING_2 = u"%s,%s,44818723\n" % (di.get(i).get('uri'), s)
+        STRING_1 = u"%s,%s,44818821\n" % (s1, s2)
+        STRING_2 = u"%s,%s,44818723\n" % (s2, s1)
         if STRING_1 not in relationshipsAdded:
             relationshipsAdded.append(STRING_1)
             rfile.write(STRING_1)
