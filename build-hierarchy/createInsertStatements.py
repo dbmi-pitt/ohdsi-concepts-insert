@@ -132,11 +132,12 @@ def getVocabConceptId(vocab, name):
     
 def createInsertStatements():
     # add new terms (check concept id in cache, assign next available negative id if not exists)
+    usedId = [] 
+    # logging used ID's to address a corner case of concept code BFO_0000040 (concept ID -7993832):
+    # this appears in full_concepts.csv as "material_entity" and "material entity"
+    
     with open("output/new-concepts.csv", "rb") as infile_concepts, open("output/sql/load-concepts.sql", "wb") as outfile_concepts, open("output/sql/load-concepts-ATLAS.sql", "wb") as outfile_concepts_ATLAS, open("output/new-vocab.csv", "rb") as infile_vocab, open("output/sql/load-vocab-concepts.sql", "wb") as outfile_vocab_concepts, open("output/sql/load-vocab.sql", "wb") as outfile_vocab:
         reader = csv.reader(infile_concepts)
-        usedId = [] 
-        # logging used ID's to address a corner case of concept code BFO_0000040 (concept ID -7993832):
-        # this appears in new_concepts.csv as "material_entity" and "material entity"
 
         for row in reader:
             if row[0] != '' and row[1] != '' and row[2] != '':
@@ -163,6 +164,7 @@ def createInsertStatements():
             
                 out_string = ("INSERT INTO public.concept (concept_id, concept_name, domain_id, vocabulary_id, concept_class_id, concept_code, valid_start_date, valid_end_date) VALUES (%d, LEFT(\'%s\',255), \'Metadata\', \'Vocabulary\', \'Vocabulary\', \'OMOP generated\', \'2000-01-01\', \'2099-02-22\');\n" % (concept_id, vocab))
                 outfile_vocab_concepts.write(out_string)
+                usedId.append(concept_id)
                 out_string = ("INSERT INTO public.vocabulary (vocabulary_id, vocabulary_name, vocabulary_reference, vocabulary_version, vocabulary_concept_id) VALUES (\'%s\', LEFT('TODO: http://www.ontobee.org/ontology/%s under \"Description\"', 255), \'TODO: http://www.ontobee.org/ontology/%s under \"Home\"\', \'%s\', %d);\n" % (vocab, vocab, vocab, datetime.date.today(), concept_id))
                 outfile_vocab.write(out_string)
                 # IMPORTANT: go to sql/load_vocab.sql and enter missing data marked with "TODO"
@@ -194,6 +196,11 @@ def createInsertStatements():
             if id1 and id2:
                 out_string = ("INSERT INTO public.concept_relationship (concept_id_1, concept_id_2, relationship_id, valid_start_date, valid_end_date) VALUES (%d, %d, \'%s\', '1970-01-01', '2099-12-31');\n" % (id1, id2, relId))
                 outfile_relationships.write(out_string)
+                # catch id1 and id2 that are not in usedId
+                if id1 not in usedId:
+                    print "ATTN: concept ID %d has not been inserted into concept table" % id1
+                if id2 not in usedId:
+                    print "ATTN: concept ID %d has not been inserted into concept table" % id2
                 if relId == "Subsumes":
                     out_string = ("INSERT INTO public.concept_ancestor(ancestor_concept_id, descendant_concept_id, min_levels_of_separation, max_levels_of_separation) VALUES (%d, %d, 1, 1);\n" % (id1, id2))
                     outfile_ancestors.write(out_string)
