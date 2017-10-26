@@ -202,9 +202,9 @@ def createInsertStatements():
                 outfile_relationships.write(out_string)
                 # catch id1 and id2 that are not in usedId
                 if id1 not in usedId:
-                    print "ATTN: concept ID %d has not been inserted into concept table" % id1
+                    print "ATTN: concept ID %d has no insert into concept table" % id1
                 if id2 not in usedId:
-                    print "ATTN: concept ID %d has not been inserted into concept table" % id2
+                    print "ATTN: concept ID %d has no insert into concept table" % id2
                 if relId == "Subsumes":
                     out_string = ("INSERT INTO public.concept_ancestor(ancestor_concept_id, descendant_concept_id, min_levels_of_separation, max_levels_of_separation) VALUES (%d, %d, 1, 1);\n" % (id1, id2))
                     outfile_ancestors.write(out_string)
