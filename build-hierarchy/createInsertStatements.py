@@ -154,6 +154,10 @@ def createInsertStatements():
                     usedId.append(concept_id)
                     out_string_ATLAS = ("INSERT INTO public.concept (concept_id, concept_name, domain_id, vocabulary_id, concept_class_id, concept_code, valid_start_date, valid_end_date) VALUES (%d, LEFT(\'%s\',255), \'Metadata\', \'SNOMED\', \'Clinical Finding\', \'%s\', \'2000-01-01\', \'2099-02-22\');\n" % (concept_id, name, code))
                     outfile_concepts_ATLAS.write(out_string_ATLAS)
+                elif name == 'None':
+                    print "ATTN: Could not insert concept code %s_%s -- No concept name available" % (vocab, code)
+                elif concept_id in usedId:
+                    print "ATTN: Could not insert concept code %s_%s -- Concept ID already used" % (vocab, code)
 
         # print existsNameIdDict
         reader = csv.reader(infile_vocab)
@@ -183,9 +187,9 @@ def createInsertStatements():
             id2 = getConceptId(vocab2, code2)
         
             if not id1:
-                print("NO CONCEPT ID FOUND FOR CODE: %s" % row[0])
+                print "NO CONCEPT ID FOUND FOR CODE: %s" % row[0]
             if not id2:
-                print("NO CONCEPT ID FOUND FOR CODE: %s" % row[1])
+                print "NO CONCEPT ID FOUND FOR CODE: %s" % row[1]
             
             relId = None
             if row[2] == '44818821':
