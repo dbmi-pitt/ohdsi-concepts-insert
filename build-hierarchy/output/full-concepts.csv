@@ -5845,7 +5845,6 @@ CL,0000371,protoplast
 OBI,0001866,secondary cultured cell
 CLO,0000018,mortal cell line cell
 CLO,0000019,immortal cell line cell
-CLO,0037224,stem cell line cell
 CLO,0000010,ATCC cell line cell
 CLO,0000011,HyperCLDB cell line cell
 CLO,0000026,suspension cell line cell
@@ -5921,7 +5920,7 @@ DIDEO,00000025,bioavailability measurement datum
 IAO,0000032,scalar measurement datum
 DIDEO,00000026,drug bioavailability assay
 OBI,0000070,assay
-DIDEO,00000030,drug-drug interaction effect
+DIDEO,00000030,obsolete_drug-drug interaction effect
 DIDEO,00000031,first pass effect disposition
 DIDEO,00000032,drug first pass metabolism assay
 DIDEO,00000033,first pass metabolism measurement datum
@@ -8815,6 +8814,7 @@ GO,0072379,ER membrane insertion complex
 GO,0072487,MSL complex
 GO,0072669,tRNA-splicing ligase complex
 GO,0120097,glycosylphosphatidylinositol-mannosyltransferase II complex
+GO,0120103,centriolar subdistal appendage
 GO,0106002,mCRD-mediated mRNA stability complex
 GO,0106003,amyloid-beta complex
 GO,0006081,cellular aldehyde metabolic process
@@ -9085,8 +9085,8 @@ GO,0065008,regulation of biological quality
 GO,1902727,negative regulation of growth factor dependent skeletal muscle satellite cell proliferation
 GO,1902728,positive regulation of growth factor dependent skeletal muscle satellite cell proliferation
 GO,0065009,regulation of molecular function
+GO,0006897,endocytosis
 GO,0001504,neurotransmitter uptake
-GO,0098701,endocytic import into cell
 GO,0098739,import across plasma membrane
 GO,0009290,DNA import into cell involved in transformation
 GO,1904334,heme import across plasma membrane
