@@ -103,3 +103,29 @@ If duplicates arise in concept_relationship and concept_ancestor tables, they ca
 NOTE: Can't find date for "vocabulary_version" column on Ontobee, so script uses today's date.
 
 NOTE: concepts added use first 255 characters, as schema does not handle any more.
+
+---------------------
+
+ATLAS HIERARCHY:
+
+The fix that was applied so that the newly added concepts would have functional "Hierarchy" displays in OHDSI ATLAS involved adding some lines into the "Metatrix" object into the following .js files:
+
+/home/websites/dbmi-dt-139.dbmi.pitt.edu/Atlas/js/app.js
+/home/websites/dbmi-dt-139.dbmi.pitt.edu/Atlas/js/components/component-manager.js
+
+            'Vocabulary.Concept Class': {
+                childRelationships: [{
+                    name: 'Has descendant of',
+                    range: [0, 1]
+                }],
+                parentRelationships: [{
+                    name: 'Has ancestor of',
+                    range: [0, 1]
+                }]
+            },
+
+This line was inserted for each "vocabulary_id" and "concept_class" that was newly inserted. For instance, 'CHEBI.Domain' and 'OAE.Domain' would be substituted into 'Vocabulary.Concept Class' above, and so on.
+
+Finally, to view these new hierarchies, CLEAR THE BROWSING DATA and cache for your desired web browser prior to accessing localhost/Atlas
+
+NOTE: It is therefore important to add new instances of the above whenever any new Vocabularies and Concept Classes are inserted into the concept table so that the Hierarchy tab can work for these new objects.
