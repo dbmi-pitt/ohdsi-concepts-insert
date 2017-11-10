@@ -30,6 +30,41 @@ sql script with insert statements
 
 sql statements for create database  with evidence base tables, ohdsi concept tables
 
+
+-----------------------------------------------------------------------------
+Load customized concepts in OMOP vocab 
+-----------------------------------------------------------------------------
+
+PostgreSQL execute sql scripts in the following order
+
+Example:
+$ psql -U username -d database -a -f sqlfilepath
+
+(1) drop fk constraints
+
+docs/omop-vocab-fk-constraints/add-omop-vocab-constraints.sql
+
+(2) load DIDEO concepts
+
+outputs/dideo-concepts-insert.sql
+
+(3) load drug concepts from evidence base 
+
+outputs/drug-concepts-insert.sql
+
+(4) load drug relationships
+
+build-hierarchy/output/sql/load-vocab-concepts.sql
+build-hierarchy/output/sql/load-vocab.sql
+build-hierarchy/output/sql/load-concepts.sql
+
+build-hierarchy/output/sql/load-relationships.sql
+build-hierarchy/output/sql/load-ancestors.sql
+
+(5) recreate fk constraints
+
+docs/omop-vocab-fk-constraints/drop-omop-vocab-constraints.sql
+
 -----------------------------------------------------------------------------
 generate sql script for insert dideo terms into OHDSI vocabulary
 -----------------------------------------------------------------------------
@@ -65,16 +100,6 @@ outputs/drug-concepts-insert.sql
 Results:
 By 07/31/2017
 insert 46 new concepts
-
------------------------------------------------------------------------------
-PostgreSQL execute sql script in command line 
------------------------------------------------------------------------------
-
-psql -U username -d database -a -f sqlfilepath
-
-Example:
-$ psql -U dikb -d dikb -a -f /home/yin2/ohdsi-concepts-insert/outputs/dideo-concepts-insert.sql
-$ psql -U dikb -d dikb -a -f /home/yin2/ohdsi-concepts-insert/outputs/drug-concepts-insert.sql
 
 -----------------------------------------------------------------------------
 Notes
