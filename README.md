@@ -44,15 +44,19 @@ $ psql -U username -d database -a -f sqlfilepath
 
 docs/omop-vocab-fk-constraints/add-omop-vocab-constraints.sql
 
-(2) load DIDEO concepts
+(2) drop negative concepts in omop vocab tables
+
+outputs/clean-new-concepts.sql
+
+(3) load DIDEO concepts
 
 outputs/dideo-concepts-insert.sql
 
-(3) load drug concepts from evidence base 
+(4) load drug concepts from evidence base 
 
 outputs/drug-concepts-insert.sql
 
-(4) load drug relationships
+(5) load drug relationships
 
 build-hierarchy/output/sql/load-vocab-concepts.sql
 build-hierarchy/output/sql/load-vocab.sql
@@ -61,7 +65,7 @@ build-hierarchy/output/sql/load-concepts.sql
 build-hierarchy/output/sql/load-relationships.sql
 build-hierarchy/output/sql/load-ancestors.sql
 
-(5) recreate fk constraints
+(6) recreate fk constraints
 
 docs/omop-vocab-fk-constraints/drop-omop-vocab-constraints.sql
 
