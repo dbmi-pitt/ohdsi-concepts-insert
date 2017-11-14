@@ -1254,6 +1254,7 @@ CHEBI,91587,3,3-dimethyl-3aH-benzo[g]indole-2,4,5-trione
 CHEBI,91698,LSM-1547
 CHEBI,134605,diazepinoindole
 CHEBI,134691,azepinoindole
+CHEBI,138224,(13R)-epi-8,13-epoxylabd-14-ene
 CHEBI,108185,8-methyl-1-[2-(2-methyl-1-piperidinyl)-2-oxoethyl]-4-[1]benzopyrano[4,3-c]pyrazolone
 CHEBI,108310,acetic acid [1-[(4,8-dimethoxy-7-furo[2,3-b]quinolinyl)oxy]-3-hydroxy-3-methylbutan-2-yl] ester
 CHEBI,108373,2-oxo-3-benzo[h][1]benzopyrancarboxylic acid ethyl ester
@@ -2442,6 +2443,7 @@ CHEBI,15568,(R)-2-halocarboxylic acid
 CHEBI,15791,(S)-2-halocarboxylic acid
 CHEBI,33583,noble gas molecular entity
 CHEBI,33674,s-block molecular entity
+CHEBI,138675,gas molecular entity
 CHEBI,26677,silicon molecular entity
 CHEBI,27008,tin molecular entity
 CHEBI,33584,germanium molecular entity
@@ -3074,6 +3076,7 @@ CHEBI,70803,acacic acid
 CHEBI,71457,actinidic acid
 CHEBI,71468,D:C-friedoolean-7,9(11)-dien-3beta-ol-29-oic acid
 CHEBI,84086,6-(2-hydroxyethoxy)-6-oxohexanoic acid
+CHEBI,138582,19-hydroxyprostaglandin I2
 CHEBI,15689,2,3-dihydroxy-3-methylbutanoic acid
 CHEBI,28187,alpha-(hydroxymethyl)serine
 CHEBI,131382,(2Z)-2,3-dihydroxyacrylic acid
@@ -4034,6 +4037,7 @@ CHEBI,85419,7-demethylmitomycin A
 CHEBI,94748,5-bromo-3-pyridinecarboxylic acid [(6aS,9R,10aS)-10a-methoxy-4,7-dimethyl-6a,8,9,10-tetrahydro-6H-indolo[4,3-fg]quinoline-9-yl]methyl ester
 CHEBI,95219,5-bromo-3-pyridinecarboxylic acid (10a-methoxy-4,7-dimethyl-6a,8,9,10-tetrahydro-6H-indolo[4,3-fg]quinoline-9-yl)methyl ester
 CHEBI,138488,alsterpaullone
+CHEBI,138606,indolobenzazepine
 CHEBI,132628,isotalatizidine
 CHEBI,132629,neoline
 CHEBI,132630,benzoylmesaconine
@@ -4677,21 +4681,7 @@ CHEBI,136655,13(R)-HODE(1-)
 CHEBI,134521,S-ubiquitinyl-[E2 ubiquitin-conjugating enzyme]-L-cysteine
 CHEBI,134522,N6-monoubiquitinyl-[protein]-L-lysine
 CHEBI,134546,15-oxo-EDE(1-)
-CHEBI,138098,2-(prostaglandin G2)-LPE zwitterion
-CHEBI,138099,2-(prostaglandin H2)-LPE zwitterion
-CHEBI,138100,2-(prostaglandin G2)-sn-glycero-3-phosphocholine
-CHEBI,138101,2-(prostaglandin H2)-sn-glycero-3-phosphocholine
-CHEBI,138102,4-(ADP-D-ribosyl)-L-aspartyl residue
-CHEBI,138107,(3S)-3-hydroxy-L-asparagine residue
-CHEBI,138145,1,2-dipalmitoleoyl-sn-glycero-3-phosphoethanolamine zwitterion
-CHEBI,138194,1,2-dihexanoyl-sn-glycero-3-phosphocholine zwitterion
-CHEBI,138195,1,2-diheptanoyl-sn-glycero-3-phosphocholine zwitterion
-CHEBI,138197,1-hexanoyl-2-heptanoyl-sn-glycero-3-phosphocholine zwitterion
-CHEBI,138198,1-heptanoyl-2-hexanoyl-sn-glycero-3-phosphocholine zwitterion
-CHEBI,138199,1-palmitoyl-2-heptanoyl-sn-glycero-3-phosphocholine zwitterion
-CHEBI,138200,1-heptanoyl-2-palmitoyl-sn-glycero-3-phosphocholine zwitterion
-CHEBI,138211,1-stearoyl-2-pentanoyl-sn-glycero-3-phosphocholine zwitterion
-CHEBI,138212,1-stearoyl-2-hexanoyl-sn-glycero-3-phosphocholine zwitterion
+CHEBI,138145,1,2-di-[(9Z)-hexadecenoyl]-sn-glycero-3-phosphoethanolamine zwitterion
 CHEBI,138213,1-stearoyl-2-octanoyl-sn-glycero-3-phosphocholine zwitterion
 CHEBI,138214,1-stearoyl-2-nonanoyl-sn-glycero-3-phosphocholine zwitterion
 CHEBI,138215,1-stearoyl-2-dodecanoyl-sn-glycero-3-phosphocholine zwitterion
@@ -4700,10 +4690,6 @@ CHEBI,138217,1-heptanoyl-2-hexanoyl-sn-glycero-3-phosphoethanolamine zwitterion
 CHEBI,138218,1,2-diheptadecanoyl-sn-glycero-3-phosphoethanolamine zwitterion
 CHEBI,138220,N-palmitoyl-1,2-diheptadecanoyl-sn-glycero-3-phosphoethanolamine(1-)
 CHEBI,138222,N-oleoyl-1,2-diheptadecanoyl-sn-glycero-3-phosphoethanolamine(1-)
-CHEBI,138226,beta-geranylfarnesene
-CHEBI,138227,beta-hexaprene
-CHEBI,138228,beta-heptaprene
-CHEBI,138233,9,13-epoxylabda-14-ene
 CHEBI,138251,3-hydroxy-hexane-2,5-dione
 CHEBI,138266,1-hydroxy-2-heptanoyl-sn-glycero-3-phosphocholine zwitterion
 CHEBI,138267,hexanoyl-sn-glycero-3-phosphoethanolamine zwitterion
@@ -5298,7 +5284,6 @@ CHEBI,6537,loracarbef monohydrate
 CHEBI,6547,Lower primary alcohol
 CHEBI,6562,Lumirhodopsin
 CHEBI,69744,lupeol acetate
-CHEBI,75504,pyranoside
 CHEBI,75507,3-dehydropyranoside
 CHEBI,7590,nitrofen
 CHEBI,76535,[beta-GlcNAc-(1->4)-Mur2Ac(oyl-L-Ala-gamma-D-Glu-L-Lys-D-Ala-D-Ala)]n
@@ -5351,8 +5336,6 @@ CHEBI,138481,N(5),N(5),N(5)-trimethyl-N(2)-[(3R)-3-(acyloxy)acyl]-L-ornithine zw
 CHEBI,138482,an N(2)-[(3R)-hydroxy-acyl]-L-ornithine
 CHEBI,138490,5(S)6-epoxy-18S-HEPE
 CHEBI,138498,18(S)-RvE1
-CHEBI,138511,Piericidin A
-CHEBI,138512,tert-butyl N-[4-[(3-cyanophenyl)carbamoylamino]-2,2-dimethyl-3,4-dihydrochromen-6-yl]carbamate
 CHEBI,138526,trans-Ned 19
 CHEBI,138527,IP3/BM
 CHEBI,138538,O-(S-3-oxo-(11Z)-octadecenoylpantetheine-4'-phosphoryl)-L-serine(1-) residue
@@ -5380,21 +5363,124 @@ CHEBI,137177,methylphosphotriester-DNA
 CHEBI,137218,3-methyladenine DNA
 CHEBI,137219,DNA without the base
 CHEBI,136033,seractide
-CHEBI,137366,CHEBI:25540
-CHEBI,138487,paullone
+CHEBI,137366,CHEBI:4042
+CHEBI,138587,(3R)-hydroxypentanoyl-CoA(4-)
+CHEBI,138588,(3R)-hydroxypentanoate(1-)
+CHEBI,138590,17(R)-Hp-DHA
+CHEBI,138596,(4S,7S)-7-hydroxy-4-isopropenyl-7-methyloxepan-2-one
+CHEBI,138597,(4R,7R)-7-hydroxy-4-isopropenyl-7-methyloxepan-2-one
+CHEBI,138598,17(R)-HDHA
+CHEBI,138600,all-trans-4,4'-diapolycopen-4-oate
+CHEBI,138601,4(S)-hydroperoxy-17(R)-HDHA
+CHEBI,138602,7(S)-hydroperoxy-17(R)-hydroxydocosahexaenoic acid
+CHEBI,138603,(4-alkanoyl-5-oxo-2,5-dihydrofuran-3-yl)methyl phosphate(2-)
+CHEBI,138604,[4-(6-methylheptanoyl)-5-oxo-2H-furan-3-yl]methyl phosphate(2-)
+CHEBI,138605,[(3S)-4-(6-methylheptanoyl)-5-oxooxolan-3-yl]methyl phosphate(2-)
+CHEBI,138607,(3S)-hydroxypentanoyl-CoA(4-)
+CHEBI,138608,(3S)-hydroxypentanoate(1-)
+CHEBI,138609,short-chain (3R)-hydroxy fatty acyl-CoA(4-)
+CHEBI,138610,O-[S-(2E)-isoheptenoylpantetheine-4'-phosphoryl]serine(1-) residue
+CHEBI,138611,O-[S-isoheptanoylpantetheine-4'-phosphoryl]serine(1-) residue
+CHEBI,138612,4S(5)-epoxy-17(R)-hydroxydocosahexaenoic acid
+CHEBI,138613,7S(8)-epoxy-17(R)-hydroxydocosahexaenoic acid
+CHEBI,138614,aspirin-triggered RvD2
+CHEBI,138615,aspirin-triggered RvD3
+CHEBI,138616,aspirin-triggered RvD4
+CHEBI,138617,aspirin-triggered RvD5
+CHEBI,138618,aspirin-triggered RvD6
+CHEBI,138621,[(3S)-4-alkanoyl-5-oxooxolan-3-yl]methyl phosphate(2-)
+CHEBI,138624,O-[S-(2E,4E)-hexadienoylpantetheine-4'-phosphoryl]serine(1-) residue
+CHEBI,138625,(+/-)-jasmonic acid anion(-)
+CHEBI,138626,12-hydroxyjasmonoyl-L-isoleucinate(1-)
+CHEBI,138627,a jasmonyl-L-isoleucinate(1-)
+CHEBI,138628,2-hydroxybutanoyl-CoA(4-)
+CHEBI,138630,2-hydroxyhexanoyl-CoA(4-)
+CHEBI,138632,2-hydroxy-3-methylundecanoyl-CoA(4-)
+CHEBI,138633,2-hydroxy-3-methylnonanoyl-CoA(4-)
+CHEBI,138634,3-methylnonanoyl-CoA(4-)
+CHEBI,138636,2-hydroxy-3-methyldodecanoyl-CoA(4-)
+CHEBI,138637,3-methyldodecanoyl-CoA(4-)
+CHEBI,138639,17(S)-hydroperoxy-docosahexaenoic acid
+CHEBI,138640,17(S)-hydroxydocosahexaenoic acid
+CHEBI,138641,4(S)-hydroperoxy-17(S)-hydroxydocosahexaenoic acid
+CHEBI,138642,7(S)-hydroperoxy-17(S)-hydroxydocosahexaenoic acid
+CHEBI,138643,resolvin D6
+CHEBI,138645,resolvin D5
+CHEBI,138646,7S(8)-epoxy-17(S)-hydroxydocosahexaenoic acid
+CHEBI,138647,4S(5)-epoxy-17(S)-hydroxydocosahexaenoic acid
+CHEBI,138648,resolvin D3
+CHEBI,138649,resolvin D4
+CHEBI,138651,O-(S-fatty acylpantetheine-4'-phosphoryl)-L-serine(1-) residue
+CHEBI,138652,O-(S-saturated fatty acylpantetheine-4'-phosphoryl)-L-serine(1-) residue
+CHEBI,138653,10(S),17(S)-dihydroxy-docosa-4Z,7Z,11E,13Z,15E,19Z-hexaenoic acid
+CHEBI,138654,(R)-2-hydroxyhexadecanoyl-CoA(4-)
+CHEBI,138655,10(R),17(S)-dihydroxy-docosa-4Z,7Z,11E,13E,15Z,19Z-hexaenoic acid
+CHEBI,138661,1-stearoyl-2-oleoyl-sn-glycero-3-phospho-(N-palmitoyl)-serine(2-)
+CHEBI,138662,1-stearoyl-2-hydroxy-sn-glycero-3-phospho-(N-palmitoyl)-serine(2-)
+CHEBI,138663,1-O-(1Z-octadecenoyl)-2-(9Z-octadecenoyl)-sn-glycero-3-phospho-(N-hexadecanoyl)-ethanolamine(1-)
+CHEBI,138670,LimKi 3
+CHEBI,138671,omega-6-docosapentaenoic acid
+CHEBI,138672,omega-3-docosapentaenoic acid
+CHEBI,138673,17(S)-hydroxy-omega 6-docosapentaenoic acid
+CHEBI,138674,10(S),17(S)-dihydroxy-omega 6-docosapentaenoic acid
+CHEBI,138676,11-cis-retinyl tetradecanoate
+CHEBI,138677,HP_dp08_0011
+CHEBI,138678,HP_dp06_0006
+CHEBI,138679,HP_dp06_0005
+CHEBI,138680,HP_dp05_0001
+CHEBI,138681,HP_dp04_0003
+CHEBI,138682,HP_dp04_0002
+CHEBI,138683,HP_dp02_0009
+CHEBI,138685,HP_dp20_0001
+CHEBI,138686,HP_dp16_0002
+CHEBI,138687,HP_dp16_0001
+CHEBI,138688,HP_dp14_0002
+CHEBI,138689,HP_dp14_0001
+CHEBI,138690,HP_dp12_0002
+CHEBI,138691,9-cis-retinyl tetradecanoate
+CHEBI,138692,HP_dp12_0001
+CHEBI,138693,HP_dp10_0004
+CHEBI,138694,HP_dp10_0002
+CHEBI,138695,HP_dp10_0001
+CHEBI,138696,HP_dp08_0010
+CHEBI,138697,HP_dp08_0009
+CHEBI,138698,HP_dp08_0008
+CHEBI,138699,HP_dp08_0007
+CHEBI,138700,HP_dp08_0006
+CHEBI,138701,HP_dp08_0005
+CHEBI,138702,HP_dp08_0004
+CHEBI,138703,HP_dp08_0003
+CHEBI,138704,13-cis-retinyl tetradecanoate
+CHEBI,138705,HP_dp08_0002
+CHEBI,138706,HP_dp08_0001
+CHEBI,138707,HP_dp06_0004
+CHEBI,138708,HP_dp06_0003
+CHEBI,138709,HP_dp06_0002
+CHEBI,138710,HP_dp06_0001
+CHEBI,138712,HP_dp02_0007
+CHEBI,138713,HP_dp02_0006
+CHEBI,138714,HP_dp02_0005
+CHEBI,138715,HP_dp02_0004
+CHEBI,138716,HP_dp02_0003
+CHEBI,138717,HP_dp02_0002
+CHEBI,138718,all-trans-retinyl tetradecanoate
+CHEBI,138719,HP_dp02_0001
+CHEBI,138720,HP_dp10_0003
+CHEBI,138722,13-cis-retinyl hexadecanoate
+CHEBI,138723,1-(9Z-octadecenoyl)-2-(4Z,7Z,10Z,13Z,16Z,19Z-docosahexaenoyl)-sn-glycero-3-phosphate(2-)
+CHEBI,138724,all-trans-retinyl heptanoate
+CHEBI,138725,9-cis-retinyl hexadecanoate
+CHEBI,138734,1-O-(9Z-octadecenyl)-monooleoyl-glycerol
+CHEBI,138735,1-O-oleyl-2,3-dioleoylglycerol
+CHEBI,138742,Cholesteryl hemisuccinate
+CHEBI,138839,CAY10397
+CHEBI,138840,MMP9 Inhibitor I
+CHEBI,138842,3alpha-hydroxy bile acid CoA ester(4-)
+CHEBI,138843,3-oxo bile acid CoA ester(4-)
+CHEBI,138889,6-diazo-5-oxo-l-norleucine
 CHEBI,137464,poly[(GA)]
 CHEBI,137561,(3-(2,3-dimethoxyphenyl)-1-[9-methyl-2-phenyl-9H-imidazo[1,2-a]benzimidazol-3-yl]-2-propen-1-one)
 CHEBI,137936,a ring-opened 7-methylguanine in DNA
-CHEBI,137987,19-hydroxy-prostaglandin I2(1-)
-CHEBI,137988,19-hydroxy-thromboxane A2(1-)
-CHEBI,137989,18-hydroxy-thromboxane A2(1-)
-CHEBI,138002,(8S,9S)-DHET(1-)
-CHEBI,138003,(14R,15R)-DHET(1-)
-CHEBI,138004,(11R,12R)-DHET(1-)
-CHEBI,138005,(11S,12S)-DHET(1-)
-CHEBI,138006,(14S,15S)-DHET(1-)
-CHEBI,138008,(8R,9R)-DHET(1-)
-CHEBI,138023,N-acetyl-beta-D-glucosaminyl-R
 CHEBI,131394,magnesium dichloride dihydrate
 CHEBI,6636,magnesium dichloride
 CHEBI,33174,tetrafluoromagnesate(2-)
@@ -5774,6 +5860,7 @@ CHEBI,9451,terconazole
 CHEBI,9467,tetrabenazine
 CHEBI,9604,tioconazole
 CHEBI,9665,triadimefon
+CHEBI,138737,flurtamone
 CHEBI,26455,pyrroles
 CHEBI,35689,tetrazoles
 CHEBI,87067,conazole fungicide
@@ -5786,7 +5873,7 @@ CHEBI,47918,diazepine
 CHEBI,35716,C-nitro compound
 CHEBI,36587,organic oxo compound
 CHEBI,25701,organic oxide
-CHEBI,49483,5'-O-[(R)-HYDROXY(THIOPHOSPHONOOXY)PHOSPHORYL]ADENOSINE
+CHEBI,49483,5'-O-[(R)-hydroxy(thiophosphonooxy)phosphoryl]adenosine
 CHEBI,79972,S-2-(Indol-3-yl)acetyl-CoA
 CHEBI,80359,(9Z,12Z,15Z,18Z,21Z)-Tetracosaheptaenoyl-CoA
 CHEBI,80410,Cyclopropanecarboxyl-CoA
@@ -8089,8 +8176,6 @@ GO,0005215,transporter activity
 GO,0060089,molecular transducer activity
 GO,0098772,molecular function regulator
 GO,0090729,toxin activity
-GO,0000988,transcription factor activity, protein binding
-GO,0001071,nucleic acid binding transcription factor activity
 GO,0003824,catalytic activity
 GO,0004871,signal transducer activity
 GO,0005198,structural molecule activity
@@ -8100,6 +8185,7 @@ GO,0031386,protein tag
 GO,0045182,translation regulator activity
 GO,0045735,nutrient reservoir activity
 GO,0140104,molecular carrier activity
+GO,0140110,transcription regulator activity
 GO,0003674,molecular_function
 GO,0046572,versicolorin B synthase activity
 GO,0046905,phytoene synthase activity
@@ -8114,7 +8200,6 @@ GO,0016874,ligase activity
 GO,0032451,demethylase activity
 GO,0061783,peptidoglycan muralytic activity
 GO,0070283,radical SAM enzyme activity
-GO,0043364,catalysis of free radical formation
 GO,1990055,phenylacetaldehyde synthase activity
 GO,0008987,quinolinate synthetase A activity
 GO,0010280,UDP-L-rhamnose synthase activity
@@ -8264,15 +8349,15 @@ GO,0071760,IgY immunoglobulin complex
 GO,0071761,IgZ immunoglobulin complex
 GO,0071762,heavy chain immunoglobulin complex
 GO,0032409,regulation of transporter activity
-GO,0051049,regulation of transport
-GO,0032879,regulation of localization
+GO,0065009,regulation of molecular function
 GO,0022898,regulation of transmembrane transporter activity
 GO,0032410,negative regulation of transporter activity
 GO,0032411,positive regulation of transporter activity
 GO,1900161,regulation of phospholipid scramblase activity
 GO,0060694,regulation of cholesterol transporter activity
 GO,0051051,negative regulation of transport
-GO,1905598,negative regulation of low-density lipoprotein receptor activity
+GO,0051049,regulation of transport
+GO,0032879,regulation of localization
 GO,1900162,negative regulation of phospholipid scramblase activity
 GO,1901218,negative regulation of holin activity
 GO,1902428,negative regulation of water channel activity
@@ -8310,7 +8395,6 @@ GO,1990904,ribonucleoprotein complex
 GO,0035003,subapical complex
 GO,0098774,curli
 GO,1902695,metallochaperone complex
-GO,1902773,GTPase activator complex
 GO,1903269,ornithine carbamoyltransferase inhibitor complex
 GO,1903502,translation repressor complex
 GO,1903503,ATPase inhibitor complex
@@ -8320,7 +8404,6 @@ GO,1990415,Pex17p-Pex14p docking complex
 GO,1990684,protein-lipid-RNA complex
 GO,1990862,nuclear membrane complex Bqt3-Bqt4
 GO,1990923,PET complex
-GO,0016533,cyclin-dependent protein kinase 5 holoenzyme complex
 GO,0017053,transcriptional repressor complex
 GO,0036125,fatty acid beta-oxidation multienzyme complex
 GO,0046536,dosage compensation complex
@@ -8328,6 +8411,8 @@ GO,0098636,protein complex involved in cell adhesion
 GO,0061742,chaperone-mediated autophagy translocation complex
 GO,0061838,CENP-T-W-S-X complex
 GO,0070864,sperm individualization complex
+GO,0120114,Sm-like protein family complex
+GO,0150005,enzyme activator complex
 GO,0140007,KICSTOR complex
 GO,0071736,IgG immunoglobulin complex, circulating
 GO,0071739,IgD immunoglobulin complex, circulating
@@ -8597,7 +8682,7 @@ GO,0045298,tubulin complex
 GO,0048180,activin complex
 GO,0071159,NF-kappaB complex
 GO,0097373,MCM core complex
-GO,1990316,ATG1/ULK1 kinase complex
+GO,1990316,Atg1/ULK1 kinase complex
 GO,0089701,U2AF
 GO,0089713,Cbf1-Met4-Met28 complex
 GO,0090443,FAR/SIN/STRIPAK complex
@@ -8688,7 +8773,6 @@ GO,1990622,CHOP-ATF3 complex
 GO,1990630,IRE1-RACK1-PP2A complex
 GO,1990660,calprotectin complex
 GO,1990661,S100A8 complex
-GO,1990662,S100A9 complex
 GO,1990665,AnxA2-p11 complex
 GO,1990666,PCSK9-LDLR complex
 GO,1990667,PCSK9-AnxA2 complex
@@ -8860,7 +8944,7 @@ GO,0044107,cellular alcohol metabolic process
 GO,0097354,prenylation
 GO,0072592,oxygen metabolic process
 GO,0048518,positive regulation of biological process
-GO,0051091,positive regulation of sequence-specific DNA binding transcription factor activity
+GO,0051091,positive regulation of DNA binding transcription factor activity
 GO,0045848,positive regulation of nitrogen utilization
 GO,0045883,positive regulation of sulfur utilization
 GO,0045949,positive regulation of phosphorus utilization
@@ -8874,7 +8958,6 @@ GO,1904874,positive regulation of telomerase RNA localization to Cajal body
 GO,1904912,positive regulation of establishment of RNA localization to telomere
 GO,1904915,positive regulation of establishment of macromolecular complex localization to telomere
 GO,1905099,positive regulation of guanyl-nucleotide exchange factor activity
-GO,1905257,positive regulation of RNA binding transcription factor activity
 GO,1905339,positive regulation of cohesin unloading
 GO,1905514,positive regulation of short-term synaptic potentiation
 GO,1905605,positive regulation of maintenance of permeability of blood-brain barrier
@@ -8927,7 +9010,6 @@ GO,1904873,negative regulation of telomerase RNA localization to Cajal body
 GO,1904911,negative regulation of establishment of RNA localization to telomere
 GO,1904914,negative regulation of establishment of macromolecular complex localization to telomere
 GO,1905098,negative regulation of guanyl-nucleotide exchange factor activity
-GO,1905256,negative regulation of RNA binding transcription factor activity
 GO,1905338,negative regulation of cohesin unloading
 GO,1905385,negative regulation of protein localization to presynapse
 GO,1905513,negative regulation of short-term synaptic potentiation
@@ -8939,7 +9021,7 @@ GO,0032845,negative regulation of homeostatic process
 GO,0048585,negative regulation of response to stimulus
 GO,0051093,negative regulation of developmental process
 GO,0051241,negative regulation of multicellular organismal process
-GO,0043433,negative regulation of sequence-specific DNA binding transcription factor activity
+GO,0043433,negative regulation of DNA binding transcription factor activity
 GO,0045926,negative regulation of growth
 GO,0048521,negative regulation of behavior
 GO,1900047,negative regulation of hemostasis
@@ -9084,7 +9166,6 @@ GO,0045184,establishment of protein localization
 GO,0065008,regulation of biological quality
 GO,1902727,negative regulation of growth factor dependent skeletal muscle satellite cell proliferation
 GO,1902728,positive regulation of growth factor dependent skeletal muscle satellite cell proliferation
-GO,0065009,regulation of molecular function
 GO,0006897,endocytosis
 GO,0001504,neurotransmitter uptake
 GO,0098739,import across plasma membrane
@@ -9107,6 +9188,7 @@ GO,0098720,succinate import across plasma membrane
 GO,0098721,uracil import across plasma membrane
 GO,0099587,inorganic ion import across plasma membrane
 GO,1903075,pyridoxine import across plasma membrane
+GO,0140125,thiamine import across plasma membrane
 GO,0006276,plasmid maintenance
 GO,0006457,protein folding
 GO,0006903,vesicle targeting
@@ -9798,3 +9880,18 @@ UO,0000193,purity percentage
 UO,0000194,confluence percentage
 UO,0000259,decibel
 UO,0000191,fraction
+CHEBI,70255,(-)-epicatechin-3-O-gallate
+CHEBI,23053,catechin
+CHEBI,72010,hydroxyflavan
+CHEBI,38672,flavans
+CHEBI,38443,1-benzopyran
+CHEBI,17224,4-methylumbelliferone
+CHEBI,37912,hydroxycoumarin
+CHEBI,23403,coumarins
+CHEBI,38445,chromenone
+CHEBI,23232,chromenes
+CHEBI,1904,4-methylumbelliferone beta-D-glucuronide
+CHEBI,15341,beta-D-glucosiduronic acid
+CHEBI,24302,glucosiduronic acid
+CHEBI,35314,glycosiduronic acid
+CHEBI,24400,glycoside

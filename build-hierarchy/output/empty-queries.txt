@@ -215,3 +215,7 @@ no DESCENDANT query results for label: active ingredient quantification specific
 no DESCENDANT query results for label: drug product quantification specification | PDRO_0000125
 no DESCENDANT query results for label: area under curve | STATO_0000209
 no ANCESTOR query results for label: unit | UO_0000000
+no DESCENDANT query results for label: (−)-epicatechin-3-O-gallate | CHEBI_70255
+no DESCENDANT query results for label: 4-methylumbelliferone | CHEBI_17224
+no DESCENDANT query results for label: 4-methylumbelliferone β-D-glucuronide | CHEBI_1904
+no DESCENDANT query results for label: resorufin | CHEBI_51602
