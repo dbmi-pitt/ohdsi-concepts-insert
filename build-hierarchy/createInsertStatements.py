@@ -18,7 +18,7 @@ def connect_postgres(hostname, username, password, database):
 def getExistingConcept(vocab, code):
     q = '''
     SELECT concept_id
-    FROM public.concept
+    FROM concept
     WHERE vocabulary_id = '%s'
     AND concept_code = '%s'
     ''' % (vocab, code)
@@ -136,7 +136,7 @@ def createInsertStatements():
     # logging used ID's to address a corner case of concept code BFO_0000040 (concept ID -7993832):
     # this appears in full_concepts.csv as "material_entity" and "material entity"
     
-    with open("output/new-concepts.csv", "rb") as infile_concepts, open("output/sql/load-concepts.sql", "wb") as outfile_concepts, open("output/sql/load-concepts-ATLAS.sql", "wb") as outfile_concepts_ATLAS, open("output/new-vocab.csv", "rb") as infile_vocab, open("output/sql/load-vocab-concepts.sql", "wb") as outfile_vocab_concepts, open("output/sql/load-vocab.sql", "wb") as outfile_vocab:
+    with open("output/new-concepts.csv", "rb") as infile_concepts, open("output/sql/load-concepts.sql", "wb") as outfile_concepts, open("output/new-vocab.csv", "rb") as infile_vocab, open("output/sql/load-vocab-concepts.sql", "wb") as outfile_vocab_concepts, open("output/sql/load-vocab.sql", "wb") as outfile_vocab:
         reader = csv.reader(infile_concepts)
 
         for row in reader:
@@ -149,15 +149,13 @@ def createInsertStatements():
 
                 concept_id = getConceptId(vocab, code)     
                 if name != 'None' and concept_id not in usedId:           
-                    out_string = ("INSERT INTO public.concept (concept_id, concept_name, domain_id, vocabulary_id, concept_class_id, concept_code, valid_start_date, valid_end_date) VALUES (%d, LEFT(\'%s\',255), \'Metadata\', \'%s\', \'Domain\', \'%s\', \'2000-01-01\', \'2099-02-22\');\n" % (concept_id, name, vocab, code))
+                    out_string = ("INSERT INTO concept (concept_id, concept_name, domain_id, vocabulary_id, concept_class_id, concept_code, valid_start_date, valid_end_date) VALUES (%d, LEFT(\'%s\',255), \'Metadata\', \'%s\', \'Domain\', \'%s\', \'2000-01-01\', \'2099-02-22\');\n" % (concept_id, name, vocab, code))
                     outfile_concepts.write(out_string)
                     usedId.append(concept_id)
-                    out_string_ATLAS = ("INSERT INTO public.concept (concept_id, concept_name, domain_id, vocabulary_id, concept_class_id, concept_code, valid_start_date, valid_end_date) VALUES (%d, LEFT(\'%s\',255), \'Metadata\', \'SNOMED\', \'Clinical Finding\', \'%s\', \'2000-01-01\', \'2099-02-22\');\n" % (concept_id, name, code))
-                    outfile_concepts_ATLAS.write(out_string_ATLAS)
                 elif name == 'None':
                     print "ATTN: Could not insert concept code %s_%s -- No concept name available" % (vocab, code)
                 elif concept_id in usedId:
-                    print "ATTN: Could not insert concept code %s_%s -- Concept ID already used" % (vocab, code)
+                    print "ATTN: Could not insert concept code %s_%s -- Concept ID already used. Check if this code is duplicate in .csv file." % (vocab, code)
 
         # print existsNameIdDict
         reader = csv.reader(infile_vocab)
@@ -166,10 +164,10 @@ def createInsertStatements():
                 vocab = row[0]
                 concept_id = getVocabConceptId(vocab, vocab)
             
-                out_string = ("INSERT INTO public.concept (concept_id, concept_name, domain_id, vocabulary_id, concept_class_id, concept_code, valid_start_date, valid_end_date) VALUES (%d, LEFT(\'%s\',255), \'Metadata\', \'Vocabulary\', \'Vocabulary\', \'OMOP generated\', \'2000-01-01\', \'2099-02-22\');\n" % (concept_id, vocab))
+                out_string = ("INSERT INTO concept (concept_id, concept_name, domain_id, vocabulary_id, concept_class_id, concept_code, valid_start_date, valid_end_date) VALUES (%d, LEFT(\'%s\',255), \'Metadata\', \'Vocabulary\', \'Vocabulary\', \'OMOP generated\', \'2000-01-01\', \'2099-02-22\');\n" % (concept_id, vocab))
                 outfile_vocab_concepts.write(out_string)
                 usedId.append(concept_id)
-                out_string = ("INSERT INTO public.vocabulary (vocabulary_id, vocabulary_name, vocabulary_reference, vocabulary_version, vocabulary_concept_id) VALUES (\'%s\', LEFT('TODO: http://www.ontobee.org/ontology/%s under \"Description\"', 255), \'TODO: http://www.ontobee.org/ontology/%s under \"Home\"\', \'%s\', %d);\n" % (vocab, vocab, vocab, datetime.date.today(), concept_id))
+                out_string = ("INSERT INTO vocabulary (vocabulary_id, vocabulary_name, vocabulary_reference, vocabulary_version, vocabulary_concept_id) VALUES (\'%s\', LEFT('TODO: http://www.ontobee.org/ontology/%s under \"Description\"', 255), \'TODO: http://www.ontobee.org/ontology/%s under \"Home\"\', \'%s\', %d);\n" % (vocab, vocab, vocab, datetime.date.today(), concept_id))
                 outfile_vocab.write(out_string)
                 # IMPORTANT: go to sql/load_vocab.sql and enter missing data marked with "TODO"
 
@@ -198,7 +196,7 @@ def createInsertStatements():
                 relId = "Subsumes"
             
             if id1 and id2:
-                out_string = ("INSERT INTO public.concept_relationship (concept_id_1, concept_id_2, relationship_id, valid_start_date, valid_end_date) VALUES (%d, %d, \'%s\', '1970-01-01', '2099-12-31');\n" % (id1, id2, relId))
+                out_string = ("INSERT INTO concept_relationship (concept_id_1, concept_id_2, relationship_id, valid_start_date, valid_end_date) VALUES (%d, %d, \'%s\', '1970-01-01', '2099-12-31');\n" % (id1, id2, relId))
                 outfile_relationships.write(out_string)
                 # catch id1 and id2 that are not in usedId
                 if id1 not in usedId:
@@ -206,7 +204,7 @@ def createInsertStatements():
                 if id2 not in usedId:
                     print "ATTN: concept ID %d has no insert into concept table" % id2
                 if relId == "Subsumes":
-                    out_string = ("INSERT INTO public.concept_ancestor(ancestor_concept_id, descendant_concept_id, min_levels_of_separation, max_levels_of_separation) VALUES (%d, %d, 1, 1);\n" % (id1, id2))
+                    out_string = ("INSERT INTO concept_ancestor(ancestor_concept_id, descendant_concept_id, min_levels_of_separation, max_levels_of_separation) VALUES (%d, %d, 1, 1);\n" % (id1, id2))
                     outfile_ancestors.write(out_string)
 
 def main():
