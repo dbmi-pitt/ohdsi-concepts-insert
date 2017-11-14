@@ -5,19 +5,19 @@ sys.setdefaultencoding('utf8')
 
 
 def delete_concept_by_id():
-    return "DELETE FROM public.concept WHERE concept_id BETWEEN -9999999 AND -7000000;"
+    return "DELETE FROM concept WHERE concept_id BETWEEN -9999999 AND -7000000;"
 
 
 def delete_concept_class_by_id():
-    return "DELETE FROM public.concept_class WHERE concept_class_concept_id BETWEEN -9999999 AND -7000000;"
+    return "DELETE FROM concept_class WHERE concept_class_concept_id BETWEEN -9999999 AND -7000000;"
 
 
 def delete_vocabulary_by_concept_id():
-    return "DELETE FROM public.vocabulary WHERE vocabulary_concept_id BETWEEN -9999999 AND -7000000;"
+    return "DELETE FROM vocabulary WHERE vocabulary_concept_id BETWEEN -9999999 AND -7000000;"
 
 
 def delete_domain_by_concept_id():
-    return "DELETE FROM public.domain WHERE domain_concept_id BETWEEN -9999999 AND -7000000;"
+    return "DELETE FROM domain WHERE domain_concept_id BETWEEN -9999999 AND -7000000;"
 
 
 def print_delete_script():

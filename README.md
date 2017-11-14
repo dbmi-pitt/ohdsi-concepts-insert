@@ -40,6 +40,9 @@ PostgreSQL execute sql scripts in the following order
 Example:
 $ psql -U username -d database -a -f sqlfilepath
 
+Set schema for sql statements:
+SET SCHEMA 'schema name';
+
 (1) drop fk constraints
 
 docs/omop-vocab-fk-constraints/add-omop-vocab-constraints.sql
