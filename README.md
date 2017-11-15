@@ -45,7 +45,7 @@ SET SCHEMA 'schema name';
 
 (1) drop fk constraints
 
-docs/omop-vocab-fk-constraints/add-omop-vocab-constraints.sql
+docs/omop-vocab-fk-constraints/drop-omop-vocab-constraints.sql
 
 (2) drop negative concepts in omop vocab tables
 
@@ -70,7 +70,7 @@ build-hierarchy/output/sql/load-ancestors.sql
 
 (6) recreate fk constraints
 
-docs/omop-vocab-fk-constraints/drop-omop-vocab-constraints.sql
+docs/omop-vocab-fk-constraints/add-omop-vocab-constraints.sql
 
 -----------------------------------------------------------------------------
 generate sql script for insert dideo terms into OHDSI vocabulary
