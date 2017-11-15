@@ -210,13 +210,12 @@ def createInsertStatements():
 def main():
 
     initConceptMapFromDB()
-    
+
+    createInsertStatements()
+
     # write cached concepts and vocabulary
     fop.writeConceptCache(C_CACHE, cacheCptDict) # write cached concepts
     fop.writeConceptCache(V_CACHE, cacheVocabDict) # write cached vocabulary
 
-    createInsertStatements()
-
 if __name__ == '__main__':
     main()
-
