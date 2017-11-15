@@ -1,7 +1,16 @@
-Generate URI-list.csv from LAERTES-cdm:
+Generate URI-list.csv from LAERTES-CDM:
 	SELECT concept_name, vocabulary_id, CONCAT(vocabulary_id, '_', concept_code) AS uri
 	FROM concept 
 	WHERE concept_id < 0 AND concept_code != 'OMOP generated' ORDER BY uri;
+
+PRE-CONDITION FOR RUNNING hierarchy.py:
+Run the following .sql scripts on LAERTES-CDM schema in Postgres in the following order prior to running hierarchy.py:
+
+    1.) outputs/clean-new-concepts.sql
+    2.) outputs/dideo-concepts-insert.sql
+    3.) outputs/drug-concepts-insert.sql
+
+The script will still run without these inserted, the above .sql inserts should be previously run on LAERTES-CDM so that they can be checked for to avoid writing inserts for duplicate concept ID's.
 
 hierarchy.py:
 	Loop through each URI in URI-list.csv and query SPARQL through the SPARQLWrapper library:
