@@ -167,7 +167,7 @@ def findNewConcepts(uri, conceptList):
     AND concept_code = '%s'
     ''' % (v, code)
     curs.execute(q)
-    s = '%s,%s,%s' % (v, code, name)
+    s = '%s,%s,\"%s\"' % (v, code, name)
     # concept not already in database. Return True
     if len(curs.fetchall()) == 0 and s not in conceptList:
         conceptList.append(s)
@@ -214,7 +214,7 @@ def writeRelationships(i, di, rfile, relationshipsAdded, newVocab, newConcepts, 
         newConcepts = findNewConcepts(di.get(i), newConcepts)
         v = u'_'.join(di.get(i).get('uri').split('_')[:-1])
         code = di.get(i).get('uri').split('_')[-1]
-        s = '%s,%s,%s' % (v, code, di.get(i).get('name'))
+        s = '%s,%s,\"%s\"' % (v, code, di.get(i).get('name'))
         if v not in fullVocab:
             fullVocab.append(v)
         if s not in fullConcepts:

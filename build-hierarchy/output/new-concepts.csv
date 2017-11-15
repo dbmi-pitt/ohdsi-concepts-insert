@@ -1,138 +1,138 @@
-CHEBI,138224,(13R)-epi-8,13-epoxylabd-14-ene
-CHEBI,138675,gas molecular entity
-CHEBI,138582,19-hydroxyprostaglandin I2
-CHEBI,138606,indolobenzazepine
-CHEBI,138587,(3R)-hydroxypentanoyl-CoA(4-)
-CHEBI,138588,(3R)-hydroxypentanoate(1-)
-CHEBI,138590,17(R)-Hp-DHA
-CHEBI,138596,(4S,7S)-7-hydroxy-4-isopropenyl-7-methyloxepan-2-one
-CHEBI,138597,(4R,7R)-7-hydroxy-4-isopropenyl-7-methyloxepan-2-one
-CHEBI,138598,17(R)-HDHA
-CHEBI,138600,all-trans-4,4'-diapolycopen-4-oate
-CHEBI,138601,4(S)-hydroperoxy-17(R)-HDHA
-CHEBI,138602,7(S)-hydroperoxy-17(R)-hydroxydocosahexaenoic acid
-CHEBI,138603,(4-alkanoyl-5-oxo-2,5-dihydrofuran-3-yl)methyl phosphate(2-)
-CHEBI,138604,[4-(6-methylheptanoyl)-5-oxo-2H-furan-3-yl]methyl phosphate(2-)
-CHEBI,138605,[(3S)-4-(6-methylheptanoyl)-5-oxooxolan-3-yl]methyl phosphate(2-)
-CHEBI,138607,(3S)-hydroxypentanoyl-CoA(4-)
-CHEBI,138608,(3S)-hydroxypentanoate(1-)
-CHEBI,138609,short-chain (3R)-hydroxy fatty acyl-CoA(4-)
-CHEBI,138610,O-[S-(2E)-isoheptenoylpantetheine-4'-phosphoryl]serine(1-) residue
-CHEBI,138611,O-[S-isoheptanoylpantetheine-4'-phosphoryl]serine(1-) residue
-CHEBI,138612,4S(5)-epoxy-17(R)-hydroxydocosahexaenoic acid
-CHEBI,138613,7S(8)-epoxy-17(R)-hydroxydocosahexaenoic acid
-CHEBI,138614,aspirin-triggered RvD2
-CHEBI,138615,aspirin-triggered RvD3
-CHEBI,138616,aspirin-triggered RvD4
-CHEBI,138617,aspirin-triggered RvD5
-CHEBI,138618,aspirin-triggered RvD6
-CHEBI,138621,[(3S)-4-alkanoyl-5-oxooxolan-3-yl]methyl phosphate(2-)
-CHEBI,138624,O-[S-(2E,4E)-hexadienoylpantetheine-4'-phosphoryl]serine(1-) residue
-CHEBI,138625,(+/-)-jasmonic acid anion(-)
-CHEBI,138626,12-hydroxyjasmonoyl-L-isoleucinate(1-)
-CHEBI,138627,a jasmonyl-L-isoleucinate(1-)
-CHEBI,138628,2-hydroxybutanoyl-CoA(4-)
-CHEBI,138630,2-hydroxyhexanoyl-CoA(4-)
-CHEBI,138632,2-hydroxy-3-methylundecanoyl-CoA(4-)
-CHEBI,138633,2-hydroxy-3-methylnonanoyl-CoA(4-)
-CHEBI,138634,3-methylnonanoyl-CoA(4-)
-CHEBI,138636,2-hydroxy-3-methyldodecanoyl-CoA(4-)
-CHEBI,138637,3-methyldodecanoyl-CoA(4-)
-CHEBI,138639,17(S)-hydroperoxy-docosahexaenoic acid
-CHEBI,138640,17(S)-hydroxydocosahexaenoic acid
-CHEBI,138641,4(S)-hydroperoxy-17(S)-hydroxydocosahexaenoic acid
-CHEBI,138642,7(S)-hydroperoxy-17(S)-hydroxydocosahexaenoic acid
-CHEBI,138643,resolvin D6
-CHEBI,138645,resolvin D5
-CHEBI,138646,7S(8)-epoxy-17(S)-hydroxydocosahexaenoic acid
-CHEBI,138647,4S(5)-epoxy-17(S)-hydroxydocosahexaenoic acid
-CHEBI,138648,resolvin D3
-CHEBI,138649,resolvin D4
-CHEBI,138651,O-(S-fatty acylpantetheine-4'-phosphoryl)-L-serine(1-) residue
-CHEBI,138652,O-(S-saturated fatty acylpantetheine-4'-phosphoryl)-L-serine(1-) residue
-CHEBI,138653,10(S),17(S)-dihydroxy-docosa-4Z,7Z,11E,13Z,15E,19Z-hexaenoic acid
-CHEBI,138654,(R)-2-hydroxyhexadecanoyl-CoA(4-)
-CHEBI,138655,10(R),17(S)-dihydroxy-docosa-4Z,7Z,11E,13E,15Z,19Z-hexaenoic acid
-CHEBI,138661,1-stearoyl-2-oleoyl-sn-glycero-3-phospho-(N-palmitoyl)-serine(2-)
-CHEBI,138662,1-stearoyl-2-hydroxy-sn-glycero-3-phospho-(N-palmitoyl)-serine(2-)
-CHEBI,138663,1-O-(1Z-octadecenoyl)-2-(9Z-octadecenoyl)-sn-glycero-3-phospho-(N-hexadecanoyl)-ethanolamine(1-)
-CHEBI,138670,LimKi 3
-CHEBI,138671,omega-6-docosapentaenoic acid
-CHEBI,138672,omega-3-docosapentaenoic acid
-CHEBI,138673,17(S)-hydroxy-omega 6-docosapentaenoic acid
-CHEBI,138674,10(S),17(S)-dihydroxy-omega 6-docosapentaenoic acid
-CHEBI,138676,11-cis-retinyl tetradecanoate
-CHEBI,138677,HP_dp08_0011
-CHEBI,138678,HP_dp06_0006
-CHEBI,138679,HP_dp06_0005
-CHEBI,138680,HP_dp05_0001
-CHEBI,138681,HP_dp04_0003
-CHEBI,138682,HP_dp04_0002
-CHEBI,138683,HP_dp02_0009
-CHEBI,138685,HP_dp20_0001
-CHEBI,138686,HP_dp16_0002
-CHEBI,138687,HP_dp16_0001
-CHEBI,138688,HP_dp14_0002
-CHEBI,138689,HP_dp14_0001
-CHEBI,138690,HP_dp12_0002
-CHEBI,138691,9-cis-retinyl tetradecanoate
-CHEBI,138692,HP_dp12_0001
-CHEBI,138693,HP_dp10_0004
-CHEBI,138694,HP_dp10_0002
-CHEBI,138695,HP_dp10_0001
-CHEBI,138696,HP_dp08_0010
-CHEBI,138697,HP_dp08_0009
-CHEBI,138698,HP_dp08_0008
-CHEBI,138699,HP_dp08_0007
-CHEBI,138700,HP_dp08_0006
-CHEBI,138701,HP_dp08_0005
-CHEBI,138702,HP_dp08_0004
-CHEBI,138703,HP_dp08_0003
-CHEBI,138704,13-cis-retinyl tetradecanoate
-CHEBI,138705,HP_dp08_0002
-CHEBI,138706,HP_dp08_0001
-CHEBI,138707,HP_dp06_0004
-CHEBI,138708,HP_dp06_0003
-CHEBI,138709,HP_dp06_0002
-CHEBI,138710,HP_dp06_0001
-CHEBI,138712,HP_dp02_0007
-CHEBI,138713,HP_dp02_0006
-CHEBI,138714,HP_dp02_0005
-CHEBI,138715,HP_dp02_0004
-CHEBI,138716,HP_dp02_0003
-CHEBI,138717,HP_dp02_0002
-CHEBI,138718,all-trans-retinyl tetradecanoate
-CHEBI,138719,HP_dp02_0001
-CHEBI,138720,HP_dp10_0003
-CHEBI,138722,13-cis-retinyl hexadecanoate
-CHEBI,138723,1-(9Z-octadecenoyl)-2-(4Z,7Z,10Z,13Z,16Z,19Z-docosahexaenoyl)-sn-glycero-3-phosphate(2-)
-CHEBI,138724,all-trans-retinyl heptanoate
-CHEBI,138725,9-cis-retinyl hexadecanoate
-CHEBI,138734,1-O-(9Z-octadecenyl)-monooleoyl-glycerol
-CHEBI,138735,1-O-oleyl-2,3-dioleoylglycerol
-CHEBI,138742,Cholesteryl hemisuccinate
-CHEBI,138839,CAY10397
-CHEBI,138840,MMP9 Inhibitor I
-CHEBI,138842,3alpha-hydroxy bile acid CoA ester(4-)
-CHEBI,138843,3-oxo bile acid CoA ester(4-)
-CHEBI,138889,6-diazo-5-oxo-l-norleucine
-CHEBI,138737,flurtamone
-GO,0140110,transcription regulator activity
-GO,0120114,Sm-like protein family complex
-GO,0150005,enzyme activator complex
-GO,0140125,thiamine import across plasma membrane
-CHEBI,70255,(-)-epicatechin-3-O-gallate
-CHEBI,23053,catechin
-CHEBI,72010,hydroxyflavan
-CHEBI,38672,flavans
-CHEBI,38443,1-benzopyran
-CHEBI,17224,4-methylumbelliferone
-CHEBI,37912,hydroxycoumarin
-CHEBI,23403,coumarins
-CHEBI,38445,chromenone
-CHEBI,23232,chromenes
-CHEBI,1904,4-methylumbelliferone beta-D-glucuronide
-CHEBI,15341,beta-D-glucosiduronic acid
-CHEBI,24302,glucosiduronic acid
-CHEBI,35314,glycosiduronic acid
-CHEBI,24400,glycoside
+CHEBI,138224,"(13R)-epi-8,13-epoxylabd-14-ene"
+CHEBI,138675,"gas molecular entity"
+CHEBI,138582,"19-hydroxyprostaglandin I2"
+CHEBI,138606,"indolobenzazepine"
+CHEBI,138587,"(3R)-hydroxypentanoyl-CoA(4-)"
+CHEBI,138588,"(3R)-hydroxypentanoate(1-)"
+CHEBI,138590,"17(R)-Hp-DHA"
+CHEBI,138596,"(4S,7S)-7-hydroxy-4-isopropenyl-7-methyloxepan-2-one"
+CHEBI,138597,"(4R,7R)-7-hydroxy-4-isopropenyl-7-methyloxepan-2-one"
+CHEBI,138598,"17(R)-HDHA"
+CHEBI,138600,"all-trans-4,4'-diapolycopen-4-oate"
+CHEBI,138601,"4(S)-hydroperoxy-17(R)-HDHA"
+CHEBI,138602,"7(S)-hydroperoxy-17(R)-hydroxydocosahexaenoic acid"
+CHEBI,138603,"(4-alkanoyl-5-oxo-2,5-dihydrofuran-3-yl)methyl phosphate(2-)"
+CHEBI,138604,"[4-(6-methylheptanoyl)-5-oxo-2H-furan-3-yl]methyl phosphate(2-)"
+CHEBI,138605,"[(3S)-4-(6-methylheptanoyl)-5-oxooxolan-3-yl]methyl phosphate(2-)"
+CHEBI,138607,"(3S)-hydroxypentanoyl-CoA(4-)"
+CHEBI,138608,"(3S)-hydroxypentanoate(1-)"
+CHEBI,138609,"short-chain (3R)-hydroxy fatty acyl-CoA(4-)"
+CHEBI,138610,"O-[S-(2E)-isoheptenoylpantetheine-4'-phosphoryl]serine(1-) residue"
+CHEBI,138611,"O-[S-isoheptanoylpantetheine-4'-phosphoryl]serine(1-) residue"
+CHEBI,138612,"4S(5)-epoxy-17(R)-hydroxydocosahexaenoic acid"
+CHEBI,138613,"7S(8)-epoxy-17(R)-hydroxydocosahexaenoic acid"
+CHEBI,138614,"aspirin-triggered RvD2"
+CHEBI,138615,"aspirin-triggered RvD3"
+CHEBI,138616,"aspirin-triggered RvD4"
+CHEBI,138617,"aspirin-triggered RvD5"
+CHEBI,138618,"aspirin-triggered RvD6"
+CHEBI,138621,"[(3S)-4-alkanoyl-5-oxooxolan-3-yl]methyl phosphate(2-)"
+CHEBI,138624,"O-[S-(2E,4E)-hexadienoylpantetheine-4'-phosphoryl]serine(1-) residue"
+CHEBI,138625,"(+/-)-jasmonic acid anion(-)"
+CHEBI,138626,"12-hydroxyjasmonoyl-L-isoleucinate(1-)"
+CHEBI,138627,"a jasmonyl-L-isoleucinate(1-)"
+CHEBI,138628,"2-hydroxybutanoyl-CoA(4-)"
+CHEBI,138630,"2-hydroxyhexanoyl-CoA(4-)"
+CHEBI,138632,"2-hydroxy-3-methylundecanoyl-CoA(4-)"
+CHEBI,138633,"2-hydroxy-3-methylnonanoyl-CoA(4-)"
+CHEBI,138634,"3-methylnonanoyl-CoA(4-)"
+CHEBI,138636,"2-hydroxy-3-methyldodecanoyl-CoA(4-)"
+CHEBI,138637,"3-methyldodecanoyl-CoA(4-)"
+CHEBI,138639,"17(S)-hydroperoxy-docosahexaenoic acid"
+CHEBI,138640,"17(S)-hydroxydocosahexaenoic acid"
+CHEBI,138641,"4(S)-hydroperoxy-17(S)-hydroxydocosahexaenoic acid"
+CHEBI,138642,"7(S)-hydroperoxy-17(S)-hydroxydocosahexaenoic acid"
+CHEBI,138643,"resolvin D6"
+CHEBI,138645,"resolvin D5"
+CHEBI,138646,"7S(8)-epoxy-17(S)-hydroxydocosahexaenoic acid"
+CHEBI,138647,"4S(5)-epoxy-17(S)-hydroxydocosahexaenoic acid"
+CHEBI,138648,"resolvin D3"
+CHEBI,138649,"resolvin D4"
+CHEBI,138651,"O-(S-fatty acylpantetheine-4'-phosphoryl)-L-serine(1-) residue"
+CHEBI,138652,"O-(S-saturated fatty acylpantetheine-4'-phosphoryl)-L-serine(1-) residue"
+CHEBI,138653,"10(S),17(S)-dihydroxy-docosa-4Z,7Z,11E,13Z,15E,19Z-hexaenoic acid"
+CHEBI,138654,"(R)-2-hydroxyhexadecanoyl-CoA(4-)"
+CHEBI,138655,"10(R),17(S)-dihydroxy-docosa-4Z,7Z,11E,13E,15Z,19Z-hexaenoic acid"
+CHEBI,138661,"1-stearoyl-2-oleoyl-sn-glycero-3-phospho-(N-palmitoyl)-serine(2-)"
+CHEBI,138662,"1-stearoyl-2-hydroxy-sn-glycero-3-phospho-(N-palmitoyl)-serine(2-)"
+CHEBI,138663,"1-O-(1Z-octadecenoyl)-2-(9Z-octadecenoyl)-sn-glycero-3-phospho-(N-hexadecanoyl)-ethanolamine(1-)"
+CHEBI,138670,"LimKi 3"
+CHEBI,138671,"omega-6-docosapentaenoic acid"
+CHEBI,138672,"omega-3-docosapentaenoic acid"
+CHEBI,138673,"17(S)-hydroxy-omega 6-docosapentaenoic acid"
+CHEBI,138674,"10(S),17(S)-dihydroxy-omega 6-docosapentaenoic acid"
+CHEBI,138676,"11-cis-retinyl tetradecanoate"
+CHEBI,138677,"HP_dp08_0011"
+CHEBI,138678,"HP_dp06_0006"
+CHEBI,138679,"HP_dp06_0005"
+CHEBI,138680,"HP_dp05_0001"
+CHEBI,138681,"HP_dp04_0003"
+CHEBI,138682,"HP_dp04_0002"
+CHEBI,138683,"HP_dp02_0009"
+CHEBI,138685,"HP_dp20_0001"
+CHEBI,138686,"HP_dp16_0002"
+CHEBI,138687,"HP_dp16_0001"
+CHEBI,138688,"HP_dp14_0002"
+CHEBI,138689,"HP_dp14_0001"
+CHEBI,138690,"HP_dp12_0002"
+CHEBI,138691,"9-cis-retinyl tetradecanoate"
+CHEBI,138692,"HP_dp12_0001"
+CHEBI,138693,"HP_dp10_0004"
+CHEBI,138694,"HP_dp10_0002"
+CHEBI,138695,"HP_dp10_0001"
+CHEBI,138696,"HP_dp08_0010"
+CHEBI,138697,"HP_dp08_0009"
+CHEBI,138698,"HP_dp08_0008"
+CHEBI,138699,"HP_dp08_0007"
+CHEBI,138700,"HP_dp08_0006"
+CHEBI,138701,"HP_dp08_0005"
+CHEBI,138702,"HP_dp08_0004"
+CHEBI,138703,"HP_dp08_0003"
+CHEBI,138704,"13-cis-retinyl tetradecanoate"
+CHEBI,138705,"HP_dp08_0002"
+CHEBI,138706,"HP_dp08_0001"
+CHEBI,138707,"HP_dp06_0004"
+CHEBI,138708,"HP_dp06_0003"
+CHEBI,138709,"HP_dp06_0002"
+CHEBI,138710,"HP_dp06_0001"
+CHEBI,138712,"HP_dp02_0007"
+CHEBI,138713,"HP_dp02_0006"
+CHEBI,138714,"HP_dp02_0005"
+CHEBI,138715,"HP_dp02_0004"
+CHEBI,138716,"HP_dp02_0003"
+CHEBI,138717,"HP_dp02_0002"
+CHEBI,138718,"all-trans-retinyl tetradecanoate"
+CHEBI,138719,"HP_dp02_0001"
+CHEBI,138720,"HP_dp10_0003"
+CHEBI,138722,"13-cis-retinyl hexadecanoate"
+CHEBI,138723,"1-(9Z-octadecenoyl)-2-(4Z,7Z,10Z,13Z,16Z,19Z-docosahexaenoyl)-sn-glycero-3-phosphate(2-)"
+CHEBI,138724,"all-trans-retinyl heptanoate"
+CHEBI,138725,"9-cis-retinyl hexadecanoate"
+CHEBI,138734,"1-O-(9Z-octadecenyl)-monooleoyl-glycerol"
+CHEBI,138735,"1-O-oleyl-2,3-dioleoylglycerol"
+CHEBI,138742,"Cholesteryl hemisuccinate"
+CHEBI,138839,"CAY10397"
+CHEBI,138840,"MMP9 Inhibitor I"
+CHEBI,138842,"3alpha-hydroxy bile acid CoA ester(4-)"
+CHEBI,138843,"3-oxo bile acid CoA ester(4-)"
+CHEBI,138889,"6-diazo-5-oxo-l-norleucine"
+CHEBI,138737,"flurtamone"
+GO,0140110,"transcription regulator activity"
+GO,0120114,"Sm-like protein family complex"
+GO,0150005,"enzyme activator complex"
+GO,0140125,"thiamine import across plasma membrane"
+CHEBI,70255,"(-)-epicatechin-3-O-gallate"
+CHEBI,23053,"catechin"
+CHEBI,72010,"hydroxyflavan"
+CHEBI,38672,"flavans"
+CHEBI,38443,"1-benzopyran"
+CHEBI,17224,"4-methylumbelliferone"
+CHEBI,37912,"hydroxycoumarin"
+CHEBI,23403,"coumarins"
+CHEBI,38445,"chromenone"
+CHEBI,23232,"chromenes"
+CHEBI,1904,"4-methylumbelliferone beta-D-glucuronide"
+CHEBI,15341,"beta-D-glucosiduronic acid"
+CHEBI,24302,"glucosiduronic acid"
+CHEBI,35314,"glycosiduronic acid"
+CHEBI,24400,"glycoside"
