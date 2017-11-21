@@ -35,10 +35,10 @@ def write_concept_insert_sql(temp_concept_id, f, cacheCptDict, cacheCptIds):
             vocabulary_id = "NDFRT"
             concept_code = row["NDFRT"].strip()
 
-        # use mesh code when don't have rxnorm and ndf-rt, MESH: 44819136
-        elif row["MESH"].strip() != "":
-            vocabulary_id = "MESH"
-            concept_code = row["MESH"].strip()
+        # use mesh code when don't have rxnorm and ndf-rt, MeSH: 44819136
+        elif row["MeSH"].strip() != "":
+            vocabulary_id = "MeSH"
+            concept_code = row["MeSH"].strip()
 
         cpt_key = vocabulary_id + '|' + concept_code
         
