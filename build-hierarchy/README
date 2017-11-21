@@ -86,14 +86,16 @@ Depends on output from hierarchy.py - uses files URI-ancestors.csv, URI-descenda
 Output .sql scripts from createInsertStatements.py in "sql" folder.
 ATTN: For finding information about new vocabularies, go to ontobee.org. Information needed for the "insert" statements into the "vocabulary" table can be found for each vocabulary. 
 ***The "load-vocab.sql" script is therefore manually completed from this info used with the vocabs in "output/new-vocab.csv"***
-<<<<<<< HEAD
+
 NOTE: Can't find date for "vocabulary_version" column on Ontobee, so script uses today's date.
 
 ORDER OF RUNNING SQL SCRIPTS:
-load-vocab-concepts.sql
-load-vocab.sql
-load-concepts.sql
-The remaining four scripts (load-ancestors-relationships.sql, load-ancestors-hierarchy.sql, load-descendants-relationships.sql, load-descendants-hierarchy.sql) can be run in any order.
+output/sql/load-vocab-concepts.sql
+output/sql/load-vocab.sql
+output/sql/load-concepts.sql
+
+output/sql/load-relationship.sql
+output/sql/load-ancestors.sql
 
 If duplicates arise in concept_relationship and concept_ancestor tables, they can be found with:
 
