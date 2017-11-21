@@ -4,7 +4,7 @@ ALTER TABLE "domain" ADD CONSTRAINT "xpk_domain" PRIMARY KEY (domain_id);
 ALTER TABLE "concept_relationship" ADD CONSTRAINT "xpk_concept_relationship" PRIMARY KEY (concept_id_1, concept_id_2, relationship_id);
 ALTER TABLE "concept_class" ADD CONSTRAINT "xpk_concept_class" PRIMARY KEY (concept_class_id);
 ALTER TABLE "concept_ancestor" ADD CONSTRAINT "xpk_concept_ancestor" PRIMARY KEY (ancestor_concept_id, descendant_concept_id);
-ALTER TABLE "concept" ADD CONSTRAINT "xpk_concept" PRIMARY KEY (concept_id);
+-- ALTER TABLE "concept" ADD CONSTRAINT "xpk_concept" PRIMARY KEY (concept_id); -- skipped in drop sql
 ALTER TABLE "vocabulary" ADD CONSTRAINT "fpk_vocabulary_concept" FOREIGN KEY (vocabulary_concept_id) REFERENCES concept(concept_id);
 ALTER TABLE "relationship" ADD CONSTRAINT "fpk_relationship_reverse" FOREIGN KEY (reverse_relationship_id) REFERENCES relationship(relationship_id);
 ALTER TABLE "relationship" ADD CONSTRAINT "fpk_relationship_concept" FOREIGN KEY (relationship_concept_id) REFERENCES concept(concept_id);

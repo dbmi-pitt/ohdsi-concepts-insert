@@ -11,7 +11,7 @@ ALTER TABLE "domain" DROP CONSTRAINT "fpk_domain_concept";
 ALTER TABLE "relationship" DROP CONSTRAINT "fpk_relationship_concept";
 ALTER TABLE "relationship" DROP CONSTRAINT "fpk_relationship_reverse";
 ALTER TABLE "vocabulary" DROP CONSTRAINT "fpk_vocabulary_concept";
-ALTER TABLE "concept" DROP CONSTRAINT "xpk_concept";
+-- ALTER TABLE "concept" DROP CONSTRAINT "xpk_concept"; -- keep constraint for existing concepts
 ALTER TABLE "concept_ancestor" DROP CONSTRAINT "xpk_concept_ancestor";
 ALTER TABLE "concept_class" DROP CONSTRAINT "xpk_concept_class";
 ALTER TABLE "concept_relationship" DROP CONSTRAINT "xpk_concept_relationship";
